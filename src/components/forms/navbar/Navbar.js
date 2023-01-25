@@ -6,7 +6,6 @@ import order from "../../../assets/navicons/nav2.png";
 import msg from "../../../assets/navicons/nav3.png";
 import cart from "../../../assets/navicons/nav4.png";
 import menu from "../../../assets/navicons/menu.png";
-import flag from "../../../assets/navicons/navflag.png";
 const Container = styled.div`
   width: 100%;
   background-color: #fff;
@@ -29,7 +28,7 @@ const NavItem = styled.div`
   align-items: center;
   gap: 0.2rem;
 `;
-const Icon = styled.img`
+export const Icon = styled.img`
   height: 17px;
   width: 17px;
 `;
@@ -48,9 +47,10 @@ const SearchWrap = styled.div`
   overflow: hidden;
   border: 2px solid #0d6efd;
 `;
-const Text = styled.p`
+export const Text = styled.p`
   color: #8b96a5;
   font-weight: 550;
+  cursor: pointer;
 `;
 const Search = styled.input`
   padding: 0 0.5rem;
@@ -58,12 +58,13 @@ const Search = styled.input`
   border: 1px solid #0d6efd;
   width: 350px;
 `;
-const Categories = styled.select`
+export const Categories = styled.select`
   border: 1px solid #0d6efd;
   padding: 0.1rem 0.5rem;
   outline: none;
+  cursor: pointer;
 `;
-const SearchBtn = styled.button`
+export const SearchBtn = styled.button`
   background-color: #0d6efd;
   color: #fff;
   border: none;
