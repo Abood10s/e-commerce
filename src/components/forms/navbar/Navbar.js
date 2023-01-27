@@ -6,6 +6,8 @@ import order from "../../../assets/navicons/nav2.png";
 import msg from "../../../assets/navicons/nav3.png";
 import cart from "../../../assets/navicons/nav4.png";
 import menu from "../../../assets/navicons/menu.png";
+import { Link } from "react-router-dom";
+
 const Container = styled.div`
   width: 100%;
   background-color: #fff;
@@ -31,6 +33,7 @@ const NavItem = styled.div`
 export const Icon = styled.img`
   height: 17px;
   width: 17px;
+  cursor: pointer;
 `;
 const Controls = styled.div`
   display: flex;
@@ -109,10 +112,12 @@ const Navbar = () => {
             <Icon src={order} />
             <Text>Orders</Text>
           </NavItem>
-          <NavItem>
-            <Icon src={cart} />
-            <Text>My cart</Text>
-          </NavItem>
+          <Link style={{ textDecoration: "none" }} to="/cart">
+            <NavItem>
+              <Icon src={cart} />
+              <Text>My cart</Text>
+            </NavItem>
+          </Link>
         </Controls>
       </Wrapper>
       <Container>

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FormBtn from "./Buttons/FormBtn";
 import FormFooter from "./FormFooter";
+import { Link } from "react-router-dom";
 
 import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
@@ -24,6 +25,7 @@ export const Container = styled.div`
     width: 50%;
   }
 `;
+
 export const Wrapper = styled.div`
   width: 90%;
 `;
@@ -135,7 +137,11 @@ const LoginForm = () => {
           <ContFormBtn icon={facebook} title="Facebook" bg="#4267B2" />
           <CheckBox>
             Don’t have an account?
-            <ForgotP>Register now</ForgotP>
+            <ForgotP>
+              <Link style={{ color: "#0D6EFD" }} to="/signup">
+                Register now
+              </Link>
+            </ForgotP>
           </CheckBox>
           <FormFooter />
         </Wrapper>

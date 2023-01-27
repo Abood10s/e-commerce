@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 import FormBtn from "./Buttons/FormBtn";
 import FormFooter from "./FormFooter";
@@ -753,7 +755,10 @@ const SignupForm = () => {
           </CheckBox>
           <Line />
           <Text>
-            Already have an account? <UnderLine>Log in</UnderLine>
+            Already have an account?{" "}
+            <Link style={{ color: "#0D6EFD", fontWeight: "bold" }} to="/login">
+              Log in
+            </Link>
           </Text>
           <FormFooter />
         </WrapperS>

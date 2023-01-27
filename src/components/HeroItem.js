@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import herog12 from "../assets/herogrid1/herog12.png";
 
 const Flex = styled.div`
   display: flex;

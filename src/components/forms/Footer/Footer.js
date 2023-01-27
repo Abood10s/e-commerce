@@ -36,6 +36,7 @@ const FWrapper = styled(Wrapper)`
   margin: auto;
   width: 80%;
   gap: 1em;
+  padding-bottom: 1em;
 `;
 const Copyright = styled.div`
   width: 80%;
