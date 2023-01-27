@@ -11,10 +11,10 @@ function App() {
       <Routes>
         <Route path="login" element={<LoginForm />} />
         <Route path="signup" element={<SignupForm />} />
-        <Route path="home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="cart" element={<Cart />} />
-
-        <Route path="/" element={<TechStore />} />
+        <Route path="store" element={<TechStore />} />
+        <Route path="*" element={<h2>404 Error sorry...</h2>} />
       </Routes>
     </div>
   );

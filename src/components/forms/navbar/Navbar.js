@@ -105,12 +105,14 @@ const Navbar = () => {
   return (
     <Container>
       <Wrapper>
-        <Logo src={TheLogo} alt="brand logo" />
+        <Link to="/">
+          <Logo src={TheLogo} alt="brand logo" />
+        </Link>
 
         <SearchWrap>
           <Search placeholder="Search" />
           <Categories>
-            <option value="All Categoreis">All Categoreis</option>
+            <option value="All">All Categories</option>
           </Categories>
           <SearchBtn>Search</SearchBtn>
         </SearchWrap>

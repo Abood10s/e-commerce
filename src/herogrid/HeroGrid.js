@@ -21,24 +21,24 @@ const Container = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 `;
-const HeroImg = styled.div`
+export const HeroImg = styled.div`
   background: url(${({ himg }) => himg});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  padding: 1em 1em;
+  padding: 1em;
   width: fit-content;
   flex: 0.8;
   @media (max-width: 768px) {
     width: 100%;
   }
 `;
-const P = styled.p`
+export const P = styled.p`
   color: #000;
   font-weight: bold;
   margin: 1rem 0;
 `;
-const Button = styled.button`
+export const Button = styled.button`
   background-color: #fff;
   color: #000;
   padding: 0.5rem 2em;
