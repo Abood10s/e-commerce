@@ -20,6 +20,10 @@ const Wrap2 = styled.form`
   background-color: #fff;
   padding: 2rem;
   border-radius: 5px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 const Textarea = styled.textarea`
   border-radius: 5px;

@@ -11,11 +11,21 @@ const Wrap = styled.div`
   border: 1px solid #e3e8ee;
   border-radius: 4px;
   gap: 1em;
+  @media (max-width: 1050px) {
+    flex-direction: column;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 0.5em;
+  }
 `;
 const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
 `;
 const LBody = styled.div`
   padding: 0.7rem;
@@ -44,8 +54,22 @@ const Flex2 = styled.div`
   display: flex;
   gap: 1em;
 `;
-
-const Image = styled.img``;
+const IImage = styled.img``;
+const Image = styled.img`
+  @media (max-width: 1050px) {
+    height: 200px;
+    width: 200px;
+    margin: auto;
+  }
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
+`;
+const P = styled.p`
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
 const Green = styled(Blue)`
   color: #00b517;
   font-size: 16px;
@@ -64,12 +88,12 @@ const TechCard = ({ item }) => {
         </Flex1>
         <Price>{price}</Price>
         <Flex2>
-          <Image src={rating} />
+          <IImage src={rating} />
           <p>{orders} orders</p>
           <Green>{shipping}</Green>
         </Flex2>
         <Flex>
-          <p>{body}</p>
+          <P>{body}</P>
         </Flex>
         <Blue>View details</Blue>
       </Body>

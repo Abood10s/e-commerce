@@ -37,6 +37,15 @@ const FWrapper = styled(Wrapper)`
   width: 80%;
   gap: 1em;
   padding-bottom: 1em;
+
+  @media (max-width: 1050px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3em;
+  }
 `;
 const Copyright = styled.div`
   width: 80%;

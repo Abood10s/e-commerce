@@ -16,13 +16,14 @@ const Cont = styled.div`
   padding: 0.5rem;
   border: 1px solid #e0e0e0;
 `;
+const Img = styled.img``;
 const HeroItem = ({ img, title, price }) => {
   return (
     <Cont>
       <h5>{title}</h5>
       <Flex>
         <P>From USD {price}</P>
-        <img src={img} alt="" />
+        <Img src={img} alt="hero img" />
       </Flex>
     </Cont>
   );

@@ -21,6 +21,9 @@ const StoreWrapper = styled.div`
   grid-template-columns: 230px 3fr;
   gap: 1em;
   width: 100%;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const Accordions = styled.div``;
 const ProductsWrapper = styled.div``;

@@ -49,11 +49,15 @@ const SearchWrap = styled.div`
   border-radius: 8px;
   overflow: hidden;
   border: 2px solid #0d6efd;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const Text = styled.p`
   color: #8b96a5;
   font-weight: 550;
   cursor: pointer;
+  display: inline-block;
 `;
 const Search = styled.input`
   padding: 0 0.5rem;
@@ -66,6 +70,9 @@ export const Categories = styled.select`
   padding: 0.1rem 0.5rem;
   outline: none;
   cursor: pointer;
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 export const SearchBtn = styled.button`
   background-color: #0d6efd;
@@ -75,14 +82,23 @@ export const SearchBtn = styled.button`
   font-weight: bold;
   cursor: pointer;
 `;
-const SWrapper = styled(Wrapper)``;
+const SWrapper = styled(Wrapper)`
+  overflow-x: auto;
+  width: 80%;
+  gap: 3em;
+`;
 const SCategories = styled(Categories)`
   border: none;
 `;
 const Flex1 = styled.div`
   display: flex;
+  gap: 1em;
 `;
-const Flex2 = styled.div``;
+const Flex2 = styled.div`
+  display: flex;
+
+  gap: 1em;
+`;
 
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 const Navbar = () => {
@@ -115,7 +131,7 @@ const Navbar = () => {
           <Link style={{ textDecoration: "none" }} to="/cart">
             <NavItem>
               <Icon src={cart} />
-              <Text>My cart</Text>
+              <Text>Cart</Text>
             </NavItem>
           </Link>
         </Controls>

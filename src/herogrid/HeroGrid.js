@@ -9,11 +9,17 @@ const Wrapper = styled.div`
   margin: 2rem auto;
   border-radius: 5px;
   overflow: hidden;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   flex: 3;
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 const HeroImg = styled.div`
   background: url(${({ himg }) => himg});
@@ -23,6 +29,9 @@ const HeroImg = styled.div`
   padding: 1em 1em;
   width: fit-content;
   flex: 0.8;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 const P = styled.p`
   color: #000;
