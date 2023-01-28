@@ -21,23 +21,10 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
 `;
-const ThemeBtn = styled.button`
-  border: none;
-  border-radius: 50%;
-  padding: 0.5rem 0.6rem;
-  font-size: 30px;
-  border: 1px solid #000;
-  cursor: pointer;
-  position: fixed;
-  top: 20%;
-  z-index: 999;
-`;
-const Home = ({ theme, handleDarkMode }) => {
+
+const Home = ({ theme }) => {
   return (
     <Container theme={theme}>
-      <ThemeBtn onClick={handleDarkMode}>
-        <i class="fa-regular fa-moon"></i>
-      </ThemeBtn>
       <Navbar theme={theme} />
       <HomeBanner theme={theme} />
       <HeroGrid himg={herog11} data={herog1data} theme={theme} />
