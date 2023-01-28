@@ -12,6 +12,7 @@ const Container = styled.div`
   width: 100%;
   background-color: #fff;
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
+  overflow-x: auto;
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -19,9 +20,16 @@ const Wrapper = styled.div`
   width: 80%;
   margin: auto;
   padding: 1rem 0;
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+  }
 `;
 const Logo = styled.img`
   height: 45px;
+  @media (max-width: 768px) {
+    height: 35px;
+  }
 `;
 const NavItem = styled.div`
   display: flex;
@@ -41,6 +49,9 @@ const Controls = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-left: 0.5rem;
+  @media (max-width: 768px) {
+    gap: 0.4rem;
+  }
 `;
 const SearchWrap = styled.div`
   height: 40px;
@@ -70,9 +81,6 @@ export const Categories = styled.select`
   padding: 0.1rem 0.5rem;
   outline: none;
   cursor: pointer;
-  @media (max-width: 768px) {
-    display: none;
-  }
 `;
 export const SearchBtn = styled.button`
   background-color: #0d6efd;
@@ -86,13 +94,22 @@ const SWrapper = styled(Wrapper)`
   overflow-x: auto;
   width: 80%;
   gap: 3em;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0.8rem 0.5rem;
+  }
 `;
 const SCategories = styled(Categories)`
   border: none;
 `;
 const Flex1 = styled.div`
   display: flex;
+  align-items: center;
   gap: 1em;
+  @media (max-width: 768px) {
+    gap: 2em;
+  }
 `;
 const Flex2 = styled.div`
   display: flex;

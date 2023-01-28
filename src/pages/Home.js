@@ -24,7 +24,6 @@ const Home = () => {
       <HeroGrid himg={herog21} data={herog2data} />
       <QuoteForm />
       <Heading title="Recommended items" />
-
       <RecomGrid />
       <Heading title="Our extra services" />
       <CardServ />
