@@ -15,6 +15,7 @@ const Container = styled.div`
   overflow-x: auto;
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
+  position: sticky;
 `;
 const Wrapper = styled.div`
   display: flex;

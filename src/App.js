@@ -13,7 +13,7 @@ function App() {
   const currentTheme = localStorage.getItem("theme");
   const theme = currentTheme
     ? {
-        primaryClr: "#48484A",
+        primaryClr: "#121212",
         secondaryClr: "#bbb",
       }
     : {

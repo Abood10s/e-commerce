@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Text } from "../forms/navbar/Navbar";
-import { HeroImg, Button, P } from "../../herogrid/HeroGrid";
+import { HeroImg, Button, P } from "../herogrid/HeroGrid";
 import ColoredDiv from "./ColoredDiv";
 import BannerBtn from "./BannerBtn";
-import BannerImg from "./Banner.png";
+import BannerImg from "../../assets/homeSection/Banner.png";
+import Avatar from "../../assets/homeSection/Avatar.png";
 
-import Avatar from "./Avatar.png";
 const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;

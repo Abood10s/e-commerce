@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import FormBtn from "./Buttons/FormBtn";
+import FormBtn from "../Buttons/FormBtn";
 import FormFooter from "./FormFooter";
 import { Link } from "react-router-dom";
 
 import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
-import ContFormBtn from "./Buttons/ContFormBtn";
+import ContFormBtn from "../Buttons/ContFormBtn";
 
 export const Container = styled.div`
   display: flex;

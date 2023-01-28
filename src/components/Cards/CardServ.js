@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-import card1 from "./card1.png";
-import card2 from "./card2.png";
-import card3 from "./card3.png";
-import card4 from "./card4.png";
-import inv from "./inv.png";
-import search from "./search.png";
-import send from "./send.png";
-import security from "./security.png";
+import card1 from "../../assets/card images/card1.png";
+import card2 from "../../assets/card images/card2.png";
+import card3 from "../../assets/card images/card3.png";
+import card4 from "../../assets/card images/card4.png";
+import inv from "../../assets/card images/inv.png";
+import search from "../../assets/card images/search.png";
+import send from "../../assets/card images/send.png";
+import security from "../../assets/card images/security.png";
 const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
