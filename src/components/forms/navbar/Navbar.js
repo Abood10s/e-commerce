@@ -13,6 +13,8 @@ const Container = styled.div`
   background-color: #fff;
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
   overflow-x: auto;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -93,6 +95,8 @@ export const SearchBtn = styled.button`
 const SWrapper = styled(Wrapper)`
   overflow-x: auto;
   width: 80%;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
   gap: 3em;
 
   @media (max-width: 768px) {
@@ -107,6 +111,7 @@ const Flex1 = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+
   @media (max-width: 768px) {
     gap: 2em;
   }
@@ -118,9 +123,9 @@ const Flex2 = styled.div`
 `;
 
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
-const Navbar = () => {
+const Navbar = ({ theme }) => {
   return (
-    <Container>
+    <Container theme={theme}>
       <Wrapper>
         <Link to="/">
           <Logo src={TheLogo} alt="brand logo" />
@@ -155,7 +160,7 @@ const Navbar = () => {
           </Link>
         </Controls>
       </Wrapper>
-      <Container>
+      <Container theme={theme}>
         <SWrapper>
           <Flex1>
             <Flex1>

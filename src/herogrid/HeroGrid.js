@@ -48,17 +48,19 @@ export const Button = styled.button`
   cursor: pointer;
 `;
 
-const HeroGrid = ({ himg, data }) => {
+const HeroGrid = ({ himg, data, theme }) => {
   return (
     <Wrapper>
       <HeroImg himg={himg}>
         <P>Home and outdoor</P>
         <Button>Source now</Button>
       </HeroImg>
-      <Container>
+      <Container theme={theme}>
         {data.map((item) => {
           const { image, title, price } = item;
-          return <HeroItem img={image} title={title} price={price} />;
+          return (
+            <HeroItem img={image} title={title} price={price} theme={theme} />
+          );
         })}
       </Container>
     </Wrapper>

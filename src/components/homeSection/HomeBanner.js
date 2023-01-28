@@ -17,6 +17,8 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 2fr 1fr;
   background-color: #fff;
   gap: 1rem;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
   @media (max-width: 1000px) {
     grid-template-columns: 2fr;
     width: 60%;
@@ -74,10 +76,10 @@ const cats = [
   "Machinery tools",
   "More category",
 ];
-const HomeBanner = () => {
+const HomeBanner = ({ theme }) => {
   return (
-    <Wrapper>
-      <List>
+    <Wrapper theme={theme}>
+      <List theme={theme}>
         <Active>Automobiles</Active>
         {cats.map((item) => (
           <Active key={item}>{item}</Active>
@@ -90,7 +92,7 @@ const HomeBanner = () => {
           <Button>Source now</Button>
         </HHeroImg>
       </Banner>
-      <Flex>
+      <Flex theme={theme}>
         <Cont>
           <User>
             <IIcon src={Avatar} />

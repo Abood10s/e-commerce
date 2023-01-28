@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1em;
+
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -16,12 +17,12 @@ const Wrapper = styled.div`
     gap: 1rem;
   }
 `;
-const RecomGrid = () => {
+const RecomGrid = ({ theme }) => {
   return (
     <Wrapper>
       {recommended.map((item) => {
         const { img, body, price } = item;
-        return <RecomCard img={img} price={price} body={body} />;
+        return <RecomCard img={img} price={price} body={body} theme={theme} />;
       })}
     </Wrapper>
   );

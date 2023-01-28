@@ -5,6 +5,8 @@ const Flex = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const P = styled.p`
   font-size: 14px;
@@ -15,11 +17,13 @@ const Cont = styled.div`
   background-color: #fff;
   padding: 0.5rem;
   border: 1px solid #e0e0e0;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const Img = styled.img``;
-const HeroItem = ({ img, title, price }) => {
+const HeroItem = ({ img, title, price, theme }) => {
   return (
-    <Cont>
+    <Cont theme={theme}>
       <h5>{title}</h5>
       <Flex>
         <P>From USD {price}</P>

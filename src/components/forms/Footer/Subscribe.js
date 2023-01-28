@@ -9,7 +9,10 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
   gap: 1em;
+
   padding: 1.5em 0;
 `;
 const Element1 = styled.div``;
@@ -26,9 +29,9 @@ const IInput = styled(Input)`
 const Heading = styled.h3`
   margin-bottom: 1rem;
 `;
-const Subscribe = () => {
+const Subscribe = ({ theme }) => {
   return (
-    <Container>
+    <Container theme={theme}>
       <Element1>
         <Heading>Subscribe on our newsletter</Heading>
         <Text>

@@ -25,6 +25,8 @@ const Container = styled.div`
   left: 0;
   background-color: #fff;
   padding-top: 1.5rem;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const IIcon = styled(Icon)`
   width: 140px;
@@ -67,10 +69,12 @@ const Img = styled.img`
 `;
 const Wraper = styled.div`
   background-color: #eff2f4;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <Container>
+    <Container theme={theme}>
       <FWrapper>
         <Column>
           <IIcon src={thelogo} />
@@ -113,7 +117,7 @@ const Footer = () => {
           <Img src={appstore} />
         </Column>
       </FWrapper>
-      <Wraper>
+      <Wraper theme={theme}>
         <Copyright>
           <Text>© 2023 Ecommerce. </Text>
           <Categories>

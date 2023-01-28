@@ -7,15 +7,17 @@ const Card = styled.div`
   flex-direction: column;
   gap: 0.8em;
   padding: 0.7em 0.9em;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const Img = styled.img`
   height: 180px;
   width: 170px;
   margin: auto;
 `;
-const RecomCard = ({ img, price, body }) => {
+const RecomCard = ({ img, price, body, theme }) => {
   return (
-    <Card>
+    <Card theme={theme}>
       <Img src={img} />
       <h4>${price}</h4>
       <p>{body}</p>

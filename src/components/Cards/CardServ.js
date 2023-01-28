@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1em;
+
   @media (max-width: 1050px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -28,6 +29,8 @@ const CardCont = styled.div`
   border-radius: 4px;
   overflow: hidden;
   padding-bottom: 0.5rem;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const Img = styled.img`
   width: 100%;
@@ -48,10 +51,10 @@ const Wrap = styled.div`
   top: 50%;
   right: 5%;
 `;
-const CardServ = () => {
+const CardServ = ({ theme }) => {
   return (
     <Wrapper>
-      <CardCont>
+      <CardCont theme={theme}>
         <Img src={card1} />
         <Wrap>
           <Icon src={search} />
@@ -59,7 +62,7 @@ const CardServ = () => {
         <P>Source from </P>
         <P>Industry Hubs</P>
       </CardCont>
-      <CardCont>
+      <CardCont theme={theme}>
         <Img src={card2} />
         <Wrap>
           <Icon src={inv} />
@@ -67,7 +70,7 @@ const CardServ = () => {
         <P>Fast, reliable shipping </P>
         <P>by ocean or air</P>
       </CardCont>
-      <CardCont>
+      <CardCont theme={theme}>
         <Img src={card3} />
         <Wrap>
           <Icon src={send} />
@@ -75,7 +78,7 @@ const CardServ = () => {
         <P>Customize your </P>
         <P>products</P>
       </CardCont>
-      <CardCont>
+      <CardCont theme={theme}>
         <Img src={card4} />
         <Wrap>
           <Icon src={security} />
