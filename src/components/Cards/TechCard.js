@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+
 import { Blue } from "../Accordions/Accordion";
-import { Icon } from "../forms/navbar/Navbar";
+import { Icon } from "../navbar/Navbar";
+
 import like from "../../assets/card images/like.png";
+
 const Wrap = styled.div`
   display: flex;
   margin: 1rem;

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import visa from "../../assets/visa.png";
-import americanex from "../../assets/americanex.png";
-import mastercard from "../../assets/mastercard.png";
-import paypal from "../../assets/paypal.png";
+import visa from "../../assets/form icons/visa.png";
+import americanex from "../../assets/form icons/americanex.png";
+import mastercard from "../../assets/form icons/mastercard.png";
+import paypal from "../../assets/form icons/paypal.png";
 
 const Wrapper = styled.div`
   position: fixed;

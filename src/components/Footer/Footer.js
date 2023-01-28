@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { Wrapper } from "../LoginForm";
+import { Wrapper } from "../forms/LoginForm";
 import { Icon, Text, Categories } from "../navbar/Navbar";
 
-import thelogo from "../../../assets/thelogo.png";
-import face from "../../../assets/footericons/facebook3.png";
-import twitter from "../../../assets/footericons/twitter3.png";
-import linked from "../../../assets/footericons/linkedin3.png";
-import insta from "../../../assets/footericons/instagram3.png";
-import yt from "../../../assets/footericons/youtube3.png";
-import googleplay from "../../../assets/footericons/googleplay.png";
-import appstore from "../../../assets/footericons/appstore.png";
+import thelogo from "../../assets/form icons/thelogo.png";
+import face from "../../assets/footericons/facebook3.png";
+import twitter from "../../assets/footericons/twitter3.png";
+import linked from "../../assets/footericons/linkedin3.png";
+import insta from "../../assets/footericons/instagram3.png";
+import yt from "../../assets/footericons/youtube3.png";
+import googleplay from "../../assets/footericons/googleplay.png";
+import appstore from "../../assets/footericons/appstore.png";
 
 const icons = [face, twitter, linked, insta, yt];
 const list = ["Money Refund", "Money Refund", "Categories", "About Us"];

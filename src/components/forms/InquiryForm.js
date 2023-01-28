@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { SubscribeBtn } from "./Footer/Subscribe";
+
+import { SubscribeBtn } from "../Footer/Subscribe";
 import { Input } from "./LoginForm";
-import { Wrap } from "./Footer/Footer";
+import { Wrap } from "../Footer/Footer";
+
 const Select = styled.select`
   height: 40px;
   margin: 0 2rem;

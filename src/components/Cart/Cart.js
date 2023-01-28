@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import Footer from "../forms/Footer/Footer";
-import Navbar from "../forms/navbar/Navbar";
+
+import Footer from "../Footer/Footer";
+import Navbar from "../navbar/Navbar";
+
 const Wrapper = styled.div`
   width: 80%;
 `;

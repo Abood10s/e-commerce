@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+
+import { CheckBox, Input, InputLabel } from "../forms/LoginForm";
+import { Categories } from "../navbar/Navbar";
+import { Icon } from "../navbar/Navbar";
+
 import list from "./list.png";
 import grid from "./grid.png";
-import { CheckBox, Input, InputLabel } from "../forms/LoginForm";
-import { Categories } from "../forms/navbar/Navbar";
-import { Icon } from "../forms/navbar/Navbar";
+
 const Wrapper = styled.div`
   margin: 1rem auto;
   border: 1px solid #e3e8ee;

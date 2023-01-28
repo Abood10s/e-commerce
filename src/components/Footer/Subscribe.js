@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+
 import { Text, SearchBtn } from "../navbar/Navbar";
-import { Input } from "../LoginForm";
+import { Input } from "../forms/LoginForm";
+
 const Container = styled.div`
   background-color: #eff2f4;
   display: flex;

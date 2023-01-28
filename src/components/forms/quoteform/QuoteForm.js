@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Wrap } from "../Footer/Footer";
+
+import { Wrap } from "../../Footer/Footer";
 import InquiryForm from "../InquiryForm";
-import maskform from "../../../assets/maskform.png";
+
+import maskform from "../../../assets/form icons/maskform.png";
 
 const Wrapper = styled.div`
   width: 80%;

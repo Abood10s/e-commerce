@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import TheLogo from "../../../assets/thelogo.png";
-import profile from "../../../assets/navicons/nav1.png";
-import order from "../../../assets/navicons/nav2.png";
-import msg from "../../../assets/navicons/nav3.png";
-import cart from "../../../assets/navicons/nav4.png";
-import menu from "../../../assets/navicons/menu.png";
+import TheLogo from "../../assets/form icons/thelogo.png";
+import profile from "../../assets/navicons/nav1.png";
+import order from "../../assets/navicons/nav2.png";
+import msg from "../../assets/navicons/nav3.png";
+import cart from "../../assets/navicons/nav4.png";
+import menu from "../../assets/navicons/menu.png";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
