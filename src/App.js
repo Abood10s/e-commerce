@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+
 import LoginForm from "./components/forms/LoginForm";
-import Home from "./pages/Home";
-import TechStore from "./pages/TechStore";
 import SignupForm from "./components/forms/SignupForm";
 import Cart from "./components/Cart/Cart";
 import ProtectedRoutes from "./components/utills/ProtectedRoutes";
-import { useState, useEffect } from "react";
+
+import Home from "./pages/Home";
+import TechStore from "./pages/TechStore";
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);

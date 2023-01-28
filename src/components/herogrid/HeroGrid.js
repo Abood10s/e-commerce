@@ -3,6 +3,7 @@ import styled from "styled-components";
 import HeroItem from "../HeroItem";
 import herog1data from "../../Herogrid1data";
 import herog1 from "../../assets/herogrid1/herog1.png";
+import { Link } from "react-router-dom";
 const Wrapper = styled.div`
   width: 80%;
   display: flex;
@@ -53,7 +54,9 @@ const HeroGrid = ({ himg, data, theme }) => {
     <Wrapper>
       <HeroImg himg={himg}>
         <P>Home and outdoor</P>
-        <Button>Source now</Button>
+        <Link to="/store">
+          <Button>Source now</Button>
+        </Link>
       </HeroImg>
       <Container theme={theme}>
         {data.map((item) => {

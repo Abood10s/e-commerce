@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import { HeroImg, Button, P } from "../herogrid/HeroGrid";
 import ColoredDiv from "./ColoredDiv";
 import BannerBtn from "./BannerBtn";
+
 import BannerImg from "../../assets/homeSection/Banner.png";
 import Avatar from "../../assets/homeSection/Avatar.png";
 
@@ -88,7 +91,9 @@ const HomeBanner = ({ theme }) => {
         <HHeroImg himg={BannerImg}>
           <h3>Latest trending</h3>
           <H2>Electronic items </H2>
-          <Button>Source now</Button>
+          <Link to="/store">
+            <Button>Source now</Button>
+          </Link>
         </HHeroImg>
       </Banner>
       <Flex theme={theme}>

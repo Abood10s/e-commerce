@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
-  background-color: #fff;
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
   overflow-x: auto;
   background-color: ${(props) => props.theme.primaryClr};

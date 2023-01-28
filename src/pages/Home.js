@@ -30,6 +30,7 @@ const ThemeBtn = styled.button`
   cursor: pointer;
   position: fixed;
   top: 20%;
+  z-index: 999;
 `;
 const Home = ({ theme, handleDarkMode }) => {
   return (
