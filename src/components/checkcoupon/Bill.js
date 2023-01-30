@@ -13,6 +13,7 @@ const BillCont = styled.div`
   border: 1px solid #e3e8ee;
   border-radius: 4px;
   padding: 1rem;
+  box-shadow: 0px 0px 2px 1px rgba(56, 56, 56, 0.1);
 `;
 const Txt = styled.p`
   display: flex;

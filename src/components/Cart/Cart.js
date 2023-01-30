@@ -73,6 +73,7 @@ const Cart = () => {
         <Container2>
           <CheckCoupon />
         </Container2>
+        <i class="fa-solid fa-cart-shopping"></i>
       </Wrapper>
       <Footer />
     </Container>

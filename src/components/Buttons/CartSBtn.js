@@ -10,6 +10,11 @@ const Cont = styled.button`
   font-weight: bold;
   background-color: #fff;
   cursor: pointer;
+  transition: 0.2s ease-out;
+  &:hover {
+    background-color: #fa3434;
+    color: #fff;
+  }
 `;
 const CartSBtn = ({ title, icon }) => {
   return (

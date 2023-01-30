@@ -44,6 +44,11 @@ export const Icon = styled.img`
   height: 17px;
   width: 17px;
   cursor: pointer;
+  @media (max-width: 768px) {
+    &:nth-child(2) {
+      display: none;
+    }
+  }
 `;
 const Controls = styled.div`
   display: flex;

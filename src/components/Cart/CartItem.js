@@ -4,7 +4,9 @@ import CartMBtn from "../Buttons/CartMBtn";
 import CartSBtn from "../Buttons/CartSBtn";
 import { Select } from "../forms/SignupForm";
 import { Text } from "../navbar/Navbar";
-const Img = styled.img``;
+const Img = styled.img`
+  margin: auto;
+`;
 const CartCont = styled.div`
   border-bottom: 1px solid #e3e8ee;
   padding: 1rem 0;

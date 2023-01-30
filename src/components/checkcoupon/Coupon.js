@@ -19,6 +19,12 @@ const Button = styled.button`
   padding: 0 1rem;
   font-weight: bold;
   border-left: 0px;
+  cursor: pointer;
+  transition: 0.2s ease-out;
+  &:hover {
+    background-color: #0d6efd;
+    color: #fff;
+  }
 `;
 const CouponCont = styled.div`
   background-color: #fff;

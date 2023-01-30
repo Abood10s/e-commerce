@@ -8,6 +8,9 @@ const Wrap = styled.div`
   border-bottom: 1px solid #eee;
   padding: 0.5em 0;
   margin: 1rem 0;
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 `;
 const Header = styled.div`
   display: flex;

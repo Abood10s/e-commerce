@@ -14,6 +14,7 @@ import TechStoredata from "../TechStoredata";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import StoreNav from "../components/storenavbar/StoreNav";
+import Pagination from "../components/pagination/Pagination";
 const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
@@ -56,7 +57,7 @@ const TechStore = () => {
             <CategoryAcc title="categories" data={categories} />
             <Accordion title="brands" data={brands} type="checkbox" />
             <Accordion title="Features" data={Features} type="checkbox" />
-            <Accordion title="Features" data={condition} type="radio" />
+            <Accordion title="Condition" data={condition} type="radio" />
             <RatingAcc title="Ratings" data={ratings} />
           </Accordions>
           <ProductsWrapper>
@@ -64,6 +65,7 @@ const TechStore = () => {
             {TechStoredata.map((item) => {
               return <TechCard item={item} />;
             })}
+            <Pagination />
           </ProductsWrapper>
         </StoreWrapper>
       </Wrapper>
