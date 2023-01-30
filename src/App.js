@@ -28,8 +28,8 @@ function App() {
   const currentTheme = localStorage.getItem("theme");
   const theme = currentTheme
     ? {
-        primaryClr: "#121212",
-        secondaryClr: "#bbb",
+        primaryClr: "#2C3333",
+        secondaryClr: "#E7F6F2",
       }
     : {};
   useEffect(() => {

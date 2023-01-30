@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   padding: 1.5rem 0;
   background-color: #ffffff;
 `;
-const Icon = styled.div`
+export const Icon = styled.div`
   height: 22px;
   padding: 0 0.5rem;
   border: 1px solid #eeeeee;
@@ -28,7 +28,7 @@ const Icon = styled.div`
   align-items: center;
   cursor: pointer;
 `;
-const IconsWrapper = styled.div`
+export const IconsWrapper = styled.div`
   display: flex;
   gap: 1rem;
 `;

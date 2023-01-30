@@ -18,11 +18,18 @@ const Container = styled.div`
   padding: 1.5em 0;
 `;
 const Element1 = styled.div``;
-const Element2 = styled.div``;
+const Element2 = styled.div`
+  display: flex;
+  align-items: center;
+`;
 export const SubscribeBtn = styled(SearchBtn)`
   padding: 0.5rem 1rem;
   border-radius: 5px;
   margin-left: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 `;
 const IInput = styled(Input)`
   height: 35px;
