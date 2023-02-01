@@ -19,25 +19,25 @@ import CartCard from "../components/Cards/CartCard";
 
 const cards = [
   {
-    id: 1,
+    id: 10,
     img: img1,
     price: "99.50$",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
   {
-    id: 2,
+    id: 11,
     img: img2,
     price: "99.50$",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
   {
-    id: 3,
+    id: 12,
     img: img3,
     price: "99.50$",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
   {
-    id: 4,
+    id: 13,
     img: img4,
     price: "99.50$",
     body: "GoPro HERO6 4K Action Camera - Black",
@@ -95,6 +95,12 @@ const CartCards = styled.div`
 const Warning = styled.h4`
   margin: 1rem auto;
 `;
+const EmptyCart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+`;
 const Cart = () => {
   const { cart } = useContext(CartCtx);
 
@@ -128,14 +134,14 @@ const Cart = () => {
               <CartMBtn title="Remove all" />
             </Buttons>
           ) : (
-            <>
+            <EmptyCart>
               <Warning> You Don't Have Any Thing In Your Cart</Warning>
               <Link to="/store" style={{ textDecoration: "none" }}>
                 <SubscribeBtn>
                   <i class="fa-solid fa-arrow-left-long"></i>Back to shop
                 </SubscribeBtn>
               </Link>
-            </>
+            </EmptyCart>
           )}
         </Container1>
         <Container2>{cart.length !== 0 ? <CheckCoupon /> : ""}</Container2>

@@ -81,9 +81,6 @@ const P = styled.p`
 `;
 
 const TechCard = ({ item }) => {
-  const { cart, setCart } = useContext(CartCtx);
-  const [added, setAdded] = useState(false);
-
   const { image, title, orders, price, rating, body, shipping } = item;
   return (
     <Wrap>
@@ -106,21 +103,6 @@ const TechCard = ({ item }) => {
         </Flex>
         <Blue>View details</Blue>
         <AddToCart item={item} />
-        {/* {!added ? (
-          <AddToCart
-            onClick={() => {
-              setCart([...cart, item]);
-              setAdded(true);
-            }}
-          >
-            <i class="fa-solid fa-cart-shopping"></i>
-            Move to Cart
-          </AddToCart>
-        ) : (
-          <Green>
-            Added To cart <i class="fa-solid fa-check"></i>
-          </Green>
-        )} */}
       </Body>
     </Wrap>
   );
