@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
 import { Blue } from "../Accordions/Accordion";
@@ -78,8 +78,28 @@ const Green = styled(Blue)`
   color: #00b517;
   font-size: 16px;
 `;
+export const AddToCart = styled.button`
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  ${"" /* align-items:center  */}
+  gap: 0.5rem;
+  color: #0d6efd;
+  background-color: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  &:hover {
+    background-color: #0d6efd;
+    color: #fff;
+    gap: 0.7rem;
+  }
+`;
 const TechCard = ({ item }) => {
   const { cart, setCart } = useContext(CartCtx);
+  const [added, setAdded] = useState(false);
 
   const { image, title, orders, price, rating, body, shipping } = item;
   return (
@@ -102,7 +122,22 @@ const TechCard = ({ item }) => {
           <P>{body}</P>
         </Flex>
         <Blue>View details</Blue>
-        <button onClick={() => setCart([...cart, item])}>Add to Cart</button>
+        {!added ? (
+          <AddToCart
+            onClick={() => {
+              setCart([...cart, item]);
+              setAdded(true);
+            }}
+          >
+            <i class="fa-solid fa-cart-shopping"></i>
+            Move to Cart
+          </AddToCart>
+        ) : (
+          <Green>
+            {" "}
+            Added To cart <i class="fa-solid fa-check"></i>
+          </Green>
+        )}
       </Body>
     </Wrap>
   );
