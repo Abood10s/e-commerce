@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Wrapper, Container1, Container2 } from "../../pages/Cart";
+import { Wrapper, Container1 } from "../../pages/Cart";
+import { Container2 } from "../../pages/Cart";
 
 import img1 from "../../assets/Singleproductimgs/1.png";
 import img2 from "../../assets/Singleproductimgs/2.png";
@@ -37,12 +38,6 @@ const items = [
   },
 ];
 
-const CContainer2 = styled(Container2)`
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 1rem;
-  border: 1px solid #e3e8ee;
-`;
 const Tabss = styled.div`
   display: flex;
   gap: 1rem;
@@ -57,6 +52,12 @@ const P = styled.p`
     border-bottom: 2px solid #0d6efd;
     font-weight: bold;
   }
+`;
+const SContainer2 = styled.div`
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 1rem;
+  border: 1px solid #e3e8ee;
 `;
 const Body = styled.div`
   margin: 1rem 0;
@@ -112,12 +113,12 @@ const Tabs = () => {
           </div>
         </Body>
       </Container1>
-      <CContainer2>
+      <SContainer2>
         <h4>You may like</h4>
         {items.map((item) => {
           return <LikeCard item={item} key={item} />;
         })}
-      </CContainer2>
+      </SContainer2>
     </Wrapper>
   );
 };

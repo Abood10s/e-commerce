@@ -13,7 +13,7 @@ import googleplay from "../../assets/footericons/googleplay.png";
 import appstore from "../../assets/footericons/appstore.png";
 
 const icons = [face, twitter, linked, insta, yt];
-const list = ["Money Refund", "Money Refund", "Categories", "About Us"];
+const list = ["Money Refund", "Products", "Categories", "About Us"];
 const NIcon = styled(Icon)`
   margin-right: 0.5rem;
   height: 25px;

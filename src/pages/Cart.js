@@ -150,7 +150,7 @@ const Cart = () => {
       <Heading title="Saved for later" />
       <CartCards>
         {cards.map((item) => {
-          return <CartCard item={item} />;
+          return <CartCard item={item} key={item.id} />;
         })}
       </CartCards>
       <Tabs />
