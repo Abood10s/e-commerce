@@ -40,10 +40,8 @@ const CartItem = ({ img, title, price, body, id }) => {
       <Img src={img} />
       <Body>
         <Flex>
-          {/* <h4>{id}</h4> */}
-
           <h4>{title}</h4>
-          <Price>${price}</Price>
+          <Price>{price}</Price>
         </Flex>
         <Flex>
           <Text>{body}</Text>

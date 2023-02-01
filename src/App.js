@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import LoginForm from "./components/forms/LoginForm";
 import SignupForm from "./components/forms/SignupForm";
-import Cart from "./components/Cart/Cart";
+import Cart from "./pages/Cart";
 import ProtectedRoutes from "./components/utills/ProtectedRoutes";
 
 import Home from "./pages/Home";

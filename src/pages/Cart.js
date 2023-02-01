@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
-import Footer from "../Footer/Footer";
-import Heading from "../heading/Heading";
-import Navbar from "../navbar/Navbar";
-import CartItem from "./CartItem";
-import CartMBtn from "../Buttons/CartMBtn";
-import { SubscribeBtn } from "../Footer/Subscribe";
-import CheckCoupon from "../checkcoupon/CheckCoupon";
+import Footer from "../components/Footer/Footer";
+import Heading from "../components/heading/Heading";
+import Navbar from "../components/navbar/Navbar";
+import CartItem from "../components/Cart/CartItem";
+import CartMBtn from "../components/Buttons/CartMBtn";
+import { SubscribeBtn } from "../components/Footer/Subscribe";
+import CheckCoupon from "../components/checkcoupon/CheckCoupon";
 
-import herog1data from "../../Herogrid1data";
-import { CartCtx } from "../../CartContext/CartContext";
+import herog1data from "../Herogrid1data";
+import { CartCtx } from "../CartContext/CartContext";
+import { Link } from "react-router-dom";
 const cartitems = herog1data.slice(0, 3);
 
 const Wrapper = styled.div`
@@ -47,7 +48,6 @@ const Buttons = styled.div`
 `;
 
 const Cart = () => {
-  // const [cart, setCart] = useState([]);
   const { cart } = useContext(CartCtx);
 
   return (
@@ -61,6 +61,7 @@ const Cart = () => {
             const { image, title, price, body, id } = product;
             return (
               <CartItem
+                key={id}
                 img={image}
                 title={title}
                 price={price}
@@ -69,16 +70,20 @@ const Cart = () => {
               />
             );
           })}
-          <Buttons>
-            <SubscribeBtn>
-              <i class="fa-solid fa-arrow-left-long"></i>Back to shop
-            </SubscribeBtn>
-            <CartMBtn title="Remove all" />
-          </Buttons>
+          {cart.length !== 0 ? (
+            <Buttons>
+              <Link to="/store" style={{ textDecoration: "none" }}>
+                <SubscribeBtn>
+                  <i class="fa-solid fa-arrow-left-long"></i>Back to shop
+                </SubscribeBtn>
+              </Link>
+              <CartMBtn title="Remove all" />
+            </Buttons>
+          ) : (
+            "You Don't Have Any Thing In Your Cart"
+          )}
         </Container1>
-        <Container2>
-          <CheckCoupon />
-        </Container2>
+        <Container2>{cart.length !== 0 ? <CheckCoupon /> : ""}</Container2>
         <i class="fa-solid fa-cart-shopping"></i>
       </Wrapper>
       <Footer />

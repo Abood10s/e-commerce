@@ -18,9 +18,12 @@ const Cont = styled.button`
   }
 `;
 const CartSBtn = ({ title, icon, id }) => {
-  const { cart } = useContext(CartCtx);
+  const { cart, setCart } = useContext(CartCtx);
+  const handleRemove = (id) => {
+    setCart(cart.filter((item) => item.id !== id));
+  };
   return (
-    <Cont>
+    <Cont onClick={() => handleRemove(id)}>
       <span>{title || "Remove"}</span>
     </Cont>
   );
