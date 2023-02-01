@@ -18,10 +18,30 @@ import img4 from "../assets/cartimages/09.png";
 import CartCard from "../components/Cards/CartCard";
 
 const cards = [
-  { img: img1, price: "99.50$", body: "GoPro HERO6 4K Action Camera - Black" },
-  { img: img2, price: "99.50$", body: "GoPro HERO6 4K Action Camera - Black" },
-  { img: img3, price: "99.50$", body: "GoPro HERO6 4K Action Camera - Black" },
-  { img: img4, price: "99.50$", body: "GoPro HERO6 4K Action Camera - Black" },
+  {
+    id: 1,
+    img: img1,
+    price: "99.50$",
+    body: "GoPro HERO6 4K Action Camera - Black",
+  },
+  {
+    id: 2,
+    img: img2,
+    price: "99.50$",
+    body: "GoPro HERO6 4K Action Camera - Black",
+  },
+  {
+    id: 3,
+    img: img3,
+    price: "99.50$",
+    body: "GoPro HERO6 4K Action Camera - Black",
+  },
+  {
+    id: 4,
+    img: img4,
+    price: "99.50$",
+    body: "GoPro HERO6 4K Action Camera - Black",
+  },
 ];
 
 const Wrapper = styled.div`
@@ -72,7 +92,9 @@ const CartCards = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-
+const Warning = styled.h4`
+  margin: 1rem auto;
+`;
 const Cart = () => {
   const { cart } = useContext(CartCtx);
 
@@ -84,11 +106,11 @@ const Cart = () => {
       <Wrapper>
         <Container1>
           {cart.map((product) => {
-            const { image, title, price, body, id } = product;
+            const { image, title, price, body, id, img } = product;
             return (
               <CartItem
                 key={id}
-                img={image}
+                img={image || img}
                 title={title}
                 price={price}
                 id={id}
@@ -106,7 +128,14 @@ const Cart = () => {
               <CartMBtn title="Remove all" />
             </Buttons>
           ) : (
-            "You Don't Have Any Thing In Your Cart"
+            <>
+              <Warning> You Don't Have Any Thing In Your Cart</Warning>
+              <Link to="/store" style={{ textDecoration: "none" }}>
+                <SubscribeBtn>
+                  <i class="fa-solid fa-arrow-left-long"></i>Back to shop
+                </SubscribeBtn>
+              </Link>
+            </>
           )}
         </Container1>
         <Container2>{cart.length !== 0 ? <CheckCoupon /> : ""}</Container2>
@@ -114,8 +143,7 @@ const Cart = () => {
       <Heading title="Saved for later" />
       <CartCards>
         {cards.map((item) => {
-          const { img, body, price } = item;
-          return <CartCard img={img} body={body} price={price} />;
+          return <CartCard item={item} />;
         })}
       </CartCards>
       <Footer />

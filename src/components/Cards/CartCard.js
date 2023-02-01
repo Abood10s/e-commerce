@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-import { AddToCart } from "./TechCard";
+import AddToCart from "../Buttons/AddToCart";
 
 const CartCont = styled.div`
   display: flex;
@@ -14,16 +13,14 @@ const Image = styled.img`
 const Cont = styled.p``;
 const P = styled.h4``;
 
-const CartCard = ({ img, price, body }) => {
+const CartCard = ({ item }) => {
+  const { img, price, body } = item;
   return (
     <CartCont>
       <Image src={img} />
       <P>{price}</P>
       <Cont>{body}</Cont>
-      <AddToCart>
-        {" "}
-        <i class="fa-solid fa-cart-shopping"></i>Move to cart
-      </AddToCart>
+      <AddToCart item={item} />
     </CartCont>
   );
 };

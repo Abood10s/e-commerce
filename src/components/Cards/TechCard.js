@@ -6,6 +6,7 @@ import { Icon } from "../navbar/Navbar";
 
 import like from "../../assets/card images/like.png";
 import { CartCtx } from "../../CartContext/CartContext";
+import AddToCart from "../Buttons/AddToCart";
 
 const Wrap = styled.div`
   display: flex;
@@ -47,6 +48,10 @@ const LBody = styled.div`
 const Flex = styled.div`
   display: flex;
 `;
+const Green = styled(Blue)`
+  color: #00b517;
+  font-size: 16px;
+`;
 const Price = styled.p`
   font-weight: bold;
 `;
@@ -74,29 +79,7 @@ const P = styled.p`
     display: none;
   }
 `;
-const Green = styled(Blue)`
-  color: #00b517;
-  font-size: 16px;
-`;
-export const AddToCart = styled.button`
-  width: fit-content;
-  padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: center;
-  ${"" /* align-items:center  */}
-  gap: 0.5rem;
-  color: #0d6efd;
-  background-color: #fff;
-  border: 1px solid #e3e8ee;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.2s ease;
-  &:hover {
-    background-color: #0d6efd;
-    color: #fff;
-    gap: 0.7rem;
-  }
-`;
+
 const TechCard = ({ item }) => {
   const { cart, setCart } = useContext(CartCtx);
   const [added, setAdded] = useState(false);
@@ -122,7 +105,8 @@ const TechCard = ({ item }) => {
           <P>{body}</P>
         </Flex>
         <Blue>View details</Blue>
-        {!added ? (
+        <AddToCart item={item} />
+        {/* {!added ? (
           <AddToCart
             onClick={() => {
               setCart([...cart, item]);
@@ -134,10 +118,9 @@ const TechCard = ({ item }) => {
           </AddToCart>
         ) : (
           <Green>
-            {" "}
             Added To cart <i class="fa-solid fa-check"></i>
           </Green>
-        )}
+        )} */}
       </Body>
     </Wrap>
   );
