@@ -10,6 +10,7 @@ import CartItem from "../components/Cart/CartItem";
 import CartMBtn from "../components/Buttons/CartMBtn";
 import { SubscribeBtn } from "../components/Footer/Subscribe";
 import CheckCoupon from "../components/checkcoupon/CheckCoupon";
+import Tabs from "../components/Tabs/Tabs";
 
 import img1 from "../assets/cartimages/03.png";
 import img2 from "../assets/cartimages/04.png";
@@ -44,7 +45,7 @@ const cards = [
   },
 ];
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
   display: grid;
@@ -59,14 +60,14 @@ const Wrapper = styled.div`
   }
 `;
 const Container = styled.div``;
-const Container1 = styled.div`
+export const Container1 = styled.div`
   background-color: #fff;
   width: 100%;
   border-radius: 4px;
   padding: 1rem;
   border: 1px solid #e3e8ee;
 `;
-const Container2 = styled.div`
+export const Container2 = styled.div`
   border-radius: 4px;
 `;
 
@@ -152,6 +153,7 @@ const Cart = () => {
           return <CartCard item={item} />;
         })}
       </CartCards>
+      <Tabs />
       <Footer />
     </Container>
   );

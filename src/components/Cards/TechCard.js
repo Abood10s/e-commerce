@@ -1,11 +1,9 @@
-import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
 import { Blue } from "../Accordions/Accordion";
 import { Icon } from "../navbar/Navbar";
 
 import like from "../../assets/card images/like.png";
-import { CartCtx } from "../../CartContext/CartContext";
 import AddToCart from "../Buttons/AddToCart";
 
 const Wrap = styled.div`
