@@ -29,8 +29,14 @@ const StoreWrapper = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-const Accordions = styled.div``;
-const ProductsWrapper = styled.div``;
+const Accordions = styled.div`
+  @media (max-width: 768px) {
+    width: 90%;
+  }
+`;
+const ProductsWrapper = styled.div`
+  margin: 1rem auto;
+`;
 
 const categories = [
   "Mobile accessory",
