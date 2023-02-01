@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import { Blue } from "../Accordions/Accordion";
 import { Icon } from "../navbar/Navbar";
 
 import like from "../../assets/card images/like.png";
+import { CartCtx } from "../../CartContext/CartContext";
 
 const Wrap = styled.div`
   display: flex;
@@ -78,6 +79,8 @@ const Green = styled(Blue)`
   font-size: 16px;
 `;
 const TechCard = ({ item }) => {
+  const { cart, setCart } = useContext(CartCtx);
+
   const { image, title, orders, price, rating, body, shipping } = item;
   return (
     <Wrap>
@@ -99,6 +102,7 @@ const TechCard = ({ item }) => {
           <P>{body}</P>
         </Flex>
         <Blue>View details</Blue>
+        <button onClick={() => setCart([...cart, item])}>Add to Cart</button>
       </Body>
     </Wrap>
   );

@@ -9,6 +9,7 @@ import ProtectedRoutes from "./components/utills/ProtectedRoutes";
 
 import Home from "./pages/Home";
 import TechStore from "./pages/TechStore";
+import { CartCtx } from "./CartContext/CartContext";
 
 const ThemeBtn = styled.button`
   border: none;
@@ -25,6 +26,8 @@ const ThemeBtn = styled.button`
 function App() {
   const [isAuth, setIsAuth] = useState(true);
   let [isDarkMode, setIsDarkMode] = useState(false);
+  const [cart, setCart] = useState([]);
+
   const currentTheme = localStorage.getItem("theme");
   const theme = currentTheme
     ? {
@@ -45,22 +48,24 @@ function App() {
 
   return (
     <div className="App">
-      <ThemeBtn onClick={handleDarkMode}>
-        <i class="fa-regular fa-moon"></i>
-      </ThemeBtn>
-      <Routes>
-        <Route path="login" element={<LoginForm />} />
-        <Route path="signup" element={<SignupForm />} />
-        <Route element={<ProtectedRoutes isAuth={isAuth} />}>
-          <Route
-            path="/"
-            element={<Home theme={theme} handleDarkMode={handleDarkMode} />}
-          />
-          <Route path="cart" element={<Cart />} />
-          <Route path="store" element={<TechStore />} />
-          <Route path="*" element={<h2>404 Error sorry...</h2>} />
-        </Route>
-      </Routes>
+      <CartCtx.Provider value={{ cart, setCart }}>
+        <ThemeBtn onClick={handleDarkMode}>
+          <i class="fa-regular fa-moon"></i>
+        </ThemeBtn>
+        <Routes>
+          <Route path="login" element={<LoginForm />} />
+          <Route path="signup" element={<SignupForm />} />
+          <Route element={<ProtectedRoutes isAuth={isAuth} />}>
+            <Route
+              path="/"
+              element={<Home theme={theme} handleDarkMode={handleDarkMode} />}
+            />
+            <Route path="cart" element={<Cart />} />
+            <Route path="store" element={<TechStore />} />
+            <Route path="*" element={<h2>404 Error sorry...</h2>} />
+          </Route>
+        </Routes>
+      </CartCtx.Provider>
     </div>
   );
 }

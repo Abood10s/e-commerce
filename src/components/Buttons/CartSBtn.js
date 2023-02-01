@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { CartCtx } from "../../CartContext/CartContext";
 const Cont = styled.button`
   display: flex;
   justify-content: center;
@@ -16,7 +17,8 @@ const Cont = styled.button`
     color: #fff;
   }
 `;
-const CartSBtn = ({ title, icon }) => {
+const CartSBtn = ({ title, icon, id }) => {
+  const { cart } = useContext(CartCtx);
   return (
     <Cont>
       <span>{title || "Remove"}</span>

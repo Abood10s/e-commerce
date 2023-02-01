@@ -1,20 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-import Accordion from "../components/Accordions/Accordion";
-import CategoryAcc from "../components/Accordions/CategoryAcc";
-import RatingAcc from "../components/Accordions/RatingAcc";
 import rating5 from "../components/Accordions/rating1.png";
 import rating4 from "../components/Accordions/rating2.png";
 import rating3 from "../components/Accordions/rating3.png";
 import rating2 from "../components/Accordions/rating4.png";
 
+import Accordion from "../components/Accordions/Accordion";
+import CategoryAcc from "../components/Accordions/CategoryAcc";
+import RatingAcc from "../components/Accordions/RatingAcc";
 import TechCard from "../components/Cards/TechCard";
 import TechStoredata from "../TechStoredata";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import StoreNav from "../components/storenavbar/StoreNav";
 import Pagination from "../components/pagination/Pagination";
+
 const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;

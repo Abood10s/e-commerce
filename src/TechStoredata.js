@@ -8,6 +8,7 @@ import rating4 from "./components/Accordions/rating2.png";
 
 const techstoredata = [
   {
+    id: 1,
     image: t1,
     rating: rating4,
     title: "Canon Cmera EOS 2000, Black 10x zoom",
@@ -17,6 +18,7 @@ const techstoredata = [
     shipping: "Free Shipping",
   },
   {
+    id: 2,
     image: t2,
     rating: rating4,
     title: "Canon Cmera EOS 2000, Black 10x zoom",
@@ -26,6 +28,7 @@ const techstoredata = [
     shipping: "Free Shipping",
   },
   {
+    id: 3,
     image: t3,
     rating: rating4,
     title: "Canon Cmera EOS 2000, Black 10x zoom",
@@ -35,6 +38,7 @@ const techstoredata = [
     shipping: "Free Shipping",
   },
   {
+    id: 4,
     image: t4,
     rating: rating4,
     title: "Canon Cmera EOS 2000, Black 10x zoom",
@@ -44,6 +48,7 @@ const techstoredata = [
     shipping: "Free Shipping",
   },
   {
+    id: 5,
     image: t5,
     rating: rating4,
     title: "Canon Cmera EOS 2000, Black 10x zoom",
@@ -53,6 +58,7 @@ const techstoredata = [
     shipping: "Free Shipping",
   },
   {
+    id: 6,
     image: t6,
     rating: rating4,
     title: "Canon Cmera EOS 2000, Black 10x zoom",

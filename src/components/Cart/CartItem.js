@@ -34,12 +34,14 @@ const Body = styled.div`
   gap: 1em;
 `;
 const Price = styled.h4``;
-const CartItem = ({ img, title, price, body }) => {
+const CartItem = ({ img, title, price, body, id }) => {
   return (
     <CartCont>
       <Img src={img} />
       <Body>
         <Flex>
+          {/* <h4>{id}</h4> */}
+
           <h4>{title}</h4>
           <Price>${price}</Price>
         </Flex>
@@ -50,7 +52,7 @@ const CartItem = ({ img, title, price, body }) => {
           </Select>
         </Flex>
         <Flex2>
-          <CartSBtn />
+          <CartSBtn id={id} />
           <CartMBtn />
         </Flex2>
       </Body>

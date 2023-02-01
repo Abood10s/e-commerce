@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 
 import Footer from "../Footer/Footer";
@@ -10,6 +10,7 @@ import { SubscribeBtn } from "../Footer/Subscribe";
 import CheckCoupon from "../checkcoupon/CheckCoupon";
 
 import herog1data from "../../Herogrid1data";
+import { CartCtx } from "../../CartContext/CartContext";
 const cartitems = herog1data.slice(0, 3);
 
 const Wrapper = styled.div`
@@ -46,20 +47,25 @@ const Buttons = styled.div`
 `;
 
 const Cart = () => {
+  // const [cart, setCart] = useState([]);
+  const { cart } = useContext(CartCtx);
+
   return (
     <Container>
       <Navbar />
-      <Heading title="My Cart (3)" />
+
+      <Heading title={`My cart (${cart.length})`} />
       <Wrapper>
         <Container1>
-          {cartitems.map((item) => {
-            const { image, price } = item;
+          {cart.map((product) => {
+            const { image, title, price, body, id } = product;
             return (
               <CartItem
                 img={image}
-                title={"T-shirts with multiple colors, for men and lady"}
+                title={title}
                 price={price}
-                body={"hey body test hey body test hey body test"}
+                id={id}
+                body={body}
               />
             );
           })}
