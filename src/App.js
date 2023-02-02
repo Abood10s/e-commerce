@@ -24,7 +24,7 @@ const ThemeBtn = styled.button`
 `;
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   let [isDarkMode, setIsDarkMode] = useState(false);
   const [cart, setCart] = useState([]);
 
