@@ -154,8 +154,7 @@ const Cart = () => {
           return <CartCard item={item} key={item.id} />;
         })}
       </CartCards>
-      <SingleProduct />
-      <Tabs />
+
       <Footer />
     </Container>
   );

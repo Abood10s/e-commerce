@@ -6,7 +6,7 @@ import order from "../../assets/navicons/nav2.png";
 import msg from "../../assets/navicons/nav3.png";
 import cart from "../../assets/navicons/nav4.png";
 import menu from "../../assets/navicons/menu.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -153,10 +153,13 @@ const Navbar = ({ theme }) => {
             <Icon src={msg} />
             <Text>Message</Text>
           </NavItem>
-          <NavItem>
-            <Icon src={order} />
-            <Text>Orders</Text>
-          </NavItem>
+          <Link to="/product" style={{ textDecoration: "none" }}>
+            <NavItem>
+              <Icon src={order} />
+              <Text>Orders</Text>
+            </NavItem>
+          </Link>
+
           <Link style={{ textDecoration: "none" }} to="/cart">
             <NavItem>
               <Icon src={cart} />
