@@ -3,6 +3,8 @@ import styled from "styled-components";
 import FormBtn from "../Buttons/FormBtn";
 import FormFooter from "./FormFooter";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import * as Yup from "yup";
 
 import google from "../../assets/form icons/google.png";
 import facebook from "../../assets/form icons/facebook.png";
@@ -18,11 +20,11 @@ export const Container = styled.div`
   padding: 2rem 1rem;
   box-shadow: 0px 0px 10px 2px rgba(32, 32, 32, 0.1);
   border-radius: 5px;
-  @media (max-width: 768px) {
-    width: 90%;
-  }
-  @media (max-width: 1200px) {
+  @media (max-width: 1250px) {
     width: 50%;
+  }
+  @media (max-width: 760px) {
+    width: 80%;
   }
 `;
 
@@ -99,19 +101,63 @@ export const ForgotP = styled.p`
 export const Form = styled.form`
   margin-bottom: 5em;
 `;
+
+const Schema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("you should have an email address"),
+  password: Yup.string().min(6, "Password must be at least 6 characters"),
+});
+
+const Error = styled.p`
+  color: red;
+  margin-bottom: 5px;
+`;
+
 const LoginForm = () => {
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+  const [errors, setErrors] = useState([]);
+
+  const handleChange = (event) => {
+    setValues({
+      ...values,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    Schema.validate(values, { abortEarly: false })
+      .then((valid) => {
+        alert("Submitted Successfully");
+        setErrors([]);
+      })
+      .catch((err) => {
+        setErrors(err.errors);
+      });
+  };
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Container>
+        <p>
+          {errors.map((err) => {
+            return <Error>ــ {err}</Error>;
+          })}
+        </p>
         <Wrapper>
           <Title>Sign in</Title>
           <Inputsec>
-            <InputLabel htmlFor="username">Username</InputLabel>
+            <InputLabel htmlFor="email">email</InputLabel>
             <Input
               type="email"
-              id="username"
+              id="email"
               placeholder="Email or phone"
-              required
+              value={values.email}
+              onChange={handleChange}
             />
           </Inputsec>
           <Inputsec>
@@ -123,8 +169,8 @@ const LoginForm = () => {
               type="password"
               id="password"
               placeholder="Type here"
-              minLength={6}
-              required
+              onChange={handleChange}
+              value={values.password}
             />
           </Inputsec>
           <CheckBox>
