@@ -17,6 +17,7 @@ import img2 from "../assets/cartimages/04.png";
 import img3 from "../assets/cartimages/07.png";
 import img4 from "../assets/cartimages/09.png";
 import CartCard from "../components/Cards/CartCard";
+import SingleProduct from "../components/SingleProduct/SingleProduct";
 
 const cards = [
   {
@@ -153,6 +154,7 @@ const Cart = () => {
           return <CartCard item={item} key={item.id} />;
         })}
       </CartCards>
+      <SingleProduct />
       <Tabs />
       <Footer />
     </Container>

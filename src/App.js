@@ -10,6 +10,7 @@ import ProtectedRoutes from "./components/utills/ProtectedRoutes";
 import Home from "./pages/Home";
 import TechStore from "./pages/TechStore";
 import { CartCtx } from "./CartContext/CartContext";
+import SingleProduct from "./components/SingleProduct/SingleProduct";
 
 const ThemeBtn = styled.button`
   border: none;
@@ -62,6 +63,8 @@ function App() {
             />
             <Route path="cart" element={<Cart />} />
             <Route path="store" element={<TechStore />} />
+            <Route path="product" element={<SingleProduct />} />
+
             <Route path="*" element={<h2>404 Error sorry...</h2>} />
           </Route>
         </Routes>

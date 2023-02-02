@@ -22,10 +22,10 @@ const Txt = styled.p`
   font-weight: bold;
 `;
 const Total = styled.div``;
-const Red = styled(Txt)`
+export const Red = styled(Txt)`
   color: #fa3434;
 `;
-const Green = styled(Txt)`
+export const Green = styled(Txt)`
   color: #00b517;
 `;
 const Prices = styled.div`

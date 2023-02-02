@@ -61,12 +61,29 @@ const SContainer2 = styled.div`
 `;
 const Body = styled.div`
   margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 `;
 const Txt = styled.p`
   display: flex;
   align-items: center;
   color: #505050;
   gap: 0.5rem;
+  margin: 0.5rem 0;
+`;
+const Table = styled.div`
+  width: 60%;
+`;
+const TableItem = styled.div`
+  border: 1px solid #e3e8ee;
+  display: flex;
+`;
+const Colored = styled.p`
+  background-color: #eff2f4;
+  border: 1px solid #e3e8ee;
+  padding: 0.5rem 0;
+  width: 40%;
 `;
 const Tabs = () => {
   return (
@@ -92,7 +109,30 @@ const Tabs = () => {
             reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur.
           </div>
-          <div></div>
+          <div>
+            <Table>
+              <TableItem>
+                <Colored>Model</Colored>
+                <p>#8786867</p>
+              </TableItem>
+              <TableItem>
+                <Colored>Style </Colored>
+                <p>Classic style</p>
+              </TableItem>
+              <TableItem>
+                <Colored>Certificate</Colored>
+                <p>Certificate</p>
+              </TableItem>
+              <TableItem>
+                <Colored>Size </Colored>
+                <p>34mm x 450mm x 19mm</p>
+              </TableItem>
+              <TableItem>
+                <Colored>Memory</Colored>
+                <p>36GB RAM</p>
+              </TableItem>
+            </Table>
+          </div>
           <div>
             <Txt>
               <i class="fa-sharp fa-solid fa-check"></i>
