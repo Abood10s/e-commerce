@@ -16,6 +16,8 @@ import herog2data from "../Herogrid2data";
 
 import herog11 from "../assets/herogrid1/herog1.png";
 import herog21 from "../assets/herogrid2/herog21.png";
+import Time from "../components/time/Time";
+import Offers from "../components/offers/Offers";
 
 const Container = styled.div`
   background-color: ${(props) => props.theme.primaryClr};
@@ -27,6 +29,7 @@ const Home = ({ theme }) => {
     <Container theme={theme}>
       <Navbar theme={theme} />
       <HomeBanner theme={theme} />
+      <Offers />
       <HeroGrid himg={herog11} data={herog1data} theme={theme} />
       <HeroGrid himg={herog21} data={herog2data} theme={theme} />
       <QuoteForm />

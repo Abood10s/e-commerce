@@ -16,10 +16,20 @@ import {
   Form,
 } from "./LoginForm";
 const FWrapper = styled(Wrapper)`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  @media (max-width: 900px) {
+    width: 100%;
+    flex-direction: column;
+  }
 `;
 const InputCont = styled.div`
   display: flex;
+  gap: 0.5rem;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 `;
 const WrapperS = styled(Wrapper)``;
 const InputC = styled(Input)``;
@@ -55,10 +65,10 @@ const SignupForm = () => {
               <InputLabel>Name</InputLabel>
               <InputC placeholder="type here" required />
             </FWrapper>
-            <Wrapper>
+            <FWrapper>
               <InputLabel>Surname</InputLabel>
               <InputC placeholder="type here" required />
-            </Wrapper>
+            </FWrapper>
           </InputCont>
           <Inputsec>
             <InputLabel>Your e-mail </InputLabel>

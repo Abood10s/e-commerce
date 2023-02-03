@@ -4,7 +4,7 @@ import HeroItem from "../HeroItem";
 import herog1data from "../../Herogrid1data";
 import herog1 from "../../assets/herogrid1/herog1.png";
 import { Link } from "react-router-dom";
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 80%;
   display: flex;
   margin: 2rem auto;
