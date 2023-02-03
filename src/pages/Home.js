@@ -29,7 +29,7 @@ const Home = ({ theme }) => {
     <Container theme={theme}>
       <Navbar theme={theme} />
       <HomeBanner theme={theme} />
-      <Offers />
+      <Offers theme={theme} />
       <HeroGrid himg={herog11} data={herog1data} theme={theme} />
       <HeroGrid himg={herog21} data={herog2data} theme={theme} />
       <QuoteForm />

@@ -20,7 +20,8 @@ const items = [
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 280px 3fr;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
   width: 80%;
   margin: 2rem auto;
   border: 1px solid #e3e8ee;
@@ -55,9 +56,9 @@ const Text = styled.div`
   flex-direction: column;
   gap: 0.3rem;
 `;
-const Offers = () => {
+const Offers = ({ theme }) => {
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <Offer>
         <Text>
           <h3>Deals and offers</h3>
