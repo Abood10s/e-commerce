@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import RecomCard from "../Cards/RecomCard";
 import recommended from "../../RecommData";
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
   display: grid;

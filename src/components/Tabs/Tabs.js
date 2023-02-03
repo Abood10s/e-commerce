@@ -58,6 +58,7 @@ const SContainer2 = styled.div`
   border-radius: 4px;
   padding: 1rem;
   border: 1px solid #e3e8ee;
+  height: fit-content;
 `;
 const Body = styled.div`
   margin: 1rem 0;

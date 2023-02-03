@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import OfferCard from "../Cards/OfferCard";
-import { P } from "../herogrid/HeroGrid";
 import Time from "../time/Time";
 
 import i1 from "./11.png";
@@ -15,11 +14,12 @@ const items = [
   { img: i2, cat: "Laptops", disc: "-15%" },
   { img: i3, cat: "GoPro cameras", disc: "-40%" },
   { img: i4, cat: "Headphones", disc: "-25%" },
-  { img: i5, cat: "Canon camreras", disc: "-25%" },
+  { img: i5, cat: "Canon cameras", disc: "-25%" },
 ];
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 280px 3fr;
+  background-color: #fff;
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
   width: 80%;

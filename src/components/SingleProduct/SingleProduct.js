@@ -18,6 +18,9 @@ import sheild from "../../assets/singleproduct/sheild.png";
 import Navbar from "../navbar/Navbar";
 import Footer from "../Footer/Footer";
 import Tabs from "../Tabs/Tabs";
+import Discount from "../discount/Discount";
+import RelatedPRoducts from "../RelatedPRoducts/RelatedPRoducts";
+import Heading from "../heading/Heading";
 
 const images = [i2, i3, i4, i5, i6, i7];
 
@@ -230,6 +233,9 @@ const SingleProduct = () => {
         </Cont3>
       </Wrapper>
       <Tabs />
+      <Heading title="Related products" />
+      <RelatedPRoducts />
+      <Discount />
       <Footer />
     </>
   );

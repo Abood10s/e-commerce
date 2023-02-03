@@ -6,15 +6,29 @@ import order from "../../assets/navicons/nav2.png";
 import msg from "../../assets/navicons/nav3.png";
 import cart from "../../assets/navicons/nav4.png";
 import menu from "../../assets/navicons/menu.png";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
   overflow-x: auto;
+  background-color: #fff;
+
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
-  position: sticky;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  margin-bottom: 1rem;
+`;
+const SContainer = styled.div`
+  width: 100%;
+  box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
+  overflow-x: auto;
+  background-color: ${(props) => props.theme.primaryClr};
+  color: ${(props) => props.theme.secondaryClr};
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -22,6 +36,7 @@ const Wrapper = styled.div`
   width: 80%;
   margin: auto;
   padding: 1rem 0;
+
   @media (max-width: 768px) {
     width: 100%;
     padding: 0.8rem 0.5rem;
@@ -128,6 +143,7 @@ const Flex2 = styled.div`
 `;
 
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
+
 const Navbar = ({ theme }) => {
   return (
     <Container theme={theme}>
@@ -168,7 +184,7 @@ const Navbar = ({ theme }) => {
           </Link>
         </Controls>
       </Wrapper>
-      <Container theme={theme}>
+      <SContainer theme={theme}>
         <SWrapper>
           <Flex1>
             <Flex1>
@@ -194,7 +210,7 @@ const Navbar = ({ theme }) => {
             </SCategories>
           </Flex2>
         </SWrapper>
-      </Container>
+      </SContainer>
     </Container>
   );
 };

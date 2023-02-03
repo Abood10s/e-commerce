@@ -16,7 +16,6 @@ import herog2data from "../Herogrid2data";
 
 import herog11 from "../assets/herogrid1/herog1.png";
 import herog21 from "../assets/herogrid2/herog21.png";
-import Time from "../components/time/Time";
 import Offers from "../components/offers/Offers";
 
 const Container = styled.div`

@@ -33,7 +33,7 @@ function App() {
   const theme = currentTheme
     ? {
         primaryClr: "#2C3333",
-        secondaryClr: "#E7F6F2",
+        secondaryClr: "#C8C8C8",
       }
     : {};
   useEffect(() => {
