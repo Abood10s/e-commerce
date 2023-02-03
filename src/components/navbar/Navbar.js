@@ -92,6 +92,19 @@ export const Text = styled.p`
   cursor: pointer;
   display: inline-block;
 `;
+export const TText = styled.p`
+  color: #8b96a5;
+  font-weight: 550;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  @media (max-width: 1020px) {
+    background-color: #eff2f4;
+    border-radius: 5px;
+    color: #0d6efd;
+    padding: 0.2rem 0.6rem;
+  }
+`;
 const Search = styled.input`
   padding: 0 0.5rem;
   outline: none;
@@ -132,8 +145,8 @@ const Flex1 = styled.div`
   align-items: center;
   gap: 1em;
 
-  @media (max-width: 768px) {
-    gap: 2em;
+  @media (max-width: 1020px) {
+    gap: 0.2rem;
   }
 `;
 const Flex2 = styled.div`
@@ -188,12 +201,12 @@ const Navbar = ({ theme }) => {
         <SWrapper>
           <Flex1>
             <Flex1>
-              <Icon src={menu} />
-              <Text>All category</Text>
+              {/* <Icon src={menu} /> */}
+              <TText>All category</TText>
             </Flex1>
             <Controls>
               {list.map((item) => (
-                <Text key={item}>{item}</Text>
+                <TText key={item}>{item}</TText>
               ))}
             </Controls>
             <SCategories>
