@@ -151,7 +151,6 @@ const Flex1 = styled.div`
 `;
 const Flex2 = styled.div`
   display: flex;
-
   gap: 1em;
 `;
 

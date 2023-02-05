@@ -10,6 +10,12 @@ const Cont = styled.div`
   border: 1px solid #e3e8ee;
   padding: 1em;
   flex: 1;
+  cursor: pointer;
+  transition: 0.2s linear;
+  &:hover {
+    flex: 1.2;
+    border: none;
+  }
 `;
 const Disc = styled.div`
   background-color: #ffe3e3;
