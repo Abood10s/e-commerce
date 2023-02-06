@@ -13,7 +13,7 @@ const Cont = styled.div`
   cursor: pointer;
   transition: 0.2s linear;
   &:hover {
-    flex: 1.2;
+    flex: 1.3;
     border: none;
   }
 `;

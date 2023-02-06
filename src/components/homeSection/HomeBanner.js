@@ -79,6 +79,8 @@ const cats = [
   "More category",
 ];
 const HomeBanner = ({ theme }) => {
+  const name = localStorage.getItem("name");
+
   return (
     <Wrapper theme={theme}>
       <List theme={theme}>
@@ -100,10 +102,10 @@ const HomeBanner = ({ theme }) => {
         <Cont>
           <User>
             <IIcon src={Avatar} />
-            <h4>Hi, user let’s get started</h4>
+            <h4>Hi, {name} </h4>
           </User>
-          <BannerBtn bg="#0D6EFD" clr="#FFFFFF" txt="Join now" />
-          <BannerBtn bg="#FFFFFF" clr="#0D6EFD" txt="Log in" />
+          <BannerBtn bg="#0D6EFD" clr="#FFFFFF" txt={name && "shop now"} />
+          <BannerBtn bg="#FFFFFF" clr="#0D6EFD" txt={name && "See Offers"} />
         </Cont>
         <ColoredDiv bg="#F38332" txt="Get US $10 off with a new supplier" />
         <ColoredDiv bg="#55BDC3" txt="Send quotes with supplier preferences" />

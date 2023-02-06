@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import TheLogo from "../../assets/form icons/thelogo.png";
 import profile from "../../assets/navicons/nav1.png";
 import order from "../../assets/navicons/nav2.png";
 import msg from "../../assets/navicons/nav3.png";
 import cart from "../../assets/navicons/nav4.png";
-import menu from "../../assets/navicons/menu.png";
+import { AuthCtx } from "../../CartContext/AuthContext";
+
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -33,10 +34,11 @@ const SContainer = styled.div`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 80%;
   margin: auto;
   padding: 1rem 0;
-
+  gap: 0.5rem;
   @media (max-width: 768px) {
     width: 100%;
     padding: 0.8rem 0.5rem;
@@ -82,7 +84,7 @@ const SearchWrap = styled.div`
   border-radius: 8px;
   overflow: hidden;
   border: 2px solid #0d6efd;
-  @media (max-width: 768px) {
+  @media (max-width: 1100px) {
     display: none;
   }
 `;
@@ -153,10 +155,19 @@ const Flex2 = styled.div`
   display: flex;
   gap: 1em;
 `;
-
+const LogOutBtn = styled.button`
+  background-color: #123;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  height: fit-content;
+  cursor: pointer;
+  border-radius: 4px;
+`;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
 const Navbar = ({ theme }) => {
+  const name = localStorage.getItem("name");
+  const { logout, isAuth } = useContext(AuthCtx);
   return (
     <Container theme={theme}>
       <Wrapper>
@@ -175,7 +186,7 @@ const Navbar = ({ theme }) => {
         <Controls>
           <NavItem>
             <Icon src={profile} />
-            <Text>Profile</Text>
+            <Text>{name}</Text>
           </NavItem>
           <NavItem>
             <Icon src={msg} />
@@ -195,6 +206,11 @@ const Navbar = ({ theme }) => {
             </NavItem>
           </Link>
         </Controls>
+        {isAuth && (
+          <LogOutBtn type="button" onClick={logout}>
+            Log out
+          </LogOutBtn>
+        )}
       </Wrapper>
       <SContainer theme={theme}>
         <SWrapper>

@@ -11,6 +11,8 @@ import Home from "./pages/Home";
 import TechStore from "./pages/TechStore";
 import { CartCtx } from "./CartContext/CartContext";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
+import { AuthCtx } from "./CartContext/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const ThemeBtn = styled.button`
   border: none;
@@ -25,9 +27,18 @@ const ThemeBtn = styled.button`
 `;
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   let [isDarkMode, setIsDarkMode] = useState(false);
   const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
+
+  const login = () => {
+    setIsAuth(true);
+  };
+  const logout = () => {
+    localStorage.clear();
+    setIsAuth(false);
+  };
 
   const currentTheme = localStorage.getItem("theme");
   const theme = currentTheme
@@ -46,28 +57,33 @@ function App() {
     setIsDarkMode(!isDarkMode);
     isDarkMode ? localStorage.setItem("theme", "dark") : localStorage.clear();
   };
-
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("/");
+  }, []);
   return (
     <div className="App">
       <CartCtx.Provider value={{ cart, setCart }}>
-        <ThemeBtn onClick={handleDarkMode}>
-          <i class="fa-regular fa-moon"></i>
-        </ThemeBtn>
-        <Routes>
-          <Route path="login" element={<LoginForm />} />
-          <Route path="signup" element={<SignupForm />} />
-          <Route element={<ProtectedRoutes isAuth={isAuth} />}>
-            <Route
-              path="/"
-              element={<Home theme={theme} handleDarkMode={handleDarkMode} />}
-            />
-            <Route path="cart" element={<Cart />} />
-            <Route path="store" element={<TechStore />} />
-            <Route path="product" element={<SingleProduct />} />
+        <AuthCtx.Provider value={{ login, logout, setIsAuth, isAuth }}>
+          <ThemeBtn onClick={handleDarkMode}>
+            <i class="fa-regular fa-moon"></i>
+          </ThemeBtn>
+          <Routes>
+            <Route path="login" element={<LoginForm />} />
+            <Route path="signup" element={<SignupForm />} />
+            <Route element={<ProtectedRoutes isAuth={isAuth} />}>
+              <Route
+                path="/"
+                element={<Home theme={theme} handleDarkMode={handleDarkMode} />}
+              />
+              <Route path="cart" element={<Cart />} />
+              <Route path="store" element={<TechStore />} />
+              <Route path="product" element={<SingleProduct />} />
 
-            <Route path="*" element={<h2>404 Error sorry...</h2>} />
-          </Route>
-        </Routes>
+              <Route path="*" element={<h2>404 Error sorry...</h2>} />
+            </Route>
+          </Routes>
+        </AuthCtx.Provider>
       </CartCtx.Provider>
     </div>
   );
