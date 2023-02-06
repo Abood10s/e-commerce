@@ -133,11 +133,12 @@ const LoginForm = () => {
       [event.target.id]: event.target.value,
     });
   };
-
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) login();
-  }, []);
+    if (token) {
+      login();
+    }
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
 
