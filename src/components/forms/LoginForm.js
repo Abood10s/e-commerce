@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import FormBtn from "../Buttons/FormBtn";
 import FormFooter from "./FormFooter";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as Yup from "yup";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
+import { API_URL } from "../../config/API";
 import google from "../../assets/form icons/google.png";
 import facebook from "../../assets/form icons/facebook.png";
 import ContFormBtn from "../Buttons/ContFormBtn";
+import { AuthCtx } from "../../CartContext/AuthContext";
 
 export const Container = styled.div`
   display: flex;
@@ -16,7 +20,7 @@ export const Container = styled.div`
   align-items: center;
   background-color: #ffffff;
   width: 30%;
-  margin: 2rem auto;
+  margin: 0.5rem auto;
   padding: 2rem 1rem;
   box-shadow: 0px 0px 10px 2px rgba(32, 32, 32, 0.1);
   border-radius: 5px;
@@ -109,18 +113,20 @@ const Schema = Yup.object().shape({
   password: Yup.string().min(6, "Password must be at least 6 characters"),
 });
 
-const Error = styled.p`
+export const Error = styled.p`
   color: red;
   margin-bottom: 5px;
 `;
 
 const LoginForm = () => {
+  const { login } = useContext(AuthCtx);
+
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
   const [errors, setErrors] = useState([]);
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
     setValues({
       ...values,
@@ -128,23 +134,43 @@ const LoginForm = () => {
     });
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("/");
+  }, []);
   const handleSubmit = (event) => {
     event.preventDefault();
 
     Schema.validate(values, { abortEarly: false })
-      .then((valid) => {
-        alert("Submitted Successfully");
-        setErrors([]);
+      .then(async ({ password }) => {
+        const res = await axios.post(`${API_URL}/users/login`, {
+          email: values.email,
+          password,
+        });
+
+        if (res) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("isAdmin", res.data.isAdmin);
+          localStorage.setItem("name", res.data.name);
+          login();
+          navigate("/");
+        }
       })
-      .catch((err) => {
-        setErrors(err.errors);
+      .catch((error) => {
+        if (error.errors) {
+          setErrors(...errors, error.errors);
+          console.log(error);
+        } else {
+          setErrors(...errors, [error.message]);
+          console.log(error);
+        }
       });
   };
   return (
     <Form onSubmit={handleSubmit}>
       <Container>
         <p>
-          {errors.map((err) => {
+          {errors?.map((err) => {
             return <Error>ــ {err}</Error>;
           })}
         </p>

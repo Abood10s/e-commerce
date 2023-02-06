@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HeroItem from "../HeroItem";
-import herog1data from "../../Herogrid1data";
-import herog1 from "../../assets/herogrid1/herog1.png";
+
 import { Link } from "react-router-dom";
 export const Wrapper = styled.div`
   width: 80%;
@@ -52,7 +51,7 @@ export const Button = styled.button`
 const HeroGrid = ({ himg, data, theme }) => {
   return (
     <Wrapper>
-      <HeroImg himg={himg}>
+      <HeroImg himg={himg} alt="main">
         <P>Home and outdoor</P>
         <Link to="/store">
           <Button>Source now</Button>
@@ -62,7 +61,13 @@ const HeroGrid = ({ himg, data, theme }) => {
         {data.map((item) => {
           const { image, title, price } = item;
           return (
-            <HeroItem img={image} title={title} price={price} theme={theme} />
+            <HeroItem
+              img={image}
+              title={title}
+              price={price}
+              theme={theme}
+              key={image}
+            />
           );
         })}
       </Container>

@@ -23,9 +23,17 @@ export const Wrapper = styled.div`
 const RecomGrid = ({ theme }) => {
   return (
     <Wrapper>
-      {recommended.map((item) => {
+      {recommended.map((item, index) => {
         const { img, body, price } = item;
-        return <RecomCard img={img} price={price} body={body} theme={theme} />;
+        return (
+          <RecomCard
+            img={img}
+            price={price}
+            body={body}
+            theme={theme}
+            key={index}
+          />
+        );
       })}
     </Wrapper>
   );

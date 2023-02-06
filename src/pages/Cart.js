@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { CartCtx } from "../CartContext/CartContext";
@@ -10,14 +10,12 @@ import CartItem from "../components/Cart/CartItem";
 import CartMBtn from "../components/Buttons/CartMBtn";
 import { SubscribeBtn } from "../components/Footer/Subscribe";
 import CheckCoupon from "../components/checkcoupon/CheckCoupon";
-import Tabs from "../components/Tabs/Tabs";
 
 import img1 from "../assets/cartimages/03.png";
 import img2 from "../assets/cartimages/04.png";
 import img3 from "../assets/cartimages/07.png";
 import img4 from "../assets/cartimages/09.png";
 import CartCard from "../components/Cards/CartCard";
-import SingleProduct from "../components/SingleProduct/SingleProduct";
 import Discount from "../components/discount/Discount";
 
 const cards = [

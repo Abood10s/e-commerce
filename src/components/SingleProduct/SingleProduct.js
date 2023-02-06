@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import BannerBtn from "../homeSection/BannerBtn";
-import { Green, Red } from "../checkcoupon/Bill";
+import { Green } from "../checkcoupon/Bill";
 
 import i1 from "../../assets/singleproduct/1.png";
 import i2 from "../../assets/singleproduct/2.png";
@@ -149,10 +149,10 @@ const SingleProduct = () => {
             <BigImg src={img} alt="main T-shirt" />
           </MainImg>
           <Smallimages>
-            {images.map((img) => {
+            {images.map((img, index) => {
               return (
                 <Img
-                  key={img}
+                  key={index}
                   src={img}
                   alt="main T-shirt"
                   onClick={() => setImg(img)}

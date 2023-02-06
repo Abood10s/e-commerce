@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import * as Yup from "yup";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AuthCtx } from "../../CartContext/AuthContext";
 
+import { API_URL } from "../../config/API";
+import { Error } from "./LoginForm";
 import styled from "styled-components";
 import FormBtn from "../Buttons/FormBtn";
 import FormFooter from "./FormFooter";
@@ -54,16 +60,85 @@ const SelectCont = styled.div`
   display: grid;
   grid-template-columns: 80px 1fr;
 `;
+
+const schema = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email().required(),
+  password: Yup.string().min(6).required(),
+  repeatPassword: Yup.string().oneOf(
+    [Yup.ref("password")],
+    "Passwords must match"
+  ),
+});
+
 const SignupForm = () => {
+  const { login } = useContext(AuthCtx);
+  const navigate = useNavigate();
+
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    password: "",
+    repeatPassword: "",
+  });
+  const [errors, setErrors] = useState([]);
+
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("/");
+  }, []);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    schema
+      .validate(values, { abortEarly: false })
+      .then(async ({ name, password }) => {
+        const res = await axios.post(`${API_URL}/users/signup`, {
+          name,
+          email: values.email,
+          password,
+        });
+
+        if (res) {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("isAdmin", res.data.isAdmin);
+          localStorage.setItem("name", res.data.name);
+          login();
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        if (error.errors) {
+          setErrors(...errors, error.errors);
+        } else {
+          setErrors(...errors, [error.message]);
+        }
+      });
+  };
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <Container>
+        <p>
+          {errors?.map((err) => {
+            return <Error>ــ {err}</Error>;
+          })}
+        </p>
         <WrapperS>
           <Title>Register</Title>
           <InputCont>
             <FWrapper>
               <InputLabel>Name</InputLabel>
-              <InputC placeholder="type here" required />
+              <InputC
+                name="name"
+                value={values.name}
+                onChange={handleChange}
+                placeholder="Type your name here"
+              />
             </FWrapper>
             <FWrapper>
               <InputLabel>Surname</InputLabel>
@@ -72,7 +147,13 @@ const SignupForm = () => {
           </InputCont>
           <Inputsec>
             <InputLabel>Your e-mail </InputLabel>
-            <InputC type="email" placeholder="example@mail.com" required />
+            <InputC
+              type="email"
+              name="email"
+              placeholder="example@mail.com"
+              value={values.email}
+              onChange={handleChange}
+            />
           </Inputsec>
           <Inputsec>
             <InputLabel>Phone </InputLabel>
@@ -679,7 +760,6 @@ const SignupForm = () => {
                   <option data-countrycode="GB" value="44">
                     UK (+44)
                   </option>{" "}
-                  -->
                   <option data-countrycode="UA" value="380">
                     Ukraine (+380)
                   </option>
@@ -692,7 +772,6 @@ const SignupForm = () => {
                   <option data-countrycode="US" value="1">
                     USA (+1)
                   </option>{" "}
-                  -->
                   <option data-countrycode="UZ" value="7">
                     Uzbekistan (+7)
                   </option>
@@ -731,25 +810,27 @@ const SignupForm = () => {
                   </option>
                 </optgroup>
               </Select>
-              <InputC type="tel" placeholder="00-000-00-00" required />
+              <InputC type="tel" placeholder="00-000-00-00" />
             </SelectCont>
           </Inputsec>
           <Inputsec>
             <InputLabel>Password</InputLabel>
             <InputC
               type="password"
-              minLength={6}
+              name="password"
               placeholder="At least 6 characters."
-              required
+              value={values.password}
+              onChange={handleChange}
             />
           </Inputsec>
           <Inputsec>
             <InputLabel>Repeat password</InputLabel>
             <InputC
-              placeholder="type here"
               type="password"
-              minLength={6}
-              required
+              name="repeatPassword"
+              placeholder="type here"
+              value={values.repeatPassword}
+              onChange={handleChange}
             />
           </Inputsec>
           <FormBtn title="Register now" />

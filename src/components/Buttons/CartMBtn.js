@@ -20,7 +20,7 @@ const Cont = styled.button`
   }
 `;
 const CartMBtn = ({ title, icon }) => {
-  const { cart, setCart } = useContext(CartCtx);
+  const { setCart } = useContext(CartCtx);
   return (
     <Cont onClick={() => setCart([])}>
       {icon && (

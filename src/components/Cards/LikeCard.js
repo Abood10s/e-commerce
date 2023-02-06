@@ -26,7 +26,7 @@ const LikeCard = ({ item }) => {
   return (
     <Wrap>
       <Flex1>
-        <img src={img} />
+        <img src={img} alt="Like" />
       </Flex1>
       <Flex2>
         <h5>{title}</h5>

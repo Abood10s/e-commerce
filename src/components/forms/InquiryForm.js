@@ -13,8 +13,7 @@ const Select = styled.select`
   outline: none;
   border-radius: 5px;
 `;
-const Text = styled.h2``;
-const Text2 = styled.p``;
+
 const Wrap2 = styled.form`
   display: flex;
   flex-direction: column;
