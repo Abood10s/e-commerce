@@ -59,7 +59,7 @@ function App() {
           <Routes>
             <Route path="login" element={<LoginForm />} />
             <Route path="signup" element={<SignupForm />} />
-            <Route element={<ProtectedRoutes isAuth={isAuth} />}>
+            <Route element={<ProtectedRoutes />}>
               <Route
                 path="/"
                 element={

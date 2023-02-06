@@ -136,7 +136,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) navigate("/");
+    if (token) login();
   }, []);
   const handleSubmit = (event) => {
     event.preventDefault();

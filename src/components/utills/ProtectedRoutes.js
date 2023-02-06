@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Outlet } from "react-router-dom";
+import { AuthCtx } from "../../CartContext/AuthContext";
 import LoginForm from "../forms/LoginForm";
 
-const ProtectedRoutes = ({ isAuth }) => {
+const ProtectedRoutes = () => {
+  const { isAuth } = useContext(AuthCtx);
+
   return isAuth ? <Outlet /> : <LoginForm />;
 };
 
