@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Wrapper, Container1 } from "../../pages/Cart";
-import { Container2 } from "../../pages/Cart";
 
 import img1 from "../../assets/Singleproductimgs/1.png";
 import img2 from "../../assets/Singleproductimgs/2.png";

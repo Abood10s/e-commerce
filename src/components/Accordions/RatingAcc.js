@@ -48,7 +48,7 @@ const RatingAcc = ({ title, data }) => {
             return (
               <InputWrap>
                 <input type="checkbox" id={item} />
-                <img src={item} />
+                <img src={item} alt="stars" />
               </InputWrap>
             );
           })}

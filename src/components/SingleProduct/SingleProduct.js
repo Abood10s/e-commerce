@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import BannerBtn from "../homeSection/BannerBtn";
-import { Green, Red } from "../checkcoupon/Bill";
+import { Green } from "../checkcoupon/Bill";
 
 import i1 from "../../assets/singleproduct/1.png";
 import i2 from "../../assets/singleproduct/2.png";

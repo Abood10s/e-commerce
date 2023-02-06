@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { HeroImg, Button, P } from "../herogrid/HeroGrid";
+import { HeroImg, Button } from "../herogrid/HeroGrid";
 import ColoredDiv from "./ColoredDiv";
 import BannerBtn from "./BannerBtn";
 

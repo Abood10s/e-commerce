@@ -72,7 +72,7 @@ const schema = Yup.object().shape({
 });
 
 const SignupForm = () => {
-  const { login, setIsAuth } = useContext(AuthCtx);
+  const { login } = useContext(AuthCtx);
   const navigate = useNavigate();
 
   const [values, setValues] = useState({
@@ -92,7 +92,7 @@ const SignupForm = () => {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) navigate("/");
-  });
+  }, []);
   const handleSubmit = async (event) => {
     event.preventDefault();
     schema
