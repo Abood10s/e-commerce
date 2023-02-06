@@ -119,7 +119,7 @@ export const Error = styled.p`
 `;
 
 const LoginForm = () => {
-  const { login, setIsAuth } = useContext(AuthCtx);
+  const { login } = useContext(AuthCtx);
 
   const [values, setValues] = useState({
     email: "",

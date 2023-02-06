@@ -32,11 +32,11 @@ const Container = styled.div`
   color: ${(props) => props.theme.secondaryClr};
 `;
 
-const Home = ({ theme }) => {
+const Home = ({ theme, handleDarkMode }) => {
   return (
     <Container theme={theme}>
       <Suspense fallback={<Skeleton count={1} height={100} />}>
-        <Navbar theme={theme} />
+        <Navbar theme={theme} handleDarkMode={handleDarkMode} />
       </Suspense>
       <Suspense fallback={<Skeleton count={1} height={100} />}>
         <HomeBanner theme={theme} />

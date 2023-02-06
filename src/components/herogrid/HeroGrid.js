@@ -61,7 +61,13 @@ const HeroGrid = ({ himg, data, theme }) => {
         {data.map((item) => {
           const { image, title, price } = item;
           return (
-            <HeroItem img={image} title={title} price={price} theme={theme} />
+            <HeroItem
+              img={image}
+              title={title}
+              price={price}
+              theme={theme}
+              key={image}
+            />
           );
         })}
       </Container>

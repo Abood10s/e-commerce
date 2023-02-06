@@ -162,10 +162,19 @@ const LogOutBtn = styled.button`
   height: fit-content;
   cursor: pointer;
   border-radius: 4px;
+  border: none;
+`;
+const ThemeBtn = styled.button`
+  padding: 0.3rem 1rem;
+  background-color: #123;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
 `;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
-const Navbar = ({ theme }) => {
+const Navbar = ({ theme, handleDarkMode }) => {
   const name = localStorage.getItem("name");
   const { logout, isAuth } = useContext(AuthCtx);
   return (
@@ -227,6 +236,7 @@ const Navbar = ({ theme }) => {
             <SCategories>
               <option value="All Categoreis">All Categoreis</option>
             </SCategories>
+            <ThemeBtn onClick={handleDarkMode}>Toggle Theme</ThemeBtn>
           </Flex1>
 
           <Flex2>

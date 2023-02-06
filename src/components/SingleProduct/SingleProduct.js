@@ -149,10 +149,10 @@ const SingleProduct = () => {
             <BigImg src={img} alt="main T-shirt" />
           </MainImg>
           <Smallimages>
-            {images.map((img) => {
+            {images.map((img, index) => {
               return (
                 <Img
-                  key={img}
+                  key={index}
                   src={img}
                   alt="main T-shirt"
                   onClick={() => setImg(img)}
