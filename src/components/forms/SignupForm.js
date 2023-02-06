@@ -91,8 +91,10 @@ const SignupForm = () => {
   };
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) login();
-  }, []);
+    if (token) {
+      login();
+    }
+  });
   const handleSubmit = async (event) => {
     event.preventDefault();
     schema
