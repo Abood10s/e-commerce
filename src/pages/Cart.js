@@ -97,18 +97,31 @@ const Warning = styled.h4`
   margin: 1rem auto;
 `;
 const EmptyCart = styled.div`
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: space-between;
   width: 100%;
+`;
+const Img = styled.img`
+  display: block;
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  margin: 0 auto;
+  @media (max-width: 650px) {
+    height: 290px;
+    width: 290px;
+  }
 `;
 const Cart = () => {
   const { cart } = useContext(CartCtx);
+
   return (
     <Container>
       <Navbar />
-
       <Heading title={`My cart (${cart.length})`} />
+
       <Wrapper>
         <Container1>
           {cart.map((product) => {
@@ -134,14 +147,22 @@ const Cart = () => {
               <CartMBtn title="Remove all" />
             </Buttons>
           ) : (
-            <EmptyCart>
-              <Warning> You Don't Have Any Thing In Your Cart</Warning>
-              <Link to="/store" style={{ textDecoration: "none" }}>
-                <SubscribeBtn>
-                  <i class="fa-solid fa-arrow-left-long"></i>Back to shop
-                </SubscribeBtn>
-              </Link>
-            </EmptyCart>
+            <>
+              <Img
+                src="
+                https://shop.millenniumbooksource.com/static/images/cart1.png
+                "
+                alt="empty cart"
+              />
+              <EmptyCart>
+                <Warning> You Don't Have Any Thing In Your Cart</Warning>
+                <Link to="/store" style={{ textDecoration: "none" }}>
+                  <SubscribeBtn>
+                    <i class="fa-solid fa-arrow-left-long"></i>Back to shop
+                  </SubscribeBtn>
+                </Link>
+              </EmptyCart>
+            </>
           )}
         </Container1>
         <Container2>{cart.length !== 0 ? <CheckCoupon /> : ""}</Container2>
