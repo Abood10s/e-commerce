@@ -48,7 +48,12 @@ const StoreNav = () => {
       <Flex>
         <div>
           <CheckBox>
-            <Input type="checkbox" name="check" id="check" checked />
+            <Input
+              type="checkbox"
+              name="check"
+              id="check"
+              defaultChecked={true}
+            />
             <InputLabel htmlFor="check">Remember me</InputLabel>
           </CheckBox>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import { IconsWrapper, Icon } from "../forms/FormFooter";
@@ -7,6 +7,7 @@ import americanex from "../../assets/form icons/americanex.png";
 import visa from "../../assets/form icons/visa.png";
 import mastercard from "../../assets/form icons/mastercard.png";
 import paypal from "../../assets/form icons/paypal.png";
+import { CartCtx } from "../../CartContext/CartContext";
 
 const BillCont = styled.div`
   background-color: #fff;
@@ -48,26 +49,35 @@ const IIconsWrapper = styled(IconsWrapper)`
   justify-content: center;
 `;
 const Bill = () => {
+  const { cart } = useContext(CartCtx);
+  const Discount = 60.0;
+  const Tax = 14.0;
+  const getTotalPrice = (cart) => {
+    return cart.reduce((total, item) => {
+      return Number(total) + parseFloat(item.price);
+    }, 0);
+  };
+  let finalPrice = getTotalPrice(cart) - Discount + Tax;
   return (
     <BillCont>
       <Prices>
         <Txt>
           <p>Subtotal:</p>
-          <p>$1403.97</p>
+          <p>${getTotalPrice(cart)}</p>
         </Txt>
         <Red>
           <p>Discount:</p>
-          <p>- $60.00</p>
+          <p>- ${parseFloat(Discount)}</p>
         </Red>
         <Green>
           <p>Tax:</p>
-          <p>+ $14.00</p>
+          <p>+ ${parseFloat(Tax)}</p>
         </Green>
       </Prices>
       <Total>
         <Txt>
           <p>Total:</p>
-          <p>$1357.97</p>
+          <p>${finalPrice}</p>
         </Txt>
         <CheckoutBtn>Checkout</CheckoutBtn>
         <IIconsWrapper>

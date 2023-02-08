@@ -36,13 +36,13 @@ const CategoryAcc = ({ title, data }) => {
       <Header onClick={() => setShow(!show)}>
         <h4>{title}</h4>
         <p>
-          <i class={`fa-solid fa-chevron-${show ? "up" : "down"}`}></i>
+          <i className={`fa-solid fa-chevron-${show ? "up" : "down"}`}></i>
         </p>
       </Header>
       {show && (
         <Content>
           {data.map((item) => {
-            return <p>{item}</p>;
+            return <p key={item}>{item}</p>;
           })}
           <Blue>See all</Blue>
         </Content>

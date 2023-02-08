@@ -10,8 +10,8 @@ const RelatedPRoducts = () => {
   return (
     <Wrapper>
       {sliced.map((item) => {
-        const { image, title, price } = item;
-        return <RecomCard img={image} price={price} body={title} />;
+        const { image, title, price, id } = item;
+        return <RecomCard key={id} img={image} price={price} body={title} />;
       })}
     </Wrapper>
   );

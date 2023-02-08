@@ -11,26 +11,31 @@ import LikeCard from "../Cards/LikeCard";
 
 const items = [
   {
+    id: 1,
     img: img1,
     title: "Apple Watch Series Space Gray",
     price: "$7.00 - $99.50",
   },
   {
+    id: 2,
     img: img2,
     title: "Apple Watch Series Space Gray",
     price: "$7.00 - $99.50",
   },
   {
+    id: 3,
     img: img3,
     title: "Apple Watch Series Space Gray",
     price: "$7.00 - $99.50",
   },
   {
+    id: 4,
     img: img4,
     title: "Apple Watch Series Space Gray",
     price: "$7.00 - $99.50",
   },
   {
+    id: 5,
     img: img5,
     title: "Apple Watch Series Space Gray",
     price: "$7.00 - $99.50",
@@ -156,7 +161,7 @@ const Tabs = () => {
       <SContainer2>
         <h4>You may like</h4>
         {items.map((item) => {
-          return <LikeCard item={item} key={item} />;
+          return <LikeCard key={item.id} item={item} />;
         })}
       </SContainer2>
     </Wrapper>

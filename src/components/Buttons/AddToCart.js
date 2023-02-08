@@ -39,7 +39,7 @@ const AddToCart = ({ item }) => {
             setAdded(true);
           }}
         >
-          <i class="fa-solid fa-cart-shopping"></i>
+          <i className="fa-solid fa-cart-shopping"></i>
           Move to Cart
         </div>
       ) : (

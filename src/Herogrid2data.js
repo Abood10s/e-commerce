@@ -11,42 +11,42 @@ const herog2data = [
   {
     image: herog22,
     title: "Soft chairs",
-    price: "19",
+    price: "29",
   },
   {
     image: herog23,
     title: "Soft chairs",
-    price: "19",
+    price: "34",
   },
   {
     image: herog24,
     title: "Soft chairs",
-    price: "19",
+    price: "34",
   },
   {
     image: herog25,
     title: "Soft chairs",
-    price: "19",
+    price: "34",
   },
   {
     image: herog26,
     title: "Soft chairs",
-    price: "19",
+    price: "34",
   },
   {
     image: herog27,
     title: "Soft chairs",
-    price: "19",
+    price: "34",
   },
   {
     image: herog28,
     title: "Soft chairs",
-    price: "19",
+    price: "34",
   },
   {
     image: herog29,
     title: "Soft chairs",
-    price: "19",
+    price: "29",
   },
 ];
 export default herog2data;

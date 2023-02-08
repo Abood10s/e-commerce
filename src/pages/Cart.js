@@ -22,25 +22,25 @@ const cards = [
   {
     id: 10,
     img: img1,
-    price: "99.50$",
+    price: "99.50",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
   {
     id: 11,
     img: img2,
-    price: "99.50$",
+    price: "99.50",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
   {
     id: 12,
     img: img3,
-    price: "99.50$",
+    price: "99.50",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
   {
     id: 13,
     img: img4,
-    price: "99.50$",
+    price: "99.50",
     body: "GoPro HERO6 4K Action Camera - Black",
   },
 ];
@@ -104,7 +104,6 @@ const EmptyCart = styled.div`
 `;
 const Cart = () => {
   const { cart } = useContext(CartCtx);
-
   return (
     <Container>
       <Navbar />
