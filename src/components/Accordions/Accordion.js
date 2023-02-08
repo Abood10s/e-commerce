@@ -47,7 +47,7 @@ const Accordion = ({ title, data, type }) => {
         <Content>
           {data.map((item) => {
             return (
-              <InputWrap>
+              <InputWrap key={item}>
                 <input type={type} id={item} />
                 <label htmlFor={"item"}>{item}</label>
               </InputWrap>

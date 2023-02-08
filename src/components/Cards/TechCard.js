@@ -90,7 +90,7 @@ const TechCard = ({ item }) => {
             <Icon src={like} />
           </LBody>
         </Flex1>
-        <Price>{price}</Price>
+        <Price>{price}$</Price>
         <Flex2>
           <IImage src={rating} />
           <p>{orders} orders</p>

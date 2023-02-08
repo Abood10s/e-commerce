@@ -70,7 +70,7 @@ const TechStore = () => {
           <ProductsWrapper>
             <StoreNav />
             {TechStoredata.map((item) => {
-              return <TechCard item={item} key={item} />;
+              return <TechCard item={item} key={item.id} />;
             })}
             <Pagination />
           </ProductsWrapper>

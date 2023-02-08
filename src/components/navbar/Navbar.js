@@ -4,8 +4,9 @@ import TheLogo from "../../assets/form icons/thelogo.png";
 import profile from "../../assets/navicons/nav1.png";
 import order from "../../assets/navicons/nav2.png";
 import msg from "../../assets/navicons/nav3.png";
-import cart from "../../assets/navicons/nav4.png";
+import cartIcon from "../../assets/navicons/nav4.png";
 import { AuthCtx } from "../../CartContext/AuthContext";
+import { CartCtx } from "../../CartContext/CartContext";
 
 import { Link } from "react-router-dom";
 
@@ -51,6 +52,7 @@ const Logo = styled.img`
   }
 `;
 const NavItem = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -164,6 +166,22 @@ const LogOutBtn = styled.button`
   border-radius: 4px;
   border: none;
 `;
+const Badge = styled.div`
+  position: absolute;
+  top: -12px;
+  right: -13px;
+  background-color: rgba(35, 152, 138, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  padding: 0.1rem 0.1rem;
+`;
 const ThemeBtn = styled.button`
   padding: 0.3rem 1rem;
   background-color: #123;
@@ -177,6 +195,8 @@ const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 const Navbar = ({ theme, handleDarkMode }) => {
   const name = localStorage.getItem("name");
   const { logout, isAuth } = useContext(AuthCtx);
+  const { cart } = useContext(CartCtx);
+
   return (
     <Container theme={theme}>
       <Wrapper>
@@ -210,7 +230,8 @@ const Navbar = ({ theme, handleDarkMode }) => {
 
           <Link style={{ textDecoration: "none" }} to="/cart">
             <NavItem>
-              <Icon src={cart} />
+              <Badge>{cart.length}</Badge>
+              <Icon src={cartIcon} />
               <Text>Cart</Text>
             </NavItem>
           </Link>

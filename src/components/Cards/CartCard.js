@@ -18,7 +18,7 @@ const CartCard = ({ item }) => {
   return (
     <CartCont>
       <Image src={img} />
-      <P>{price}</P>
+      <P>{price}$</P>
       <Cont>{body}</Cont>
       <AddToCart item={item} />
     </CartCont>
