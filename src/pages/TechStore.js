@@ -15,6 +15,7 @@ import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import StoreNav from "../components/storenavbar/StoreNav";
 import Pagination from "../components/pagination/Pagination";
+import { useLocation } from "react-router-dom";
 
 const Wrapper = styled.div`
   width: 80%;
@@ -55,10 +56,14 @@ const Features = [
 ];
 const ratings = [rating5, rating4, rating3, rating2];
 const TechStore = () => {
+  let location = useLocation();
+
   return (
     <>
       <Navbar />
       <Wrapper>
+        {`Home > Clothings > Men’s wear > ${location.pathname}`}
+
         <StoreWrapper>
           <Accordions>
             <CategoryAcc title="categories" data={categories} />

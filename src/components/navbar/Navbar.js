@@ -76,7 +76,7 @@ const Controls = styled.div`
   gap: 0.5rem;
   margin-left: 0.5rem;
   @media (max-width: 768px) {
-    gap: 0.4rem;
+    gap: 0.3rem;
   }
 `;
 const SearchWrap = styled.div`
@@ -160,6 +160,9 @@ const Flex2 = styled.div`
 const LogOutBtn = styled.button`
   background-color: #123;
   color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
   padding: 0.5rem 1rem;
   height: fit-content;
   cursor: pointer;
@@ -189,6 +192,12 @@ const ThemeBtn = styled.button`
   border-radius: 5px;
   cursor: pointer;
   border: none;
+`;
+const Logout = styled.p`
+  font-weight: bold;
+  @media (max-width: 720px) {
+    display: none;
+  }
 `;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
@@ -230,15 +239,16 @@ const Navbar = ({ theme, handleDarkMode }) => {
 
           <Link style={{ textDecoration: "none" }} to="/cart">
             <NavItem>
-              <Badge>{cart.length}</Badge>
               <Icon src={cartIcon} />
+              <Badge>{cart.length}</Badge>
               <Text>Cart</Text>
             </NavItem>
           </Link>
         </Controls>
         {isAuth && (
           <LogOutBtn type="button" onClick={logout}>
-            Log out
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>{" "}
+            <Logout>Log out</Logout>
           </LogOutBtn>
         )}
       </Wrapper>

@@ -58,7 +58,13 @@ export const Select = styled.select`
 `;
 const SelectCont = styled.div`
   display: grid;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 80px auto;
+  @media (max-width: 450px) {
+    grid-template-columns: 80px 66.5%;
+  }
+  @media (max-width: 350px) {
+    grid-template-columns: 80px 63%;
+  }
 `;
 
 const schema = Yup.object().shape({
@@ -118,7 +124,7 @@ const SignupForm = () => {
         if (error.errors) {
           setErrors(...errors, error.errors);
         } else {
-          setErrors(...errors, [error.message]);
+          setErrors(...errors, [error.response.data.message]);
         }
       });
   };
@@ -761,7 +767,7 @@ const SignupForm = () => {
                   </option>
                   <option data-countrycode="GB" value="44">
                     UK (+44)
-                  </option>{" "}
+                  </option>
                   <option data-countrycode="UA" value="380">
                     Ukraine (+380)
                   </option>
@@ -773,7 +779,7 @@ const SignupForm = () => {
                   </option>
                   <option data-countrycode="US" value="1">
                     USA (+1)
-                  </option>{" "}
+                  </option>
                   <option data-countrycode="UZ" value="7">
                     Uzbekistan (+7)
                   </option>
@@ -848,7 +854,7 @@ const SignupForm = () => {
           </CheckBox>
           <Line />
           <Text>
-            Already have an account?{" "}
+            Already have an account?
             <Link style={{ color: "#0D6EFD", fontWeight: "bold" }} to="/login">
               Log in
             </Link>

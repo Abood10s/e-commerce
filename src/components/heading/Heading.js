@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const Header = styled.h2`
   width: 80%;
-  margin: 0.5rem auto;
+  margin: 1rem auto;
 `;
 const Heading = ({ title }) => {
   return <Header>{title}</Header>;

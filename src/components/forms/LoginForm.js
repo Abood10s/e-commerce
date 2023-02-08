@@ -160,10 +160,8 @@ const LoginForm = () => {
       .catch((error) => {
         if (error.errors) {
           setErrors(...errors, error.errors);
-          console.log(error);
         } else {
-          setErrors(...errors, [error.message]);
-          console.log(error);
+          setErrors(...errors, [error.response.data.message]);
         }
       });
   };
