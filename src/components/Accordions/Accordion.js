@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import { CategoryCtx } from "../../CartContext/CategoryContext";
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,9 +33,11 @@ const Content = styled.div`
 const InputWrap = styled.div`
   display: flex;
   gap: 0.3em;
+  cursor: pointer;
 `;
 const Accordion = ({ title, data, type }) => {
   const [show, setShow] = useState(true);
+  const { tags, setTags } = useContext(CategoryCtx);
   return (
     <Wrap>
       <Header onClick={() => setShow(!show)}>
@@ -48,8 +51,14 @@ const Accordion = ({ title, data, type }) => {
           {data.map((item) => {
             return (
               <InputWrap key={item}>
-                <input type={type} id={item} />
-                <label htmlFor={"item"}>{item}</label>
+                <input
+                  type={type}
+                  id={item}
+                  onClick={() => {
+                    setTags([...tags, item]);
+                  }}
+                />
+                <label htmlFor={item}>{item}</label>
               </InputWrap>
             );
           })}

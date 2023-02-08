@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import rating5 from "../components/Accordions/rating1.png";
@@ -16,6 +16,7 @@ import Footer from "../components/Footer/Footer";
 import StoreNav from "../components/storenavbar/StoreNav";
 import Pagination from "../components/pagination/Pagination";
 import { useLocation } from "react-router-dom";
+import { CategoryCtx } from "../CartContext/CategoryContext";
 
 const Wrapper = styled.div`
   width: 80%;
@@ -38,6 +39,22 @@ const Accordions = styled.div`
 const ProductsWrapper = styled.div`
   margin: 1rem auto;
 `;
+const Tag = styled.p`
+  background-color: #eff2f4;
+  border-radius: 5px;
+  color: #0d6efd;
+  padding: 0.2rem 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+`;
+const Tags = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+`;
 
 const categories = [
   "Mobile accessory",
@@ -57,21 +74,43 @@ const Features = [
 const ratings = [rating5, rating4, rating3, rating2];
 const TechStore = () => {
   let location = useLocation();
+  const [tags, setTags] = useState([]);
+  const uniqueTags = [...new Set(tags)];
+  const handleDeleteTag = (tag) => {
+    setTags(tags.filter((thetag) => thetag !== tag));
+  };
 
   return (
     <>
       <Navbar />
       <Wrapper>
         {`Home > Clothings > Men’s wear > ${location.pathname}`}
-
+        <Tags>
+          {uniqueTags?.map((tag) => {
+            return (
+              <Tag onClick={() => handleDeleteTag(tag)}>
+                {tag}
+                <i class="fa-solid fa-x"></i>
+              </Tag>
+            );
+          })}
+        </Tags>
         <StoreWrapper>
-          <Accordions>
-            <CategoryAcc title="categories" data={categories} />
-            <Accordion title="brands" data={brands} type="checkbox" />
-            <Accordion title="Features" data={Features} type="checkbox" />
-            <Accordion title="Condition" data={condition} type="radio" />
-            <RatingAcc title="Ratings" data={ratings} />
-          </Accordions>
+          <CategoryCtx.Provider value={{ tags, setTags }}>
+            <Accordions>
+              <CategoryAcc title="categories" data={categories} />
+              <Accordion
+                title="brands"
+                data={brands}
+                type="checkbox"
+                tags={tags}
+                setTags={setTags}
+              />
+              <Accordion title="Features" data={Features} type="checkbox" />
+              <Accordion title="Condition" data={condition} type="radio" />
+              <RatingAcc title="Ratings" data={ratings} />
+            </Accordions>
+          </CategoryCtx.Provider>
           <ProductsWrapper>
             <StoreNav />
             {TechStoredata.map((item) => {
