@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthCtx } from "../../CartContext/AuthContext";
 
 import { API_URL } from "../../config/API";
-import { Error } from "./LoginForm";
+import { Error, Spinner } from "./LoginForm";
 import styled from "styled-components";
 import FormBtn from "../Buttons/FormBtn";
 import FormFooter from "./FormFooter";
@@ -80,6 +80,7 @@ const schema = Yup.object().shape({
 const SignupForm = () => {
   const { login } = useContext(AuthCtx);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [values, setValues] = useState({
     name: "",
@@ -103,6 +104,7 @@ const SignupForm = () => {
   });
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsLoading(true);
     schema
       .validate(values, { abortEarly: false })
       .then(async ({ name, password }) => {
@@ -121,6 +123,7 @@ const SignupForm = () => {
         }
       })
       .catch((error) => {
+        setIsLoading(false);
         if (error.errors) {
           setErrors(...errors, error.errors);
         } else {
@@ -841,7 +844,8 @@ const SignupForm = () => {
               onChange={handleChange}
             />
           </Inputsec>
-          <FormBtn title="Register now" />
+          {isLoading ? <Spinner /> : <FormBtn title="Register now" />}
+
           <CheckBox>
             <InputC
               type="checkbox"
