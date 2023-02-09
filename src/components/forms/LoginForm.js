@@ -176,9 +176,11 @@ const LoginForm = () => {
         }
       })
       .catch((error) => {
-        if (error) {
-          setIsLoading(false);
-          setErrors([error.message]);
+        setIsLoading(false);
+        if (error.errors) {
+          setErrors([...error.errors]);
+        } else {
+          setErrors([error.response.data.message]);
         }
       });
   };

@@ -46,6 +46,7 @@ const Tabss = styled.div`
   display: flex;
   gap: 1rem;
   color: #8b96a5;
+
   border-bottom: 1px solid #e3e8ee;
 `;
 const P = styled.p`
@@ -98,7 +99,7 @@ const Tabs = () => {
           <P>Description</P>
           <P>Reviews</P>
           <P>Shipping</P>
-          <P>About company</P>
+          <P>About </P>
         </Tabss>
         <Body>
           <div>

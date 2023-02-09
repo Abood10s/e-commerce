@@ -68,9 +68,11 @@ const SelectCont = styled.div`
 `;
 
 const schema = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
+  name: Yup.string()
+    .min(3, "Name must be at least 3 letters")
+    .required("Name shouldn't be empty"),
   email: Yup.string().email().required(),
-  password: Yup.string().min(6).required(),
+  password: Yup.string().min(6).required("Password shouldn't be empty"),
   repeatPassword: Yup.string().oneOf(
     [Yup.ref("password")],
     "Passwords must match"
@@ -125,9 +127,9 @@ const SignupForm = () => {
       .catch((error) => {
         setIsLoading(false);
         if (error.errors) {
-          setErrors(...errors, error.errors);
+          setErrors([...error.errors]);
         } else {
-          setErrors(...errors, [error.response.data.message]);
+          setErrors([error.response.data.message]);
         }
       });
   };
@@ -851,8 +853,9 @@ const SignupForm = () => {
               type="checkbox"
               placeholder="At least 6 characters."
               required
+              id="agreement"
             />
-            <InputLabel>
+            <InputLabel for="agreement">
               I agree with <UnderLine>Terms and Conditions</UnderLine>
             </InputLabel>
           </CheckBox>
