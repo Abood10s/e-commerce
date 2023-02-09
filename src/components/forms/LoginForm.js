@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import FormBtn from "../Buttons/FormBtn";
 import FormFooter from "./FormFooter";
 import { Link } from "react-router-dom";
@@ -93,6 +93,21 @@ const Or = styled.p`
 
   }
 `;
+export const Spin = keyframes`
+ to {
+      transform: rotate(360deg);
+    }
+`;
+export const Spinner = styled.div`
+  display: block;
+  margin: 0.3rem auto;
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border-top-color: #0d6efd;
+  animation: ${Spin} 0.5s ease-in-out infinite;
+`;
 export const ForgotP = styled.p`
   color: #0d6efd;
   font-weight: bold;
@@ -126,6 +141,8 @@ const LoginForm = () => {
     password: "",
   });
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const navigate = useNavigate();
   const handleChange = (event) => {
     setValues({
@@ -141,7 +158,7 @@ const LoginForm = () => {
   });
   const handleSubmit = (event) => {
     event.preventDefault();
-
+    setIsLoading(true);
     Schema.validate(values, { abortEarly: false })
       .then(async ({ password }) => {
         const res = await axios.post(`${API_URL}/users/login`, {
@@ -153,26 +170,26 @@ const LoginForm = () => {
           localStorage.setItem("token", res.data.token);
           localStorage.setItem("isAdmin", res.data.isAdmin);
           localStorage.setItem("name", res.data.name);
+          setIsLoading(false);
           login();
           navigate("/");
         }
       })
       .catch((error) => {
-        if (error.errors) {
-          setErrors(...errors, error.errors);
-        } else {
-          setErrors(...errors, [error.response.data.message]);
+        if (error) {
+          setIsLoading(false);
+          setErrors([error.message]);
         }
       });
   };
   return (
     <Form onSubmit={handleSubmit}>
       <Container>
-        <p>
+        <div>
           {errors?.map((err) => {
-            return <Error>ــ {err}</Error>;
+            return <Error key={err + ""}>ــ {err}</Error>;
           })}
-        </p>
+        </div>
         <Wrapper>
           <Title>Sign in</Title>
           <Inputsec>
@@ -202,7 +219,8 @@ const LoginForm = () => {
             <Input type="checkbox" name="check" id="check" required />
             <InputLabel htmlFor="check">Remember me</InputLabel>
           </CheckBox>
-          <FormBtn title="Log In" />
+          {isLoading ? <Spinner /> : <FormBtn title="Log In" />}
+          {/* <FormBtn title="Log In" /> */}
           <Or>OR</Or>
           <ContFormBtn icon={google} title="Google" clr="#000" />
           <ContFormBtn icon={facebook} title="Facebook" bg="#4267B2" />

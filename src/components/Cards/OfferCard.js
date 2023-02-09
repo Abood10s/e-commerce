@@ -14,7 +14,6 @@ const Cont = styled.div`
   transition: 0.2s linear;
   &:hover {
     flex: 1.3;
-    border: none;
   }
 `;
 const Disc = styled.div`
