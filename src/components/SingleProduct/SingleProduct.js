@@ -40,7 +40,8 @@ const Wrapper = styled.div`
   }
   @media (max-width: 900px) {
     flex-direction: column;
-    width: 80%;
+    width: 90%;
+    margin: 0.5rem auto;
   }
 `;
 const Cont1 = styled.div`
@@ -66,15 +67,20 @@ const Img = styled.img`
   border: 1px solid #e3e8ee;
   border-radius: 5px;
   cursor: pointer;
+  margin: 0.5rem 0;
 `;
 const BigImg = styled.img`
+  display: block;
   border: 1px solid #e3e8ee;
   border-radius: 5px;
   cursor: pointer;
   height: 345px;
   width: 345px;
   object-fit: cover;
-  margin: auto;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    width: 225px;
+  }
 `;
 const Flex = styled.div`
   display: flex;
@@ -85,9 +91,14 @@ const Flex = styled.div`
 `;
 const Smallimages = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
+  margin: auto;
   align-item1s: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    width: 70%;
+  }
 `;
 const Flex2 = styled.div`
   display: flex;
@@ -110,7 +121,9 @@ const Prices = styled.div`
   width: 80%;
   margin: 0.5rem 0;
   @media (max-width: 900px) {
-    width: 90%;
+    width: 100%;
+    gap: 1rem;
+    flex-direction: column;
   }
 `;
 const Comp = styled.div`
@@ -119,6 +132,10 @@ const Comp = styled.div`
   gap: 0.5rem;
   border-right: 2px solid #bdc1c8;
   padding-right: 0.5rem;
+  @media (max-width: 900px) {
+    width: 100%;
+    gap: 0.2rem;
+  }
 `;
 const TableItem1 = styled.div`
   padding: 0.5rem 0;
@@ -132,6 +149,10 @@ const Item1 = styled.p`
   display: inline-block;
   width: 30%;
   color: #8b96a5;
+  @media (max-width: 700px) {
+    width: 50%;
+    gap: 0.2rem;
+  }
 `;
 const Item2 = styled.p`
   display: inline-block;

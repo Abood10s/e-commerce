@@ -58,6 +58,11 @@ const NavItem = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.2rem;
+  @media (max-width: 768px) {
+    &:nth-of-type(2) {
+      display: none;
+    }
+  }
 `;
 export const Icon = styled.img`
   height: 17px;
@@ -256,7 +261,6 @@ const Navbar = ({ theme, handleDarkMode }) => {
         <SWrapper>
           <Flex1>
             <Flex1>
-              {/* <Icon src={menu} /> */}
               <TText>All category</TText>
             </Flex1>
             <Controls>
