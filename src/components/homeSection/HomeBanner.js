@@ -12,6 +12,7 @@ import Avatar from "../../assets/homeSection/Avatar.png";
 const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
+  margin-top: 10rem;
   border: 1px solid #e3e8ee;
   border-radius: 4px;
   padding: 0.9rem 1em;
