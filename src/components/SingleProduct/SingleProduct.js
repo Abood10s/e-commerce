@@ -27,6 +27,7 @@ const images = [i2, i3, i4, i5, i6, i7];
 const Wrapper = styled.div`
   width: 80%;
   margin: 1rem auto;
+  margin-top: 10rem;
   display: flex;
   align-item1s: start;
   border: 1px solid #e3e8ee;
@@ -42,6 +43,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     width: 90%;
     margin: 0.5rem auto;
+    margin-top: 10rem;
   }
 `;
 const Cont1 = styled.div`

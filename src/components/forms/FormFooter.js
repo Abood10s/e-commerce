@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   margin: 0 auto;
   padding: 1.5rem 0;
   background-color: #ffffff;
+  margin-top: 2rem;
 `;
 export const Icon = styled.div`
   height: 22px;
@@ -27,14 +28,29 @@ export const Icon = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  @media (max-width: 500px) {
+    border: none;
+  }
 `;
 export const IconsWrapper = styled.div`
   display: flex;
   gap: 1rem;
+  @media (max-width: 768px) {
+    gap: 1rem;
+    flex-direction: column;
+    order: 2;
+    width: 50%;
+  }
 `;
 const FooterSupport = styled.div`
   display: flex;
   gap: 1.5rem;
+  @media (max-width: 768px) {
+    gap: 1rem;
+    width: 50%;
+    flex-direction: column;
+    order: 1;
+  }
 `;
 const Container = styled.div`
   width: 85%;

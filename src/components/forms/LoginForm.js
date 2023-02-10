@@ -118,7 +118,7 @@ export const ForgotP = styled.p`
   }
 `;
 export const Form = styled.form`
-  margin-bottom: 5em;
+  margin: 2rem auto;
 `;
 
 const Schema = Yup.object().shape({

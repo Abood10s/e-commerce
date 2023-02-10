@@ -48,6 +48,7 @@ const cards = [
 export const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
+  margin-top: 10rem;
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
