@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { AuthCtx } from "../../CartContext/AuthContext";
+import { AuthCtx } from "../../Contexts/AuthContext";
 
 import { API_URL } from "../../config/API";
 import { Error, Spinner } from "./LoginForm";

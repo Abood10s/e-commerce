@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { CheckBox, Input, InputLabel } from "../forms/LoginForm";
 import { Categories } from "../navbar/Navbar";
-import { Icon } from "../navbar/Navbar";
+// import { Icon } from "../navbar/Navbar";
 
 import list from "./list.png";
 import grid from "./grid.png";
@@ -22,9 +22,18 @@ const Wrapper = styled.div`
 `;
 const Icons = styled.div`
   display: flex;
-  gap: 0.2rem;
-  border: 2px solid #e3e8ee;
+  align-items: center;
+  border: 1px solid #e3e8ee;
   border-radius: 4px;
+`;
+const Icon = styled.img`
+  padding: 0.4rem;
+  border-left: 1px solid #e3e8ee;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  &:hover {
+    background-color: #e3e8ee;
+  }
 `;
 
 const CCategories = styled(Categories)`
@@ -39,7 +48,7 @@ const Flex = styled.div`
   gap: 1rem;
   align-items: center;
 `;
-const StoreNav = () => {
+const StoreNav = ({ setIsList }) => {
   return (
     <Wrapper>
       <div>
@@ -63,8 +72,8 @@ const StoreNav = () => {
           </CCategories>
         </div>
         <Icons>
-          <Icon src={grid} />
-          <Icon src={list} />
+          <Icon src={grid} onClick={() => setIsList(false)} />
+          <Icon src={list} onClick={() => setIsList(true)} />
         </Icons>
       </Flex>
     </Wrapper>

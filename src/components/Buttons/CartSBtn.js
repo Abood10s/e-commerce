@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { CartCtx } from "../../CartContext/CartContext";
+import { CartCtx } from "../../Contexts/CartContext";
 const Cont = styled.button`
   display: flex;
   justify-content: center;

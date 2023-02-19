@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { CategoryCtx } from "../../CartContext/CategoryContext";
+import { CategoryCtx } from "../../Contexts/CategoryContext";
 const Wrap = styled.div`
   display: flex;
   flex-direction: column;

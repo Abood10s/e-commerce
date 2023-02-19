@@ -6,21 +6,22 @@ import rating4 from "../components/Accordions/rating2.png";
 import rating3 from "../components/Accordions/rating3.png";
 import rating2 from "../components/Accordions/rating4.png";
 
+import TechCardGrid from "../components/Cards/TechCardGrid";
+import TechCard from "../components/Cards/TechCard";
 import Accordion from "../components/Accordions/Accordion";
 import CategoryAcc from "../components/Accordions/CategoryAcc";
 import RatingAcc from "../components/Accordions/RatingAcc";
-import TechCard from "../components/Cards/TechCard";
-import TechStoredata from "../TechStoredata";
+import TechStoredata from "../MockData/TechStoredata";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import StoreNav from "../components/storenavbar/StoreNav";
 import Pagination from "../components/pagination/Pagination";
 import { useLocation } from "react-router-dom";
-import { CategoryCtx } from "../CartContext/CategoryContext";
+import { CategoryCtx } from "../Contexts/CategoryContext";
 
 const Wrapper = styled.div`
   width: 80%;
-  margin: 2rem auto;
+  margin: 7rem auto;
 `;
 const StoreWrapper = styled.div`
   display: grid;
@@ -55,6 +56,16 @@ const Tags = styled.div`
   gap: 0.5rem;
   margin: 0.5rem 0;
 `;
+const GridView = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr;
+  }
+`;
 
 const categories = [
   "Mobile accessory",
@@ -75,6 +86,7 @@ const ratings = [rating5, rating4, rating3, rating2];
 const TechStore = () => {
   let location = useLocation();
   const [tags, setTags] = useState([]);
+  const [isList, setIsList] = useState(true);
   const uniqueTags = [...new Set(tags)];
   const handleDeleteTag = (tag) => {
     setTags(tags.filter((thetag) => thetag !== tag));
@@ -112,10 +124,21 @@ const TechStore = () => {
             </Accordions>
           </CategoryCtx.Provider>
           <ProductsWrapper>
-            <StoreNav />
-            {TechStoredata.map((item) => {
-              return <TechCard item={item} key={item.id} />;
-            })}
+            <StoreNav setIsList={setIsList} />
+            {isList ? (
+              TechStoredata.map((item) => {
+                return <TechCard item={item} key={item.id} />;
+              })
+            ) : (
+              <>
+                <GridView>
+                  {TechStoredata.map((item) => {
+                    return <TechCardGrid item={item} key={item.id} />;
+                  })}
+                </GridView>
+              </>
+            )}
+
             <Pagination />
           </ProductsWrapper>
         </StoreWrapper>

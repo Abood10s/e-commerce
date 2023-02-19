@@ -7,7 +7,7 @@ import americanex from "../../assets/form icons/americanex.png";
 import visa from "../../assets/form icons/visa.png";
 import mastercard from "../../assets/form icons/mastercard.png";
 import paypal from "../../assets/form icons/paypal.png";
-import { CartCtx } from "../../CartContext/CartContext";
+import { CartCtx } from "../../Contexts/CartContext";
 
 const BillCont = styled.div`
   background-color: #fff;

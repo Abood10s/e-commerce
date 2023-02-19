@@ -12,7 +12,7 @@ import { API_URL } from "../../config/API";
 import google from "../../assets/form icons/google.png";
 import facebook from "../../assets/form icons/facebook.png";
 import ContFormBtn from "../Buttons/ContFormBtn";
-import { AuthCtx } from "../../CartContext/AuthContext";
+import { AuthCtx } from "../../Contexts/AuthContext";
 
 export const Container = styled.div`
   display: flex;

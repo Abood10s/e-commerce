@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { CartCtx } from "../../CartContext/CartContext";
+import { CartCtx } from "../../Contexts/CartContext";
 import { Blue } from "../Accordions/Accordion";
 
 const AddToCartBtn = styled.button`
