@@ -1,12 +1,12 @@
-import r1 from "./assets/recommended/1.png";
-import r2 from "./assets/recommended/2.png";
-import r3 from "./assets/recommended/3.png";
-import r4 from "./assets/recommended/4.png";
-import r5 from "./assets/recommended/5.png";
-import r6 from "./assets/recommended/6.png";
-import r7 from "./assets/recommended/7.png";
-import r8 from "./assets/recommended/8.png";
-import r9 from "./assets/recommended/9.png";
+import r1 from "../assets/recommended/1.png";
+import r2 from "../assets/recommended/2.png";
+import r3 from "../assets/recommended/3.png";
+import r4 from "../assets/recommended/4.png";
+import r5 from "../assets/recommended/5.png";
+import r6 from "../assets/recommended/6.png";
+import r7 from "../assets/recommended/7.png";
+import r8 from "../assets/recommended/8.png";
+import r9 from "../assets/recommended/9.png";
 const recommended = [
   {
     img: r1,

@@ -10,9 +10,9 @@ import ProtectedRoutes from "./components/utills/ProtectedRoutes";
 
 import Home from "./pages/Home";
 import TechStore from "./pages/TechStore";
-import { CartCtx } from "./CartContext/CartContext";
+import { CartCtx } from "./Contexts/CartContext";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
-import { AuthCtx } from "./CartContext/AuthContext";
+import { AuthCtx } from "./Contexts/AuthContext";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);

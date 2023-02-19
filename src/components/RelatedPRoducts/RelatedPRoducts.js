@@ -1,6 +1,6 @@
 import React from "react";
 
-import TechStoredata from "../../TechStoredata";
+import TechStoredata from "../../MockData/TechStoredata";
 import RecomCard from "../Cards/RecomCard";
 import { Wrapper } from "../recommendgrid/RecomGrid";
 

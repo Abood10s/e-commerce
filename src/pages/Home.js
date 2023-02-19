@@ -4,8 +4,8 @@ import styled from "styled-components";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
-import herog1data from "../Herogrid1data";
-import herog2data from "../Herogrid2data";
+import herog1data from "../MockData/Herogrid1data";
+import herog2data from "../MockData/Herogrid2data";
 
 import herog11 from "../assets/herogrid1/herog1.png";
 import herog21 from "../assets/herogrid2/herog21.png";

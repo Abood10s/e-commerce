@@ -1,11 +1,11 @@
-import herog22 from "./assets/herogrid2/herog22.png";
-import herog23 from "./assets/herogrid2/herog23.png";
-import herog24 from "./assets/herogrid2/herog24.png";
-import herog25 from "./assets/herogrid2/herog25.png";
-import herog26 from "./assets/herogrid2/herog26.png";
-import herog27 from "./assets/herogrid2/herog27.png";
-import herog28 from "./assets/herogrid2/herog28.png";
-import herog29 from "./assets/herogrid2/herog29.png";
+import herog22 from "../assets/herogrid2/herog22.png";
+import herog23 from "../assets/herogrid2/herog23.png";
+import herog24 from "../assets/herogrid2/herog24.png";
+import herog25 from "../assets/herogrid2/herog25.png";
+import herog26 from "../assets/herogrid2/herog26.png";
+import herog27 from "../assets/herogrid2/herog27.png";
+import herog28 from "../assets/herogrid2/herog28.png";
+import herog29 from "../assets/herogrid2/herog29.png";
 
 const herog2data = [
   {

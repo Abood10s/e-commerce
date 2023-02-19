@@ -5,8 +5,8 @@ import profile from "../../assets/navicons/nav1.png";
 import order from "../../assets/navicons/nav2.png";
 import msg from "../../assets/navicons/nav3.png";
 import cartIcon from "../../assets/navicons/nav4.png";
-import { AuthCtx } from "../../CartContext/AuthContext";
-import { CartCtx } from "../../CartContext/CartContext";
+import { AuthCtx } from "../../Contexts/AuthContext";
+import { CartCtx } from "../../Contexts/CartContext";
 
 import { Link } from "react-router-dom";
 

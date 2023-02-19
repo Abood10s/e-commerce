@@ -1,10 +1,10 @@
-import t1 from "./assets/techstore/t1.png";
-import t2 from "./assets/techstore/t2.png";
-import t3 from "./assets/techstore/t3.png";
-import t4 from "./assets/techstore/t4.png";
-import t5 from "./assets/techstore/t5.png";
-import t6 from "./assets/techstore/t6.png";
-import rating4 from "./components/Accordions/rating2.png";
+import t1 from "../assets/techstore/t1.png";
+import t2 from "../assets/techstore/t2.png";
+import t3 from "../assets/techstore/t3.png";
+import t4 from "../assets/techstore/t4.png";
+import t5 from "../assets/techstore/t5.png";
+import t6 from "../assets/techstore/t6.png";
+import rating4 from "../components/Accordions/rating2.png";
 
 const techstoredata = [
   {

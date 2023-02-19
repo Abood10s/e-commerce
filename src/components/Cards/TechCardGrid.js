@@ -8,15 +8,14 @@ import { useState } from "react";
 
 const Wrap = styled.div`
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 1rem;
   background-color: #fff;
   padding: 1.2em 1em;
   border: 1px solid #e3e8ee;
   border-radius: 4px;
-  gap: 1em;
-  @media (max-width: 1050px) {
-    flex-direction: column;
-  }
+  gap: 0.5em;
   @media (max-width: 768px) {
     flex-direction: column;
     gap: 0.5em;
@@ -26,6 +25,7 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  gap: 0.5rem;
   @media (max-width: 768px) {
     gap: 0.5rem;
   }
@@ -39,14 +39,12 @@ const LBody = styled.div`
   justify-content: center;
   align-items: center;
   transition: 0.3s;
-  background-color: ${(props) => (props.isLiked ? "#71c5e7" : "#fff")};
+  background-color: ${(props) => (props.isLiked ? "#71c5e7 " : "#fff")};
   &:hover {
     border: 1px solid #0d6efd;
   }
 `;
-const Flex = styled.div`
-  display: flex;
-`;
+
 const Green = styled(Blue)`
   color: #00b517;
   font-size: 16px;
@@ -60,10 +58,16 @@ const Flex1 = styled.div`
 `;
 const Flex2 = styled.div`
   display: flex;
+  align-items: center;
   gap: 1em;
 `;
-const IImage = styled.img``;
+const IImage = styled.img`
+  height: 20px;
+`;
 const Image = styled.img`
+  height: 200px;
+  width: 200px;
+  margin: auto;
   @media (max-width: 1050px) {
     height: 200px;
     width: 200px;
@@ -73,25 +77,21 @@ const Image = styled.img`
     gap: 0.5rem;
   }
 `;
-const P = styled.p`
-  @media (max-width: 768px) {
-    display: none;
-  }
-`;
+
 const Icon = styled.img`
   height: 80%;
 `;
 
-const TechCard = ({ item }) => {
-  const [isLiked, setisLiked] = useState(false);
-  const { image, title, orders, price, rating, body, shipping } = item;
+const TechCardGrid = ({ item }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const { image, title, orders, price, rating, shipping } = item;
   return (
     <Wrap>
       <Image src={image} />
       <Body>
         <Flex1>
           <h4>{title}</h4>
-          <LBody isLiked={isLiked} onClick={() => setisLiked(!isLiked)}>
+          <LBody isLiked={isLiked} onClick={() => setIsLiked(!isLiked)}>
             <Icon src={like} />
           </LBody>
         </Flex1>
@@ -101,9 +101,7 @@ const TechCard = ({ item }) => {
           <p>{orders} orders</p>
           <Green>{shipping}</Green>
         </Flex2>
-        <Flex>
-          <P>{body}</P>
-        </Flex>
+
         <Blue>View details</Blue>
         <AddToCart item={item} />
       </Body>
@@ -111,4 +109,4 @@ const TechCard = ({ item }) => {
   );
 };
 
-export default TechCard;
+export default TechCardGrid;
