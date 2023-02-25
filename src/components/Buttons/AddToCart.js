@@ -30,6 +30,7 @@ const Green = styled(Blue)`
 const AddToCart = ({ item }) => {
   const [added, setAdded] = useState(false);
   const { cart, setCart } = useContext(CartCtx);
+
   return (
     <AddToCartBtn added={added}>
       {!added ? (
