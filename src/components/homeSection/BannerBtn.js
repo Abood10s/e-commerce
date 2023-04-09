@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Button = styled.h4`
@@ -13,9 +14,11 @@ const Button = styled.h4`
 
 const BannerBtn = ({ bg, clr, txt }) => {
   return (
-    <Button bg={bg} clr={clr}>
-      {txt}
-    </Button>
+    <Link to="/store" style={{ textDecoration: "none" }}>
+      <Button bg={bg} clr={clr}>
+        {txt}
+      </Button>
+    </Link>
   );
 };
 

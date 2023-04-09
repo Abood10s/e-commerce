@@ -18,6 +18,9 @@ const Wrapper = styled.div`
   padding: 1.5rem 0;
   background-color: #ffffff;
   margin-top: 2rem;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 export const Icon = styled.div`
   height: 22px;
