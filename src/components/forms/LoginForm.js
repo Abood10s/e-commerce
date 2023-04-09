@@ -27,6 +27,9 @@ export const Container = styled.div`
   @media (max-width: 1250px) {
     width: 50%;
   }
+  @media (max-width: 900px) {
+    margin: 2rem auto;
+  }
   @media (max-width: 760px) {
     width: 80%;
   }
@@ -118,7 +121,7 @@ export const ForgotP = styled.p`
   }
 `;
 export const Form = styled.form`
-  margin: 2rem auto;
+  margin: 1rem auto;
 `;
 
 const Schema = Yup.object().shape({

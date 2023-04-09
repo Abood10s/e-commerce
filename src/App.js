@@ -16,9 +16,7 @@ import { AuthCtx } from "./Contexts/AuthContext";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [cart, setCart] = useState([]);
-  const currentTheme = localStorage.getItem("theme");
 
   const login = () => {
     setIsAuth(true);
@@ -28,25 +26,25 @@ function App() {
     setIsAuth(false);
   };
 
-  const theme = currentTheme
-    ? {
-        primaryClr: "#2C3333",
-        secondaryClr: "#C8C8C8",
-      }
-    : {};
-  useEffect(() => {
-    if (localStorage.getItem("theme") === "dark") {
-      setIsDarkMode(true);
-    }
-  }, []);
+  // const theme = currentTheme
+  //   ? {
+  //       primaryClr: "#2C3333",
+  //       secondaryClr: "#C8C8C8",
+  //     }
+  //   : {};
+  // useEffect(() => {
+  //   if (localStorage.getItem("theme") === "dark") {
+  //     setIsDarkMode(true);
+  //   }
+  // }, []);
 
-  const handleDarkMode = () => {
-    const updatedIsDarkMode = !isDarkMode;
-    setIsDarkMode(updatedIsDarkMode);
-    updatedIsDarkMode
-      ? localStorage.setItem("theme", "dark")
-      : localStorage.removeItem("theme");
-  };
+  // const handleDarkMode = () => {
+  //   const updatedIsDarkMode = !isDarkMode;
+  //   setIsDarkMode(updatedIsDarkMode);
+  //   updatedIsDarkMode
+  //     ? localStorage.setItem("theme", "dark")
+  //     : localStorage.removeItem("theme");
+  // };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) setIsAuth(true);
@@ -64,7 +62,7 @@ function App() {
                 path="/"
                 element={
                   <Suspense fallback={<Skeleton count={1} height={40} />}>
-                    <Home theme={theme} handleDarkMode={handleDarkMode} />
+                    <Home />
                   </Suspense>
                 }
               />

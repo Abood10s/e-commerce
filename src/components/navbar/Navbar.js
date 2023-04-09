@@ -190,14 +190,7 @@ const Badge = styled.div`
   color: #fff;
   padding: 0.1rem 0.1rem;
 `;
-const ThemeBtn = styled.button`
-  padding: 0.3rem 1rem;
-  background-color: #123;
-  color: #fff;
-  border-radius: 5px;
-  cursor: pointer;
-  border: none;
-`;
+
 const Logout = styled.p`
   font-weight: bold;
   @media (max-width: 720px) {
@@ -206,7 +199,7 @@ const Logout = styled.p`
 `;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
-const Navbar = ({ theme, handleDarkMode }) => {
+const Navbar = ({ theme }) => {
   const name = localStorage.getItem("name");
   const { logout, isAuth } = useContext(AuthCtx);
   const { cart } = useContext(CartCtx);
@@ -271,7 +264,6 @@ const Navbar = ({ theme, handleDarkMode }) => {
             <SCategories>
               <option value="All Categoreis">All Categoreis</option>
             </SCategories>
-            <ThemeBtn onClick={handleDarkMode}>Toggle Theme</ThemeBtn>
           </Flex1>
 
           <Flex2>
