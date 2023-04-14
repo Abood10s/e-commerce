@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import rating5 from "../components/Accordions/rating1.png";
@@ -11,19 +11,20 @@ import TechCard from "../components/Cards/TechCard";
 import Accordion from "../components/Accordions/Accordion";
 import CategoryAcc from "../components/Accordions/CategoryAcc";
 import RatingAcc from "../components/Accordions/RatingAcc";
-import TechStoredata from "../MockData/TechStoredata";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import StoreNav from "../components/storenavbar/StoreNav";
 import Pagination from "../components/pagination/Pagination";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { CategoryCtx } from "../Contexts/CategoryContext";
+import { SearchData } from "../MockData/SearchData";
+import techstoredata from "../MockData/TechStoredata";
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   width: 80%;
   margin: 7rem auto;
 `;
-const StoreWrapper = styled.div`
+export const StoreWrapper = styled.div`
   display: grid;
   grid-template-columns: 230px 3fr;
   gap: 1em;
@@ -32,15 +33,16 @@ const StoreWrapper = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-const Accordions = styled.div`
+export const Accordions = styled.div`
   @media (max-width: 768px) {
     width: 90%;
   }
 `;
-const ProductsWrapper = styled.div`
+export const ProductsWrapper = styled.div`
   margin: 1rem auto;
+  width: 100%;
 `;
-const Tag = styled.p`
+export const Tag = styled.p`
   background-color: #eff2f4;
   border-radius: 5px;
   color: #0d6efd;
@@ -50,13 +52,13 @@ const Tag = styled.p`
   gap: 0.6rem;
   cursor: pointer;
 `;
-const Tags = styled.div`
+export const Tags = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin: 0.5rem 0;
 `;
-const GridView = styled.div`
+export const GridView = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   @media (max-width: 1400px) {
@@ -67,22 +69,22 @@ const GridView = styled.div`
   }
 `;
 
-const categories = [
+export const categories = [
   "Mobile accessory",
   "Electronics",
   "Smartphones",
   "Modern tech",
 ];
-const brands = ["Samsung", "Apple", "Huawei", "Pocco", "Lenovo"];
-const condition = ["Any", "Refurbished", "Brand new ", "Old items"];
-const Features = [
+export const brands = ["Samsung", "Apple", "Huawei", "Pocco", "Lenovo"];
+export const condition = ["Any", "Refurbished", "Brand new ", "Old items"];
+export const Features = [
   "Metallic",
   "Plastic cover",
   "8GB Ram",
   "Super power",
   "Large Memory",
 ];
-const ratings = [rating5, rating4, rating3, rating2];
+export const ratings = [rating5, rating4, rating3, rating2];
 const TechStore = () => {
   let location = useLocation();
   const [tags, setTags] = useState([]);
@@ -91,7 +93,18 @@ const TechStore = () => {
   const handleDeleteTag = (tag) => {
     setTags(tags.filter((thetag) => thetag !== tag));
   };
-
+  const { query } = useParams();
+  const [searched, setSearched] = useState([]);
+  const getSearchedItems = (query) => {
+    setSearched(
+      SearchData.filter((item) =>
+        item.title?.toLowerCase()?.includes(query.toLowerCase())
+      )
+    );
+  };
+  useEffect(() => {
+    query && getSearchedItems(query);
+  }, [query]);
   return (
     <>
       <Navbar />
@@ -124,22 +137,28 @@ const TechStore = () => {
             </Accordions>
           </CategoryCtx.Provider>
           <ProductsWrapper>
-            <StoreNav setIsList={setIsList} />
+            <StoreNav setIsList={setIsList} itemsCount={searched.length} />
+            {searched.length === 0 && (
+              <h2>Sorry there is no matching results for "{query}"</h2>
+            )}
             {isList ? (
-              TechStoredata.map((item) => {
-                return <TechCard item={item} key={item.id} />;
+              (query ? searched : techstoredata).map((item) => {
+                return <TechCard theItem={item} key={item.id} />;
               })
             ) : (
               <>
                 <GridView>
-                  {TechStoredata.map((item) => {
-                    return <TechCardGrid item={item} key={item.id} />;
+                  {(query ? searched : techstoredata).map((item) => {
+                    return <TechCardGrid theItem={item} key={item.id} />;
                   })}
                 </GridView>
               </>
             )}
-
-            <Pagination />
+            {query === "all" &&
+              techstoredata.map((item) => {
+                return <TechCard theItem={item} key={item.id} />;
+              })}
+            {searched.length !== 0 && <Pagination />}
           </ProductsWrapper>
         </StoreWrapper>
       </Wrapper>

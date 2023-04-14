@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import TheLogo from "../../assets/form icons/thelogo.png";
 import profile from "../../assets/navicons/nav1.png";
@@ -120,6 +120,7 @@ const Search = styled.input`
   border: 1px solid #0d6efd;
   width: 350px;
 `;
+
 export const Categories = styled.select`
   border: 1px solid #0d6efd;
   padding: 0.1rem 0.5rem;
@@ -203,7 +204,7 @@ const Navbar = ({ theme }) => {
   const name = localStorage.getItem("name");
   const { logout, isAuth } = useContext(AuthCtx);
   const { cart } = useContext(CartCtx);
-
+  const [query, setQuery] = useState("");
   return (
     <Container theme={theme}>
       <Wrapper>
@@ -212,11 +213,43 @@ const Navbar = ({ theme }) => {
         </Link>
 
         <SearchWrap>
-          <Search placeholder="Search" />
+          <Search
+            placeholder="Search"
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+          />
           <Categories>
             <option value="All">All Categories</option>
           </Categories>
-          <SearchBtn>Search</SearchBtn>
+          {!query ? (
+            <p
+              style={{
+                textDecoration: "none",
+                alignSelf: "center",
+                padding: "0.8rem",
+                backgroundColor: "#0d6efd",
+                color: "#fff",
+                fontWeight: "bold",
+              }}
+            >
+              Search
+            </p>
+          ) : (
+            <Link
+              className="search-link"
+              to={`/store/${query}`}
+              style={{
+                textDecoration: "none",
+                alignSelf: "center",
+                padding: "0.8rem",
+                backgroundColor: "#0d6efd",
+                color: "#fff",
+                fontWeight: "bold",
+              }}
+            >
+              Search
+            </Link>
+          )}
         </SearchWrap>
 
         <Controls>
@@ -245,7 +278,7 @@ const Navbar = ({ theme }) => {
         </Controls>
         {isAuth && (
           <LogOutBtn type="button" onClick={logout}>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>{" "}
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
             <Logout>Log out</Logout>
           </LogOutBtn>
         )}

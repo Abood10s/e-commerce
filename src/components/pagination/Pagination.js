@@ -52,13 +52,13 @@ const Pagination = () => {
         </PCategories>
         <Pages>
           <Page>
-            <i class="fa-solid fa-chevron-left"></i>
+            <i className="fa-solid fa-chevron-left"></i>
           </Page>
           <Page>1</Page>
           <Page>2</Page>
           <Page>3</Page>
           <Page>
-            <i class="fa-solid fa-chevron-right"></i>
+            <i className="fa-solid fa-chevron-right"></i>
           </Page>
         </Pages>
       </Content>

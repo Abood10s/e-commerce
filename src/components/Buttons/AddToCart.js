@@ -23,30 +23,45 @@ const AddToCartBtn = styled.button`
     gap: 0.7rem;
   }
 `;
-const Green = styled(Blue)`
+export const Green = styled(Blue)`
   color: #00b517;
   font-size: 16px;
 `;
-const AddToCart = ({ item }) => {
+const RedTxt = styled.p`
+  color: #fa3434;
+`;
+const AddToCart = ({ theItem }) => {
   const [added, setAdded] = useState(false);
   const { cart, setCart } = useContext(CartCtx);
-
+  const itemExists = theItem && cart.some((item) => item.id === theItem.id);
   return (
     <AddToCartBtn added={added}>
       {!added ? (
         <div
           onClick={() => {
-            setCart([...cart, item]);
-            setAdded(true);
+            if (!itemExists) {
+              setCart([...cart, theItem]);
+              setAdded(true);
+            }
           }}
         >
           <i className="fa-solid fa-cart-shopping"></i>
           Move to Cart
         </div>
       ) : (
-        <Green>
-          Added To cart <i class="fa-solid fa-check"></i>
-        </Green>
+        <RedTxt
+          onClick={() => {
+            const index = cart.findIndex((item) => item.id === theItem.id);
+            if (index !== -1) {
+              const newCart = [...cart];
+              newCart.splice(index, 1);
+              setCart(newCart);
+              setAdded(false);
+            }
+          }}
+        >
+          remove from cart
+        </RedTxt>
       )}
     </AddToCartBtn>
   );

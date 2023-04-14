@@ -170,8 +170,8 @@ const Cart = () => {
       </Wrapper>
       <Heading title="Saved for later" />
       <CartCards>
-        {cards.map((item) => {
-          return <CartCard item={item} key={item.id} />;
+        {cards.map((item, index) => {
+          return <CartCard item={item} key={index} />;
         })}
       </CartCards>
       <Discount />
