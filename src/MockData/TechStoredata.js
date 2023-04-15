@@ -62,16 +62,6 @@ const techstoredata = [
     shipping: "Free Shipping",
   },
   {
-    id: 5,
-    image: t5,
-    rating: rating4,
-    title: "Apple Watch Series 8 calls",
-    price: "998.00",
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-    orders: 154,
-    shipping: "Free Shipping",
-  },
-  {
     id: 6,
     image: t6,
     rating: rating4,

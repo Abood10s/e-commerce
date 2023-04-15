@@ -87,6 +87,8 @@ export const Features = [
 export const ratings = [rating5, rating4, rating3, rating2];
 const TechStore = () => {
   let location = useLocation();
+  const [allProducts, setAllProducts] = useState(techstoredata);
+
   const [tags, setTags] = useState([]);
   const [isList, setIsList] = useState(true);
   const uniqueTags = [...new Set(tags)];
@@ -155,10 +157,15 @@ const TechStore = () => {
               </>
             )}
             {query === "all" &&
-              techstoredata.map((item) => {
+              allProducts.map((item) => {
                 return <TechCard theItem={item} key={item.id} />;
               })}
-            {searched.length !== 0 && <Pagination />}
+            {searched.length !== 0 && (
+              <Pagination
+                data={techstoredata}
+                setAllProducts={setAllProducts}
+              />
+            )}
           </ProductsWrapper>
         </StoreWrapper>
       </Wrapper>

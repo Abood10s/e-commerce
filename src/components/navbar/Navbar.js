@@ -11,6 +11,7 @@ import { CartCtx } from "../../Contexts/CartContext";
 import { Link } from "react-router-dom";
 import { SearchData } from "../../MockData/SearchData";
 import SearchItem from "./SearchItem";
+import MobileNav from "./MobileNav";
 
 const Container = styled.div`
   position: relative;
@@ -53,11 +54,13 @@ const Logo = styled.img`
     height: 35px;
   }
 `;
-const NavItem = styled.div`
+export const NavItem = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: ${(props) => props.direction || "column"};
+  justify-content: ${(props) => props.justify || "center"};
+  width: ${(props) => props.width || "auto"};
+
   align-items: center;
   gap: 0.2rem;
   @media (max-width: 768px) {
@@ -83,7 +86,7 @@ const Controls = styled.div`
   gap: 0.5rem;
   margin-left: 0.5rem;
   @media (max-width: 768px) {
-    gap: 0.3rem;
+    display: none;
   }
 `;
 const SearchWrap = styled.div`
@@ -99,7 +102,7 @@ const SearchWrap = styled.div`
 `;
 export const Text = styled.p`
   color: #8b96a5;
-  font-weight: 550;
+  font-weight: bold;
   cursor: pointer;
   display: inline-block;
 `;
@@ -165,7 +168,7 @@ const Flex2 = styled.div`
   display: flex;
   gap: 1em;
 `;
-const LogOutBtn = styled.button`
+export const LogOutBtn = styled.button`
   background-color: #123;
   color: #fff;
   display: flex;
@@ -176,8 +179,11 @@ const LogOutBtn = styled.button`
   cursor: pointer;
   border-radius: 4px;
   border: none;
+  @media (max-width: 1020px) {
+    display: none;
+  }
 `;
-const Badge = styled.div`
+export const Badge = styled.div`
   position: absolute;
   top: -12px;
   right: -13px;
@@ -194,9 +200,9 @@ const Badge = styled.div`
   padding: 0.1rem 0.1rem;
 `;
 
-const Logout = styled.p`
+export const Logout = styled.p`
   font-weight: bold;
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
     display: none;
   }
 `;
@@ -212,6 +218,18 @@ const Suggestions = styled.div`
   width: 36%;
   max-height: 30%;
 `;
+const Menu = styled.i`
+  cursor: pointer;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+const CloseMenu = styled.i`
+  cursor: pointer;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
 const Navbar = ({ theme }) => {
@@ -219,6 +237,8 @@ const Navbar = ({ theme }) => {
   const { logout, isAuth } = useContext(AuthCtx);
   const { cart } = useContext(CartCtx);
   const [query, setQuery] = useState("");
+  const [clicked, setClicked] = useState(false);
+
   const [searchedData, setSearchedData] = useState(null);
 
   const findSuggestions = (query) => {
@@ -287,7 +307,20 @@ const Navbar = ({ theme }) => {
             </Suggestions>
           )}
         </SearchWrap>
-
+        {clicked ? (
+          <CloseMenu
+            className="fa-solid fa-x"
+            onClick={() => setClicked(false)}
+            style={{ fontSize: "19px" }}
+          ></CloseMenu>
+        ) : (
+          <Menu
+            className="fa-solid fa-bars"
+            onClick={() => setClicked(true)}
+            style={{ fontSize: "19px" }}
+          ></Menu>
+        )}
+        <MobileNav show={clicked ? true : false} />
         <Controls>
           <NavItem>
             <Icon src={profile} />
