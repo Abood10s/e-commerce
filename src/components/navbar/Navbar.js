@@ -9,13 +9,15 @@ import { AuthCtx } from "../../Contexts/AuthContext";
 import { CartCtx } from "../../Contexts/CartContext";
 
 import { Link } from "react-router-dom";
+import { SearchData } from "../../MockData/SearchData";
+import SearchItem from "./SearchItem";
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
-  overflow-x: auto;
+  overflow: hidden;
   background-color: #fff;
-
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
   position: fixed;
@@ -88,8 +90,8 @@ const SearchWrap = styled.div`
   height: 40px;
   display: flex;
   justify-content: space-evenly;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 5px;
+
   border: 2px solid #0d6efd;
   @media (max-width: 1100px) {
     display: none;
@@ -198,6 +200,18 @@ const Logout = styled.p`
     display: none;
   }
 `;
+const Suggestions = styled.div`
+  position: fixed;
+  top: 65px;
+  left: 24.5%;
+  right: 0;
+  border-radius: 5px;
+  overflow-y: scroll;
+  transition: all ease-in 0.1s;
+  background-color: #eff2f4;
+  width: 36%;
+  max-height: 30%;
+`;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
 const Navbar = ({ theme }) => {
@@ -205,6 +219,14 @@ const Navbar = ({ theme }) => {
   const { logout, isAuth } = useContext(AuthCtx);
   const { cart } = useContext(CartCtx);
   const [query, setQuery] = useState("");
+  const [searchedData, setSearchedData] = useState(null);
+
+  const findSuggestions = (query) => {
+    let suggestedData = SearchData.filter((item) => item.title.includes(query));
+    setSearchedData(suggestedData);
+    console.log(suggestedData);
+  };
+
   return (
     <Container theme={theme}>
       <Wrapper>
@@ -215,7 +237,10 @@ const Navbar = ({ theme }) => {
         <SearchWrap>
           <Search
             placeholder="Search"
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value);
+              findSuggestions(e.target.value);
+            }}
             value={query}
           />
           <Categories>
@@ -226,7 +251,7 @@ const Navbar = ({ theme }) => {
               style={{
                 textDecoration: "none",
                 alignSelf: "center",
-                padding: "0.8rem",
+                padding: "0.6rem",
                 backgroundColor: "#0d6efd",
                 color: "#fff",
                 fontWeight: "bold",
@@ -241,7 +266,7 @@ const Navbar = ({ theme }) => {
               style={{
                 textDecoration: "none",
                 alignSelf: "center",
-                padding: "0.8rem",
+                padding: "0.6rem",
                 backgroundColor: "#0d6efd",
                 color: "#fff",
                 fontWeight: "bold",
@@ -249,6 +274,17 @@ const Navbar = ({ theme }) => {
             >
               Search
             </Link>
+          )}
+          {query && (
+            <Suggestions className={query && "active"}>
+              {searchedData?.map((item) => {
+                return (
+                  <SearchItem search={query} key={item.id}>
+                    {item.title}
+                  </SearchItem>
+                );
+              })}
+            </Suggestions>
           )}
         </SearchWrap>
 

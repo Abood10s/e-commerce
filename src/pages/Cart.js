@@ -130,7 +130,7 @@ const Cart = () => {
             return (
               <CartItem
                 key={id}
-                img={image || img}
+                img={img || image}
                 title={title}
                 price={price}
                 id={id}
@@ -140,9 +140,9 @@ const Cart = () => {
           })}
           {cart.length !== 0 ? (
             <Buttons>
-              <Link to="/store" style={{ textDecoration: "none" }}>
+              <Link to="/store/all" style={{ textDecoration: "none" }}>
                 <SubscribeBtn>
-                  <i class="fa-solid fa-arrow-left-long"></i>Back to shop
+                  <i className="fa-solid fa-arrow-left-long"></i>Back to shop
                 </SubscribeBtn>
               </Link>
               <CartMBtn title="Remove all" />
@@ -157,9 +157,9 @@ const Cart = () => {
               />
               <EmptyCart>
                 <Warning> You Don't Have Any Thing In Your Cart</Warning>
-                <Link to="/store" style={{ textDecoration: "none" }}>
+                <Link to="/store/all" style={{ textDecoration: "none" }}>
                   <SubscribeBtn>
-                    <i class="fa-solid fa-arrow-left-long"></i>Back to shop
+                    <i className="fa-solid fa-arrow-left-long"></i>Back to shop
                   </SubscribeBtn>
                 </Link>
               </EmptyCart>
