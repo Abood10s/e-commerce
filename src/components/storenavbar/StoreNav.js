@@ -7,6 +7,7 @@ import { Categories } from "../navbar/Navbar";
 
 import list from "./list.png";
 import grid from "./grid.png";
+import techstoredata from "../../MockData/TechStoredata";
 
 const Wrapper = styled.div`
   margin: 1rem auto;
@@ -48,11 +49,11 @@ const Flex = styled.div`
   gap: 1rem;
   align-items: center;
 `;
-const StoreNav = ({ setIsList }) => {
+const StoreNav = ({ setIsList, itemsCount }) => {
   return (
     <Wrapper>
       <div>
-        <p>12,911 items</p>
+        <p>{itemsCount || techstoredata.length} items found</p>
       </div>
       <Flex>
         <div>

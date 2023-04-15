@@ -94,7 +94,7 @@ const HomeBanner = ({ theme }) => {
         <HHeroImg himg={BannerImg}>
           <h3>Latest trending</h3>
           <H2>Electronic items </H2>
-          <Link to="/store">
+          <Link to="/store/all">
             <Button>Source now</Button>
           </Link>
         </HHeroImg>

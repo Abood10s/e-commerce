@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import TheLogo from "../../assets/form icons/thelogo.png";
 import profile from "../../assets/navicons/nav1.png";
@@ -9,13 +9,16 @@ import { AuthCtx } from "../../Contexts/AuthContext";
 import { CartCtx } from "../../Contexts/CartContext";
 
 import { Link } from "react-router-dom";
+import { SearchData } from "../../MockData/SearchData";
+import SearchItem from "./SearchItem";
+import MobileNav from "./MobileNav";
 
 const Container = styled.div`
+  position: relative;
   width: 100%;
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
-  overflow-x: auto;
+  overflow: hidden;
   background-color: #fff;
-
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
   position: fixed;
@@ -51,11 +54,13 @@ const Logo = styled.img`
     height: 35px;
   }
 `;
-const NavItem = styled.div`
+export const NavItem = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: ${(props) => props.direction || "column"};
+  justify-content: ${(props) => props.justify || "center"};
+  width: ${(props) => props.width || "auto"};
+
   align-items: center;
   gap: 0.2rem;
   @media (max-width: 768px) {
@@ -81,15 +86,15 @@ const Controls = styled.div`
   gap: 0.5rem;
   margin-left: 0.5rem;
   @media (max-width: 768px) {
-    gap: 0.3rem;
+    display: none;
   }
 `;
 const SearchWrap = styled.div`
   height: 40px;
   display: flex;
   justify-content: space-evenly;
-  border-radius: 8px;
-  overflow: hidden;
+  border-radius: 5px;
+
   border: 2px solid #0d6efd;
   @media (max-width: 1100px) {
     display: none;
@@ -97,7 +102,7 @@ const SearchWrap = styled.div`
 `;
 export const Text = styled.p`
   color: #8b96a5;
-  font-weight: 550;
+  font-weight: bold;
   cursor: pointer;
   display: inline-block;
 `;
@@ -120,6 +125,7 @@ const Search = styled.input`
   border: 1px solid #0d6efd;
   width: 350px;
 `;
+
 export const Categories = styled.select`
   border: 1px solid #0d6efd;
   padding: 0.1rem 0.5rem;
@@ -162,7 +168,7 @@ const Flex2 = styled.div`
   display: flex;
   gap: 1em;
 `;
-const LogOutBtn = styled.button`
+export const LogOutBtn = styled.button`
   background-color: #123;
   color: #fff;
   display: flex;
@@ -173,8 +179,11 @@ const LogOutBtn = styled.button`
   cursor: pointer;
   border-radius: 4px;
   border: none;
+  @media (max-width: 1020px) {
+    display: none;
+  }
 `;
-const Badge = styled.div`
+export const Badge = styled.div`
   position: absolute;
   top: -12px;
   right: -13px;
@@ -191,9 +200,33 @@ const Badge = styled.div`
   padding: 0.1rem 0.1rem;
 `;
 
-const Logout = styled.p`
+export const Logout = styled.p`
   font-weight: bold;
-  @media (max-width: 720px) {
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+const Suggestions = styled.div`
+  position: fixed;
+  top: 65px;
+  left: 24.5%;
+  right: 0;
+  border-radius: 5px;
+  overflow-y: scroll;
+  transition: all ease-in 0.1s;
+  background-color: #eff2f4;
+  width: 36%;
+  max-height: 30%;
+`;
+const Menu = styled.i`
+  cursor: pointer;
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+const CloseMenu = styled.i`
+  cursor: pointer;
+  @media (min-width: 768px) {
     display: none;
   }
 `;
@@ -203,6 +236,16 @@ const Navbar = ({ theme }) => {
   const name = localStorage.getItem("name");
   const { logout, isAuth } = useContext(AuthCtx);
   const { cart } = useContext(CartCtx);
+  const [query, setQuery] = useState("");
+  const [clicked, setClicked] = useState(false);
+
+  const [searchedData, setSearchedData] = useState(null);
+
+  const findSuggestions = (query) => {
+    let suggestedData = SearchData.filter((item) => item.title.includes(query));
+    setSearchedData(suggestedData);
+    console.log(suggestedData);
+  };
 
   return (
     <Container theme={theme}>
@@ -212,13 +255,72 @@ const Navbar = ({ theme }) => {
         </Link>
 
         <SearchWrap>
-          <Search placeholder="Search" />
+          <Search
+            placeholder="Search"
+            onChange={(e) => {
+              setQuery(e.target.value);
+              findSuggestions(e.target.value);
+            }}
+            value={query}
+          />
           <Categories>
             <option value="All">All Categories</option>
           </Categories>
-          <SearchBtn>Search</SearchBtn>
+          {!query ? (
+            <p
+              style={{
+                textDecoration: "none",
+                alignSelf: "center",
+                padding: "0.6rem",
+                backgroundColor: "#0d6efd",
+                color: "#fff",
+                fontWeight: "bold",
+              }}
+            >
+              Search
+            </p>
+          ) : (
+            <Link
+              className="search-link"
+              to={`/store/${query}`}
+              style={{
+                textDecoration: "none",
+                alignSelf: "center",
+                padding: "0.6rem",
+                backgroundColor: "#0d6efd",
+                color: "#fff",
+                fontWeight: "bold",
+              }}
+            >
+              Search
+            </Link>
+          )}
+          {query && (
+            <Suggestions className={query && "active"}>
+              {searchedData?.map((item) => {
+                return (
+                  <SearchItem search={query} key={item.id}>
+                    {item.title}
+                  </SearchItem>
+                );
+              })}
+            </Suggestions>
+          )}
         </SearchWrap>
-
+        {clicked ? (
+          <CloseMenu
+            className="fa-solid fa-x"
+            onClick={() => setClicked(false)}
+            style={{ fontSize: "19px" }}
+          ></CloseMenu>
+        ) : (
+          <Menu
+            className="fa-solid fa-bars"
+            onClick={() => setClicked(true)}
+            style={{ fontSize: "19px" }}
+          ></Menu>
+        )}
+        <MobileNav show={clicked ? true : false} />
         <Controls>
           <NavItem>
             <Icon src={profile} />
@@ -245,7 +347,7 @@ const Navbar = ({ theme }) => {
         </Controls>
         {isAuth && (
           <LogOutBtn type="button" onClick={logout}>
-            <i class="fa-solid fa-arrow-right-from-bracket"></i>{" "}
+            <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
             <Logout>Log out</Logout>
           </LogOutBtn>
         )}

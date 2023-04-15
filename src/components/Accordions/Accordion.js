@@ -43,7 +43,7 @@ const Accordion = ({ title, data, type }) => {
       <Header onClick={() => setShow(!show)}>
         <h4>{title}</h4>
         <p>
-          <i class={`fa-solid fa-chevron-${show ? "up" : "down"}`}></i>
+          <i className={`fa-solid fa-chevron-${show ? "up" : "down"}`}></i>
         </p>
       </Header>
       {show && (

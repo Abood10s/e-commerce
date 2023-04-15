@@ -64,6 +64,10 @@ const Flex2 = styled.div`
 `;
 const IImage = styled.img``;
 const Image = styled.img`
+  display: block;
+  max-width: 200px;
+  object-fit: cover;
+  margin: auto;
   @media (max-width: 1050px) {
     height: 200px;
     width: 200px;
@@ -82,9 +86,9 @@ const Icon = styled.img`
   height: 80%;
 `;
 
-const TechCard = ({ item }) => {
+const TechCard = ({ theItem }) => {
   const [isLiked, setisLiked] = useState(false);
-  const { image, title, orders, price, rating, body, shipping } = item;
+  const { image, title, orders, price, rating, body, shipping } = theItem;
   return (
     <Wrap>
       <Image src={image} />
@@ -104,8 +108,7 @@ const TechCard = ({ item }) => {
         <Flex>
           <P>{body}</P>
         </Flex>
-        <Blue>View details</Blue>
-        <AddToCart item={item} />
+        <AddToCart theItem={theItem} />
       </Body>
     </Wrap>
   );

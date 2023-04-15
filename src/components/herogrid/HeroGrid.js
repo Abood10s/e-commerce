@@ -53,7 +53,7 @@ const HeroGrid = ({ himg, data, theme }) => {
     <Wrapper>
       <HeroImg himg={himg} alt="main">
         <P>Home and outdoor</P>
-        <Link to="/store">
+        <Link to="/store/all">
           <Button>Source now</Button>
         </Link>
       </HeroImg>

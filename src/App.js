@@ -26,25 +26,6 @@ function App() {
     setIsAuth(false);
   };
 
-  // const theme = currentTheme
-  //   ? {
-  //       primaryClr: "#2C3333",
-  //       secondaryClr: "#C8C8C8",
-  //     }
-  //   : {};
-  // useEffect(() => {
-  //   if (localStorage.getItem("theme") === "dark") {
-  //     setIsDarkMode(true);
-  //   }
-  // }, []);
-
-  // const handleDarkMode = () => {
-  //   const updatedIsDarkMode = !isDarkMode;
-  //   setIsDarkMode(updatedIsDarkMode);
-  //   updatedIsDarkMode
-  //     ? localStorage.setItem("theme", "dark")
-  //     : localStorage.removeItem("theme");
-  // };
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) setIsAuth(true);
@@ -67,7 +48,7 @@ function App() {
                 }
               />
               <Route
-                path="cart"
+                path="/cart"
                 element={
                   <Suspense fallback={<Skeleton count={1} height={40} />}>
                     <Cart />
@@ -75,7 +56,7 @@ function App() {
                 }
               />
               <Route
-                path="store"
+                path="/store/:query"
                 element={
                   <Suspense fallback={<Skeleton count={1} height={40} />}>
                     <TechStore />
@@ -83,7 +64,7 @@ function App() {
                 }
               />
               <Route
-                path="product"
+                path="/product"
                 element={
                   <Suspense fallback={<Skeleton count={1} height={40} />}>
                     <SingleProduct />

@@ -24,12 +24,12 @@ const RecomGrid = ({ theme }) => {
   return (
     <Wrapper>
       {recommended.map((item, index) => {
-        const { img, body, price } = item;
+        const { img, title, price } = item;
         return (
           <RecomCard
             img={img}
             price={price}
-            body={body}
+            body={title}
             theme={theme}
             key={index}
           />

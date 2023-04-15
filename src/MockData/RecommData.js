@@ -10,52 +10,52 @@ import r9 from "../assets/recommended/9.png";
 const recommended = [
   {
     img: r1,
-    body: "T-shirts with multiple colors, for men",
+    title: "T-shirts with multiple colors, for men",
     price: "10.30",
   },
   {
     img: r2,
-    body: "Jeans shorts for men blue color",
+    title: "Jeans shorts for men blue color",
     price: "10.30",
   },
   {
     img: r3,
-    body: "Brown winter coat medium size",
+    title: "Brown winter coat medium size",
     price: "12.5",
   },
   {
     img: r4,
-    body: "Jeans bag for travel for men",
+    title: "Jeans bag for travel for men",
     price: "34",
   },
   {
     img: r5,
-    body: "Leather wallet",
+    title: "Leather wallet",
     price: "99",
   },
   {
     img: r6,
-    body: "Canon camera black, 100x zoom",
+    title: "Canon camera black, 100x zoom",
     price: "9.99",
   },
   {
     img: r7,
-    body: "Headset for gaming with mic",
+    title: "Headset for gaming with mic",
     price: "8.99",
   },
   {
     img: r8,
-    body: "Smart watch silver color modern",
+    title: "Smart watch silver color modern",
     price: "10.30",
   },
   {
     img: r9,
-    body: "Blue wallet for men leather metarfial",
+    title: "Blue wallet for men leather metarfial",
     price: "80.95",
   },
   {
     img: r6,
-    body: "Jeans bag for travel for men",
+    title: "Jeans bag for travel for men",
     price: "80.95",
   },
 ];

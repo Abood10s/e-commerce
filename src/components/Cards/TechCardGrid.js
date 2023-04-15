@@ -82,12 +82,12 @@ const Icon = styled.img`
   height: 80%;
 `;
 
-const TechCardGrid = ({ item }) => {
+const TechCardGrid = ({ theItem }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const { image, title, orders, price, rating, shipping } = item;
+  const { image, title, img, orders, price, rating, shipping } = theItem;
   return (
     <Wrap>
-      <Image src={image} />
+      <Image src={image || img} />
       <Body>
         <Flex1>
           <h4>{title}</h4>
@@ -103,7 +103,7 @@ const TechCardGrid = ({ item }) => {
         </Flex2>
 
         <Blue>View details</Blue>
-        <AddToCart item={item} />
+        <AddToCart theItem={theItem} />
       </Body>
     </Wrap>
   );
