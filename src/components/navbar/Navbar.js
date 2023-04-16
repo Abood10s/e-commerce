@@ -227,9 +227,10 @@ const Suggestions = styled.div`
   border-radius: 5px;
   overflow-y: scroll;
   transition: all ease-in 0.1s;
-  background-color: #eff2f4;
+  background-color: #fff;
   width: 30%;
   max-height: 30%;
+  border: 1px solid #2424243b;
   @media (max-width: 1000px) {
     display: none;
   }
@@ -259,6 +260,7 @@ const Navbar = ({ theme }) => {
   const { cart } = useContext(CartCtx);
   const [query, setQuery] = useState("");
   const [clicked, setClicked] = useState(false);
+  const [suggess, setSuggess] = useState(false);
 
   const [searchedData, setSearchedData] = useState(null);
 
@@ -339,7 +341,7 @@ const Navbar = ({ theme }) => {
               Search
             </Link>
           )}
-          {query && (
+          {query && !suggess && (
             <Suggestions className={query && "active"}>
               {searchedData?.map((item) => {
                 return (
