@@ -5,10 +5,20 @@ import AddToCart from "../Buttons/AddToCart";
 const CartCont = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.7rem;
+  gap: 0.8rem;
+  margin: 1rem 0;
+  background: #fff;
+  padding: 0.5rem;
+  border-radius: 5px;
 `;
 const Image = styled.img`
   width: 100%;
+  @media (max-width: 768px) {
+    height: 70%;
+    width: 70%;
+    objet-fit: cover;
+    margin: auto;
+  }
 `;
 const Cont = styled.p``;
 const P = styled.h4``;
@@ -20,7 +30,7 @@ const CartCard = ({ item }) => {
       <Image src={img} />
       <P>{price}$</P>
       <Cont>{body}</Cont>
-      <AddToCart item={item} />
+      <AddToCart theItem={item} />
     </CartCont>
   );
 };

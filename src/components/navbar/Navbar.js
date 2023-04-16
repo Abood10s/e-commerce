@@ -34,6 +34,9 @@ const SContainer = styled.div`
   overflow-x: auto;
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
+  @media (max-width: 968px) {
+    display: none;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
@@ -43,9 +46,10 @@ const Wrapper = styled.div`
   margin: auto;
   padding: 1rem 0;
   gap: 0.5rem;
-  @media (max-width: 768px) {
+  @media (max-width: 908px) {
     width: 100%;
     padding: 0.8rem 0.5rem;
+    flex-direction: column;
   }
 `;
 const Logo = styled.img`
@@ -85,6 +89,9 @@ const Controls = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-left: 0.5rem;
+  @media (max-width: 950px) {
+    margin-top: 0.5rem;
+  }
   @media (max-width: 768px) {
     display: none;
   }
@@ -92,12 +99,15 @@ const Controls = styled.div`
 const SearchWrap = styled.div`
   height: 40px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   border-radius: 5px;
-
   border: 2px solid #0d6efd;
-  @media (max-width: 1100px) {
-    display: none;
+  width: fit-content;
+  @media (max-width: 700px) {
+    width: fit-content;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `;
 export const Text = styled.p`
@@ -131,6 +141,9 @@ export const Categories = styled.select`
   padding: 0.1rem 0.5rem;
   outline: none;
   cursor: pointer;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 `;
 export const SearchBtn = styled.button`
   background-color: #0d6efd;
@@ -174,7 +187,7 @@ export const LogOutBtn = styled.button`
   display: flex;
   align-items: center;
   gap: 0.2rem;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   height: fit-content;
   cursor: pointer;
   border-radius: 4px;
@@ -209,14 +222,18 @@ export const Logout = styled.p`
 const Suggestions = styled.div`
   position: fixed;
   top: 65px;
-  left: 24.5%;
+  left: 34%;
   right: 0;
   border-radius: 5px;
   overflow-y: scroll;
   transition: all ease-in 0.1s;
-  background-color: #eff2f4;
-  width: 36%;
+  background-color: #fff;
+  width: 30%;
   max-height: 30%;
+  border: 1px solid #2424243b;
+  @media (max-width: 1000px) {
+    display: none;
+  }
 `;
 const Menu = styled.i`
   cursor: pointer;
@@ -230,6 +247,11 @@ const CloseMenu = styled.i`
     display: none;
   }
 `;
+export const ProductImg = styled.img`
+  height: 35px;
+  width: 35px;
+  object-fit: cover;
+`;
 const list = ["Hot offers", "Gift boxes", "Projects", "Menu item"];
 
 const Navbar = ({ theme }) => {
@@ -238,11 +260,14 @@ const Navbar = ({ theme }) => {
   const { cart } = useContext(CartCtx);
   const [query, setQuery] = useState("");
   const [clicked, setClicked] = useState(false);
+  const [suggess, setSuggess] = useState(false);
 
   const [searchedData, setSearchedData] = useState(null);
 
   const findSuggestions = (query) => {
-    let suggestedData = SearchData.filter((item) => item.title.includes(query));
+    let suggestedData = SearchData.filter((item) =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
     setSearchedData(suggestedData);
     console.log(suggestedData);
   };
@@ -250,10 +275,31 @@ const Navbar = ({ theme }) => {
   return (
     <Container theme={theme}>
       <Wrapper>
-        <Link to="/">
-          <Logo src={TheLogo} alt="brand logo" />
-        </Link>
-
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <Link to="/">
+            <Logo src={TheLogo} alt="brand logo" />
+          </Link>
+          {clicked ? (
+            <CloseMenu
+              className="fa-solid fa-x"
+              onClick={() => setClicked(false)}
+              style={{ fontSize: "19px" }}
+            ></CloseMenu>
+          ) : (
+            <Menu
+              className="fa-solid fa-bars"
+              onClick={() => setClicked(true)}
+              style={{ fontSize: "19px" }}
+            ></Menu>
+          )}
+        </div>
         <SearchWrap>
           <Search
             placeholder="Search"
@@ -295,11 +341,11 @@ const Navbar = ({ theme }) => {
               Search
             </Link>
           )}
-          {query && (
+          {query && !suggess && (
             <Suggestions className={query && "active"}>
               {searchedData?.map((item) => {
                 return (
-                  <SearchItem search={query} key={item.id}>
+                  <SearchItem search={query} key={item.id} item={item}>
                     {item.title}
                   </SearchItem>
                 );
@@ -307,19 +353,7 @@ const Navbar = ({ theme }) => {
             </Suggestions>
           )}
         </SearchWrap>
-        {clicked ? (
-          <CloseMenu
-            className="fa-solid fa-x"
-            onClick={() => setClicked(false)}
-            style={{ fontSize: "19px" }}
-          ></CloseMenu>
-        ) : (
-          <Menu
-            className="fa-solid fa-bars"
-            onClick={() => setClicked(true)}
-            style={{ fontSize: "19px" }}
-          ></Menu>
-        )}
+
         <MobileNav show={clicked ? true : false} />
         <Controls>
           <NavItem>
@@ -345,12 +379,13 @@ const Navbar = ({ theme }) => {
             </NavItem>
           </Link>
         </Controls>
-        {isAuth && (
-          <LogOutBtn type="button" onClick={logout}>
-            <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
-            <Logout>Log out</Logout>
-          </LogOutBtn>
-        )}
+        <div style={{ margin: "0 1.5rem" }}>
+          {isAuth && (
+            <LogOutBtn type="button" onClick={logout}>
+              <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
+            </LogOutBtn>
+          )}
+        </div>
       </Wrapper>
       <SContainer theme={theme}>
         <SWrapper>

@@ -63,6 +63,9 @@ const Flex2 = styled.div`
 `;
 const IImage = styled.img`
   height: 20px;
+  @media (max-width: 450px) {
+    height: 10px;
+  }
 `;
 const Image = styled.img`
   height: 200px;

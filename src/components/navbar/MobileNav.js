@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AuthCtx } from "../../Contexts/AuthContext";
-import { CartCtx } from "../../Contexts/CartContext";
-import { Icon, Logout, LogOutBtn, Text } from "./Navbar";
+import { Icon, Text } from "./Navbar";
 import profile from "../../assets/navicons/nav1.png";
 import order from "../../assets/navicons/nav2.png";
 import msg from "../../assets/navicons/nav3.png";
@@ -12,7 +11,7 @@ const Nav = styled.div`
   position: fixed;
   transition: all ease 0.3s;
   background-color: #fff;
-  top: 65px;
+  top: 60px;
   width: 100%;
   bottom: 0;
   left: ${(props) => (props.show ? "0" : "-110%")};
