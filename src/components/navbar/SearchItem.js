@@ -14,7 +14,7 @@ const Cont = styled.div`
     background-color: #eae9e9c5;
   }
 `;
-const SearchItem = ({ search, children, item, setClicked }) => {
+const SearchItem = ({ search, children, item, setSuggess }) => {
   return (
     <Cont>
       <ProductImg src={item.img || item.image} alt={item.title} />
@@ -23,7 +23,7 @@ const SearchItem = ({ search, children, item, setClicked }) => {
         style={{
           textDecoration: "none",
         }}
-        onClick={() => setClicked(true)}
+        onClick={() => setSuggess(true)}
       >
         {children}
       </Link>
