@@ -89,6 +89,9 @@ const Controls = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-left: 0.5rem;
+  @media (max-width: 950px) {
+    margin-top: 0.5rem;
+  }
   @media (max-width: 768px) {
     display: none;
   }
@@ -101,8 +104,10 @@ const SearchWrap = styled.div`
   border: 2px solid #0d6efd;
   width: fit-content;
   @media (max-width: 700px) {
-    height: 40px;
     width: fit-content;
+  }
+  @media (max-width: 500px) {
+    width: 100%;
   }
 `;
 export const Text = styled.p`
@@ -258,7 +263,9 @@ const Navbar = ({ theme }) => {
   const [searchedData, setSearchedData] = useState(null);
 
   const findSuggestions = (query) => {
-    let suggestedData = SearchData.filter((item) => item.title.includes(query));
+    let suggestedData = SearchData.filter((item) =>
+      item.title.toLowerCase().includes(query.toLowerCase())
+    );
     setSearchedData(suggestedData);
     console.log(suggestedData);
   };

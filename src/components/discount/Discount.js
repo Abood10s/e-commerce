@@ -18,6 +18,9 @@ const Cont = styled.div`
   width: 80%;
   margin: 2rem auto;
   padding: 1.5em 2em;
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 `;
 const Text = styled.div`
   display: flex;

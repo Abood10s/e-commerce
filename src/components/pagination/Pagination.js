@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { Categories } from "../navbar/Navbar";
@@ -46,46 +46,25 @@ const Page = styled.p`
 `;
 
 const Pagination = ({ data, setAllProducts }) => {
-  const [perPage, setPerPage] = useState(2);
-  const [active, setActive] = useState(0);
-  const pages = Math.floor(data.length / perPage);
+  // const [perPage, setPerPage] = useState(2);
+  // const pages = Math.floor(data.length / perPage);
 
-  const paginate = (items, page = 1, perPage) =>
-    items.slice(perPage * (page - 1), perPage * page);
+  // const paginate = (items, page = 1, perPage) =>
+  //   items.slice(perPage * (page - 1), perPage * page);
   return (
     <Wrapper>
       <Content>
         <PCategories>
-          <option value="2" onClick={(e) => setPerPage(e.target.value)}>
-            Show 2
-          </option>
-          <option value="3" onClick={(e) => setPerPage(e.target.value)}>
-            Show 3
-          </option>
-          <option value="4" onClick={(e) => setPerPage(e.target.value)}>
-            Show 4
-          </option>
-          <option value="5" onClick={(e) => setPerPage(e.target.value)}>
-            Show 5
-          </option>
+          <option value="2">Show 2</option>
+          <option value="3">Show 3</option>
+          <option value="4">Show 4</option>
+          <option value="5">Show 5</option>
         </PCategories>
         <Pages>
           <Page>
             <i className="fa-solid fa-chevron-left"></i>
           </Page>
-          {[...Array(pages)].map((_, index) => {
-            return (
-              <Page
-                onClick={() => {
-                  setAllProducts(paginate(data, index + 1, perPage));
-                  setActive(index);
-                }}
-                className={active === index && "active"}
-              >
-                {index + 1}
-              </Page>
-            );
-          })}
+
           <Page>
             <i className="fa-solid fa-chevron-right"></i>
           </Page>
