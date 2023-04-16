@@ -48,8 +48,7 @@ const Page = styled.p`
 const Pagination = ({ data, setAllProducts }) => {
   const [perPage, setPerPage] = useState(2);
   const [active, setActive] = useState(0);
-
-  const [pages, setPages] = useState(Math.floor(data.length / perPage));
+  const pages = Math.floor(data.length / perPage);
 
   const paginate = (items, page = 1, perPage) =>
     items.slice(perPage * (page - 1), perPage * page);

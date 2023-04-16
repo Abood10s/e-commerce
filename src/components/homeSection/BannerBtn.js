@@ -14,7 +14,7 @@ const Button = styled.h4`
 
 const BannerBtn = ({ bg, clr, txt }) => {
   return (
-    <Link to="/store" style={{ textDecoration: "none" }}>
+    <Link to="/store/all" style={{ textDecoration: "none" }}>
       <Button bg={bg} clr={clr}>
         {txt}
       </Button>
