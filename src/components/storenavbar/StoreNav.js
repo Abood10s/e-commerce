@@ -20,6 +20,9 @@ const Wrapper = styled.div`
   gap: 1rem;
   padding: 0 1em;
   width: 97%;
+  &.active {
+    background-color: red;
+  }
 `;
 const Icons = styled.div`
   display: flex;
@@ -49,7 +52,7 @@ const Flex = styled.div`
   gap: 1rem;
   align-items: center;
 `;
-const StoreNav = ({ setIsList, itemsCount }) => {
+const StoreNav = ({ setIsList, itemsCount, isList }) => {
   return (
     <Wrapper>
       <div>
@@ -73,8 +76,16 @@ const StoreNav = ({ setIsList, itemsCount }) => {
           </CCategories>
         </div>
         <Icons>
-          <Icon src={grid} onClick={() => setIsList(false)} />
-          <Icon src={list} onClick={() => setIsList(true)} />
+          <Icon
+            src={grid}
+            onClick={() => setIsList(false)}
+            className={isList ? "" : "active"}
+          />
+          <Icon
+            src={list}
+            onClick={() => setIsList(true)}
+            className={isList ? "active" : ""}
+          />
         </Icons>
       </Flex>
     </Wrapper>

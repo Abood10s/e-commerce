@@ -14,7 +14,7 @@ const Nav = styled.div`
   top: 60px;
   width: 100%;
   bottom: 0;
-  left: ${(props) => (props.show ? "0" : "-110%")};
+  right: ${(props) => (props.show ? "0" : "-110%")};
   @media (min-width: 768px) {
     display: none;
   }
@@ -46,6 +46,7 @@ const NavMobItem = styled.div`
   gap: 1rem;
   margin: auto;
 `;
+
 const MobileNav = ({ show }) => {
   const name = localStorage.getItem("name");
   const { logout } = useContext(AuthCtx);

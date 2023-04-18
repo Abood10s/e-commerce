@@ -30,6 +30,9 @@ export const SubscribeBtn = styled(SearchBtn)`
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  @media (max-width: 650px) {
+    padding: 0.5rem 1rem;
+  }
 `;
 const IInput = styled(Input)`
   height: 35px;
