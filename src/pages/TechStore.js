@@ -22,7 +22,8 @@ import techstoredata from "../MockData/TechStoredata";
 
 export const Wrapper = styled.div`
   width: 80%;
-  margin: 7rem auto;
+  margin: 8rem auto;
+  margin-top: 9rem;
 `;
 export const StoreWrapper = styled.div`
   display: grid;
@@ -95,6 +96,14 @@ const TechStore = () => {
   const handleDeleteTag = (tag) => {
     setTags(tags.filter((thetag) => thetag !== tag));
   };
+  function cutString(str) {
+    const index = str.indexOf("%");
+    if (index >= 0) {
+      return str.substring(0, index);
+    } else {
+      return str;
+    }
+  }
   const { query } = useParams();
   const [searched, setSearched] = useState([]);
   const getSearchedItems = (query) => {
@@ -111,13 +120,13 @@ const TechStore = () => {
     <>
       <Navbar />
       <Wrapper>
-        {`Home > Clothings > Men’s wear > ${location.pathname}`}
+        {`Store > Tech > Devices > ${cutString(location.pathname)}`}
         <Tags>
           {uniqueTags?.map((tag) => {
             return (
               <Tag onClick={() => handleDeleteTag(tag)}>
                 {tag}
-                <i class="fa-solid fa-x"></i>
+                <i className="fa-solid fa-x"></i>
               </Tag>
             );
           })}
@@ -139,8 +148,12 @@ const TechStore = () => {
             </Accordions>
           </CategoryCtx.Provider>
           <ProductsWrapper>
-            <StoreNav setIsList={setIsList} itemsCount={searched.length} />
-            {searched.length === 0 && (
+            <StoreNav
+              setIsList={setIsList}
+              itemsCount={searched.length}
+              isList={isList}
+            />
+            {searched.length === 0 && !query === "all" && (
               <h2>Sorry there is no matching results for "{query}"</h2>
             )}
             {isList ? (
@@ -156,10 +169,19 @@ const TechStore = () => {
                 </GridView>
               </>
             )}
-            {query === "all" &&
+            {isList ? (
+              query === "all" &&
               allProducts.map((item) => {
                 return <TechCard theItem={item} key={item.id} />;
-              })}
+              })
+            ) : (
+              <GridView>
+                {query === "all" &&
+                  allProducts.map((item) => {
+                    return <TechCardGrid theItem={item} key={item.id} />;
+                  })}
+              </GridView>
+            )}
             {searched.length !== 0 && (
               <Pagination
                 data={techstoredata}

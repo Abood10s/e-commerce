@@ -13,6 +13,8 @@ import TechStore from "./pages/TechStore";
 import { CartCtx } from "./Contexts/CartContext";
 import SingleProduct from "./components/SingleProduct/SingleProduct";
 import { AuthCtx } from "./Contexts/AuthContext";
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminProtection from "./components/utills/AdminProtection";
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -54,6 +56,14 @@ function App() {
                     <Cart />
                   </Suspense>
                 }
+              />{" "}
+              <Route
+                path="/dashboard"
+                element={
+                  <AdminProtection>
+                    <AdminDashboard />
+                  </AdminProtection>
+                }
               />
               <Route
                 path="/store/:query"
@@ -71,7 +81,6 @@ function App() {
                   </Suspense>
                 }
               />
-
               <Route path="*" element={<h2>404 Error sorry...</h2>} />
             </Route>
           </Routes>

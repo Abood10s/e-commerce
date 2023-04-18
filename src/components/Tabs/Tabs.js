@@ -46,7 +46,6 @@ const Tabss = styled.div`
   display: flex;
   gap: 1rem;
   color: #8b96a5;
-
   border-bottom: 1px solid #e3e8ee;
 `;
 const P = styled.p`
@@ -56,6 +55,11 @@ const P = styled.p`
     color: #0d6efd;
     border-bottom: 2px solid #0d6efd;
     font-weight: bold;
+  }
+  @media (max-width: 900px) {
+    &:last-of-type {
+      display: none;
+    }
   }
 `;
 const SContainer2 = styled.div`
@@ -79,7 +83,10 @@ const Txt = styled.p`
   margin: 0.5rem 0;
 `;
 const Table = styled.div`
-  width: 60%;
+  width: 70%;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 const TableItem = styled.div`
   border: 1px solid #e3e8ee;

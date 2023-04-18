@@ -103,7 +103,7 @@ const SearchWrap = styled.div`
   border-radius: 5px;
   border: 2px solid #0d6efd;
   width: fit-content;
-  @media (max-width: 700px) {
+  @media (max-width: 900px) {
     width: fit-content;
   }
   @media (max-width: 500px) {
@@ -269,7 +269,6 @@ const Navbar = ({ theme }) => {
       item.title.toLowerCase().includes(query.toLowerCase())
     );
     setSearchedData(suggestedData);
-    console.log(suggestedData);
   };
 
   return (
