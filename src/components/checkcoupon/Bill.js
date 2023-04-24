@@ -63,7 +63,7 @@ const Bill = () => {
       <Prices>
         <Txt>
           <p>Subtotal:</p>
-          <p>${getTotalPrice(cart)}</p>
+          <p>${getTotalPrice(cart).toFixed(2)}</p>
         </Txt>
         <Red>
           <p>Discount:</p>
@@ -77,7 +77,7 @@ const Bill = () => {
       <Total>
         <Txt>
           <p>Total:</p>
-          <p>${finalPrice}</p>
+          <p>${finalPrice.toFixed(2)}</p>
         </Txt>
         <CheckoutBtn>Checkout</CheckoutBtn>
         <IIconsWrapper>

@@ -6,6 +6,9 @@ import { Select } from "../forms/SignupForm";
 import { Text } from "../navbar/Navbar";
 const Img = styled.img`
   margin: auto;
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
 `;
 const CartCont = styled.div`
   border-bottom: 1px solid #e3e8ee;
@@ -25,13 +28,20 @@ const Flex = styled.div`
 const Flex2 = styled.div`
   display: flex;
   gap: 0.5em;
-
   align-items: center;
+  @media (max-width: 600px) {
+    justify-content: space-between;
+  }
 `;
 const Body = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
+`;
+const FlexBody = styled(Flex)`
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 const Price = styled.h4``;
 const CartItem = ({ img, title, price, body, id }) => {
@@ -40,15 +50,15 @@ const CartItem = ({ img, title, price, body, id }) => {
       <Img src={img} />
       <Body>
         <Flex>
-          <h4>{title}</h4>
+          <h4>{title || body}</h4>
           <Price>{price}$</Price>
         </Flex>
-        <Flex>
+        <FlexBody>
           <Text>{body}</Text>
           <Select>
             <option value="3">Qty: 3</option>
           </Select>
-        </Flex>
+        </FlexBody>
         <Flex2>
           <CartSBtn id={id} />
           <CartMBtn />
