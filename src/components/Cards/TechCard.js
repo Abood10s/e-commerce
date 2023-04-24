@@ -62,7 +62,12 @@ const Flex2 = styled.div`
   display: flex;
   gap: 1em;
 `;
-const IImage = styled.img``;
+const IImage = styled.img`
+  @media (max-width: 600px) {
+    width: 80px;
+    object-fit: contain;
+  }
+`;
 const Image = styled.img`
   display: block;
   max-width: 200px;

@@ -1,15 +1,10 @@
-import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import AdminDashboard from "../../pages/AdminDashboard";
 
-const AdminProtection = ({ children }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
+const AdminProtection = () => {
+  const isAdminValue = localStorage.getItem("isAdmin");
 
-  useEffect(() => {
-    const isAdminValue = localStorage.getItem("isAdmin");
-    setIsAdmin(Boolean(isAdminValue));
-  }, []);
-
-  return isAdmin ? children : <Navigate to="/" />;
+  return Boolean(isAdminValue) ? <AdminDashboard /> : <Navigate to="/" />;
 };
 
 export default AdminProtection;
