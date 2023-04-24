@@ -37,57 +37,77 @@ const Home = ({ theme, handleDarkMode }) => {
   return (
     <Container theme={theme}>
       <Navbar theme={theme} handleDarkMode={handleDarkMode} />
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense fallback={<Skeleton width="100%" count={1} height={100} />}>
         <Fade>
           <HomeBanner theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade>
           <Offers theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <HeroGrid himg={herog11} data={herog1data} theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <HeroGrid himg={herog21} data={herog2data} theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <QuoteForm />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <Heading title="Recommended items" theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <RecomGrid theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <Heading title="Our extra services" theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <CardServ theme={theme} />
         </Fade>
       </Suspense>
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <Subscribe theme={theme} />
         </Fade>
       </Suspense>{" "}
-      <Suspense fallback={<Skeleton count={1} height={100} />}>
+      <Suspense
+        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+      >
         <Fade bottom>
           <Footer theme={theme} />
         </Fade>
