@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Cont = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: Center;
@@ -11,9 +12,23 @@ const Cont = styled.div`
   padding: 1em;
   flex: 1;
   cursor: pointer;
-  transition: 0.2s linear;
-  &:hover {
-    flex: 1.3;
+  transition: all 0.2s linear;
+  overflow: hidden;
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: #9fe2bf;
+    z-index: -1;
+    transition: all 0.3s linear;
+  }
+  &:hover::after {
+    bottom: 0;
+    top: 0;
   }
 `;
 const Disc = styled.div`

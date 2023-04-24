@@ -14,11 +14,28 @@ const P = styled.p`
   width: 30%;
 `;
 const Cont = styled.div`
+  position: relative;
   background-color: #fff;
   padding: 0.5rem;
   border: 1px solid #e0e0e0;
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
+  z-index: 1;
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background-color: #9fe2bf;
+    z-index: -1;
+    transition: all 0.3s linear;
+  }
+  &:hover::after {
+    bottom: 0;
+    top: 0;
+  }
 `;
 const Img = styled.img``;
 const HeroItem = ({ img, title, price, theme }) => {
