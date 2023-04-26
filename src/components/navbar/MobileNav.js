@@ -46,7 +46,26 @@ const NavMobItem = styled.div`
   gap: 1rem;
   margin: auto;
 `;
-
+const LogOut = styled.h4`
+  transition: all 0.2s ease;
+  color: red;
+  cursor: pointer;
+  &:hover {
+    background-color: red;
+    color: #fff;
+  }
+`;
+const ITEM = styled.div`
+  cursor: pointer;
+  padding: 0.4rem;
+  transition: all 0.2s ease;
+  width: 100%;
+  &:hover {
+    background-color: #e3e8ee;
+    transform: translateX(4px);
+    border-left: 5px solid #213;
+  }
+`;
 const MobileNav = ({ show }) => {
   const name = localStorage.getItem("name");
   const { logout } = useContext(AuthCtx);
@@ -54,32 +73,35 @@ const MobileNav = ({ show }) => {
     <Nav show={show}>
       <Container>
         <Flex1>
-          <div>
+          <ITEM>
             <NavMobItem>
               <Icon src={profile} />
               <Text>{name}</Text>
             </NavMobItem>
-          </div>
-          <div>
+          </ITEM>
+          <ITEM>
             <NavMobItem>
               <Icon src={msg} />
               <Text>Message</Text>
             </NavMobItem>
-          </div>
-          <Link to="/product" style={{ textDecoration: "none" }}>
-            <NavMobItem>
-              <Icon src={order} />
-              <Text>Orders</Text>
-            </NavMobItem>
-          </Link>
+          </ITEM>
+          <ITEM>
+            <Link to="/product" style={{ textDecoration: "none" }}>
+              <NavMobItem>
+                <Icon src={order} />
+                <Text>Orders</Text>
+              </NavMobItem>
+            </Link>
+          </ITEM>
+          <ITEM>
+            <Link style={{ textDecoration: "none" }} to="/cart">
+              <NavMobItem>
+                <Icon src={cartIcon} />
 
-          <Link style={{ textDecoration: "none" }} to="/cart">
-            <NavMobItem>
-              <Icon src={cartIcon} />
-
-              <Text>Cart</Text>
-            </NavMobItem>
-          </Link>
+                <Text>Cart</Text>
+              </NavMobItem>
+            </Link>
+          </ITEM>
         </Flex1>
         <Line />
         <Flex2>
@@ -89,19 +111,18 @@ const MobileNav = ({ show }) => {
         </Flex2>
         <Line />
         <Flex2 onClick={() => logout()}>
-          <h4
+          <LogOut
             style={{
               width: "fit-content",
               textAlign: "center",
               margin: "2rem auto",
               padding: "0.5rem",
               borderRadius: "5px",
-              color: "red",
               border: "1px solid red",
             }}
           >
             Logout
-          </h4>
+          </LogOut>
         </Flex2>
       </Container>
     </Nav>

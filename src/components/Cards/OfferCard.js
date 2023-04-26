@@ -30,6 +30,9 @@ const Cont = styled.div`
     bottom: 0;
     top: 0;
   }
+  &:hover IMG {
+    transform: scale(1.2) translateY(-5px);
+  }
 `;
 const Disc = styled.div`
   background-color: #ffe3e3;
@@ -42,11 +45,13 @@ const Disc = styled.div`
   padding: 0.4em 0.6em;
   font-weight: bold;
 `;
-
+const IMG = styled.img`
+  transition: all 0.2s linear;
+`;
 const OfferCard = ({ img, cat, disc }) => {
   return (
     <Cont>
-      <img src={img} alt={cat} />
+      <IMG src={img} alt={cat} />
       <h5>{cat}</h5>
       <Disc>{disc}</Disc>
     </Cont>

@@ -13,15 +13,8 @@ const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   gap: 1em;
-
-  @media (max-width: 1050px) {
-    grid-template-columns: 1fr 1fr;
-  }
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 `;
 const CardCont = styled.div`
   background-color: #fff;
@@ -50,6 +43,18 @@ const Wrap = styled.div`
   position: absolute;
   top: 50%;
   right: 5%;
+  @media (max-width: 768px) {
+    top: 65%;
+  }
+  @media (max-width: 658px) {
+    top: 62%;
+  }
+  @media (max-width: 600px) {
+    top: 56%;
+  }
+  @media (max-width: 400px) {
+    top: 50%;
+  }
 `;
 const CardServ = ({ theme }) => {
   return (
