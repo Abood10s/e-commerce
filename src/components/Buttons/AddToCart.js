@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { CartCtx } from "../../Contexts/CartContext";
 import { Blue } from "../Accordions/Accordion";
@@ -7,7 +8,7 @@ const AddToCartBtn = styled.button`
   width: fit-content;
   padding: 0.5rem 1rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 0.5rem;
   color: #0d6efd;
   background-color: #fff;
@@ -32,11 +33,17 @@ const RedTxt = styled.p`
 `;
 const AddToCart = ({ theItem }) => {
   const [added, setAdded] = useState(false);
+  const [status, setStatus] = useState("");
+
   const { cart, setCart } = useContext(CartCtx);
+
   const itemExists = theItem && cart.some((item) => item.id === theItem.id);
+  useEffect(() => {
+    itemExists ? setStatus(" remove from cart") : setStatus(" Move to Cart");
+  }, [itemExists]);
   return (
     <AddToCartBtn added={added}>
-      {!added ? (
+      {!itemExists ? (
         <div
           onClick={() => {
             if (!itemExists) {
@@ -44,9 +51,10 @@ const AddToCart = ({ theItem }) => {
               setAdded(true);
             }
           }}
+          style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
         >
           <i className="fa-solid fa-cart-shopping"></i>
-          Move to Cart
+          {status}
         </div>
       ) : (
         <RedTxt
@@ -60,7 +68,7 @@ const AddToCart = ({ theItem }) => {
             }
           }}
         >
-          remove from cart
+          {status}
         </RedTxt>
       )}
     </AddToCartBtn>

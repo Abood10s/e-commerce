@@ -22,26 +22,30 @@ const cards = [
   {
     id: 10,
     img: img1,
-    price: "99.50",
-    body: "GoPro HERO6 4K Action Camera - Black",
+    price: "180.00",
+    quantity: 1,
+    body: "apple watch - silver & black",
   },
   {
     id: 11,
     img: img2,
-    price: "99.50",
-    body: "GoPro HERO6 4K Action Camera - Black",
+    quantity: 1,
+    price: "1450.00",
+    body: "macbook space grey 512 gb",
   },
   {
     id: 12,
     img: img3,
-    price: "99.50",
-    body: "GoPro HERO6 4K Action Camera - Black",
+    quantity: 1,
+    price: "399.50",
+    body: "Lenovo tablet for gaming",
   },
   {
     id: 13,
     img: img4,
-    price: "99.50",
-    body: "GoPro HERO6 4K Action Camera - Black",
+    quantity: 1,
+    price: "599.50",
+    body: "iphone 12 navy blue 256gb",
   },
 ];
 
@@ -96,9 +100,7 @@ const CartCards = styled.div`
     grid-template-columns: 1fr;
   }
 `;
-// const Warning = styled.h4`
-//   margin: 1rem auto;
-// `;
+
 const EmptyCart = styled.div`
   margin: 0 auto;
   display: flex;
@@ -119,7 +121,6 @@ const Img = styled.img`
 `;
 const Cart = () => {
   const { cart } = useContext(CartCtx);
-
   return (
     <Container>
       <Navbar />
@@ -128,7 +129,8 @@ const Cart = () => {
       <Wrapper>
         <Container1>
           {cart?.map((product) => {
-            const { image, title, price, body, id, img } = product;
+            const { image, title, price, body, id, img, quantity } = product;
+
             return (
               <CartItem
                 key={id}
@@ -137,6 +139,7 @@ const Cart = () => {
                 price={price}
                 id={id}
                 body={body}
+                quantity={quantity}
               />
             );
           })}

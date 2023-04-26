@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import CartMBtn from "../Buttons/CartMBtn";
 import CartSBtn from "../Buttons/CartSBtn";
@@ -44,20 +44,34 @@ const FlexBody = styled(Flex)`
   }
 `;
 const Price = styled.h4``;
-const CartItem = ({ img, title, price, body, id }) => {
+const CartItem = ({ img, title, price, body, id, quantity }) => {
+  const [quant, setQuant] = useState(quantity);
   return (
     <CartCont>
       <Img src={img} />
       <Body>
         <Flex>
           <h4>{title || body}</h4>
-          <Price>{price}$</Price>
+          <Price>{price * quant}$</Price>
         </Flex>
         <FlexBody>
           <Text>{body}</Text>
-          <Select>
-            <option value="3">Qty: 3</option>
+          <Select onChange={(e) => setQuant(e.target.value)}>
+            <option value={quantity}>Qty: {quantity}</option>
+            {[...Array(6)].map(
+              (_, i) =>
+                i !== quantity &&
+                i !== 0 && (
+                  <option key={i} value={i}>
+                    Qty: {i}
+                  </option>
+                )
+            )}
           </Select>
+          {/* <option value="2">Qty: 1</option>
+            <option value="3">Qty: 2</option>
+            <option value="4">Qty: 3</option>
+            <option value="5">Qty: 4</option> */}
         </FlexBody>
         <Flex2>
           <CartSBtn id={id} />
