@@ -56,7 +56,7 @@ const Bill = () => {
     return cart.reduce((total, item) => {
       const price = parseFloat(item.price);
       const quantity = Number(item.quantity);
-      return total + price * quantity;
+      return total + price * (quantity || 1);
     }, 0);
   };
   let finalPrice = getTotalPrice(cart) - Discount + Tax;

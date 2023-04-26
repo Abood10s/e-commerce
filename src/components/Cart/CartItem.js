@@ -45,7 +45,8 @@ const FlexBody = styled(Flex)`
 `;
 const Price = styled.h4``;
 const CartItem = ({ img, title, price, body, id, quantity }) => {
-  const [quant, setQuant] = useState(quantity);
+  quantity = quantity || 1;
+  const [quant, setQuant] = useState(quantity || 1);
   return (
     <CartCont>
       <Img src={img} />
@@ -57,7 +58,7 @@ const CartItem = ({ img, title, price, body, id, quantity }) => {
         <FlexBody>
           <Text>{body}</Text>
           <Select onChange={(e) => setQuant(e.target.value)}>
-            <option value={quantity}>Qty: {quantity}</option>
+            <option value={quant}>Qty: {quant}</option>
             {[...Array(6)].map(
               (_, i) =>
                 i !== quantity &&
