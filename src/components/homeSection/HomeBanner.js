@@ -57,7 +57,8 @@ const User = styled.div`
 `;
 const Banner = styled.div``;
 const Flex = styled.div``;
-const Active = styled.p`
+const Active = styled.li`
+  list-style: none;
   border-radius: 5px;
   font-weight: bold;
   padding: 1px;
