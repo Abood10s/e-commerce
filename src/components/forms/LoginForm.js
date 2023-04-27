@@ -31,7 +31,7 @@ export const Container = styled.div`
     margin: 2rem auto;
   }
   @media (max-width: 760px) {
-    width: 80%;
+    width: 95%;
   }
 `;
 
