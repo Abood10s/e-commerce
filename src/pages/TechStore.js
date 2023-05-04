@@ -86,7 +86,7 @@ export const Features = [
   "Large Memory",
 ];
 export const ratings = [rating5, rating4, rating3, rating2];
-const TechStore = () => {
+const TechStore = ({ theme }) => {
   let location = useLocation();
   const [allProducts, setAllProducts] = useState(techstoredata);
 
@@ -152,19 +152,26 @@ const TechStore = () => {
               setIsList={setIsList}
               itemsCount={searched.length}
               isList={isList}
+              theme={theme}
             />
             {searched.length === 0 && !query === "all" && (
               <h2>Sorry there is no matching results for "{query}"</h2>
             )}
             {isList ? (
               (query ? searched : techstoredata).map((item) => {
-                return <TechCard theItem={item} key={item.id} />;
+                return <TechCard theItem={item} key={item.id} theme={theme} />;
               })
             ) : (
               <>
                 <GridView>
                   {(query ? searched : techstoredata).map((item) => {
-                    return <TechCardGrid theItem={item} key={item.id} />;
+                    return (
+                      <TechCardGrid
+                        theItem={item}
+                        key={item.id}
+                        theme={theme}
+                      />
+                    );
                   })}
                 </GridView>
               </>

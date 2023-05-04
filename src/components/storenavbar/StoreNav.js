@@ -13,7 +13,8 @@ const Wrapper = styled.div`
   margin: 1rem auto;
   border: 1px solid #e3e8ee;
   border-radius: 4px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,9 +53,9 @@ const Flex = styled.div`
   gap: 1rem;
   align-items: center;
 `;
-const StoreNav = ({ setIsList, itemsCount, isList }) => {
+const StoreNav = ({ setIsList, itemsCount, isList, theme }) => {
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <div>
         <p>{itemsCount || techstoredata.length} items found</p>
       </div>

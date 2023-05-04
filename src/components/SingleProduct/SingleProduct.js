@@ -29,10 +29,11 @@ const Wrapper = styled.div`
   margin: 1rem auto;
   margin-top: 10rem;
   display: flex;
-  align-item1s: start;
+  align-items: start;
   border: 1px solid #e3e8ee;
   border-radius: 5px;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   padding: 1rem;
   gap: 0.5rem;
   @media (max-width: 1500px) {
@@ -53,6 +54,8 @@ const Cont1 = styled.div`
 const Cont2 = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
 const Cont3 = styled.div`
   border: 1px solid #e3e8ee;
@@ -122,6 +125,8 @@ const Prices = styled.div`
   justify-content: space-evenly;
   width: 80%;
   margin: 0.5rem 0;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   @media (max-width: 900px) {
     width: 100%;
     gap: 1rem;
@@ -150,7 +155,8 @@ const TableItem1 = styled.div`
 const Item1 = styled.p`
   display: inline-block;
   width: 30%;
-  color: #8b96a5;
+  color: ${(props) => props.theme.text};
+
   @media (max-width: 700px) {
     width: 50%;
     gap: 0.2rem;
@@ -159,14 +165,14 @@ const Item1 = styled.p`
 const Item2 = styled.p`
   display: inline-block;
   width: 30%;
-  color: #000;
+  color: ${(props) => props.theme.text};
 `;
-const SingleProduct = () => {
+const SingleProduct = ({ theme }) => {
   const [img, setImg] = useState(i1);
   return (
     <>
       <Navbar />
-      <Wrapper>
+      <Wrapper theme={theme}>
         <Cont1>
           <MainImg>
             <BigImg src={img} alt="main T-shirt" />
@@ -184,13 +190,13 @@ const SingleProduct = () => {
             })}
           </Smallimages>
         </Cont1>
-        <Cont2>
+        <Cont2 theme={theme}>
           <GGreen>
             <i class="fa-solid fa-check"></i> In stock
           </GGreen>
           <h2>Mens Long Sleeve T-shirt Cotton Base Layer Slim Muscle</h2>
 
-          <Prices>
+          <Prices theme={theme}>
             <Comp>
               <h2 style={{ color: "red" }}>$98.00</h2>
 
@@ -205,7 +211,7 @@ const SingleProduct = () => {
               <p>700+ pcs</p>
             </Comp>
           </Prices>
-          <TableItem1>
+          <TableItem1 theme={theme}>
             <Item1>Price: </Item1>
             <Item2>Negotiable</Item2>
           </TableItem1>
@@ -255,9 +261,9 @@ const SingleProduct = () => {
           <BannerBtn bg="#FFFFFF" clr="#0D6EFD" txt="Seller’s profile" />
         </Cont3>
       </Wrapper>
-      <Tabs />
+      <Tabs theme={theme} />
       <Heading title="Related products" />
-      <RelatedPRoducts />
+      <RelatedPRoducts theme={theme} />
       <Discount />
       <Footer />
     </>

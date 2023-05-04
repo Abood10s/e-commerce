@@ -27,14 +27,15 @@ const Button = styled.button`
   }
 `;
 const CouponCont = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   border: 1px solid #e3e8ee;
   border-radius: 4px;
   padding: 1rem;
 `;
-const Coupon = () => {
+const Coupon = ({ theme }) => {
   return (
-    <CouponCont>
+    <CouponCont theme={theme}>
       <label htmlFor="coupon">Have a coupon?</label>
       <InputCont>
         <Input type="text" placeholder="Add coupon" id="coupon" />

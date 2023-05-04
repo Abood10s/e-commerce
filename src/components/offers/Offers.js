@@ -19,9 +19,9 @@ const items = [
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 280px 3fr;
-  background-color: #fff;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   width: 80%;
   margin: 2rem auto;
   border: 1px solid #e3e8ee;

@@ -20,8 +20,8 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr 2fr 1fr;
   background-color: #fff;
   gap: 1rem;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   @media (max-width: 1000px) {
     grid-template-columns: 2fr;
     width: 60%;
@@ -63,7 +63,11 @@ const Active = styled.li`
   font-weight: bold;
   padding: 1px;
   &:first-child {
-    background-color: #e5f1ff;
+    border-left: 5px solid #0000007e;
+    border-top: 1px solid #0000007e;
+    border-bottom: 1px solid #0000007e;
+
+    color: ${(props) => props.theme.text};
     padding: 4px;
   }
 `;
@@ -88,7 +92,9 @@ const HomeBanner = ({ theme }) => {
       <List theme={theme}>
         <Active>Automobiles</Active>
         {cats.map((item) => (
-          <Active key={item}>{item}</Active>
+          <Active key={item} theme={theme}>
+            {item}
+          </Active>
         ))}
       </List>
       <Banner>

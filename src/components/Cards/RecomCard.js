@@ -7,8 +7,8 @@ const Card = styled.div`
   flex-direction: column;
   gap: 0.8em;
   padding: 0.7em 0.9em;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
 const Img = styled.img`
   height: 180px;

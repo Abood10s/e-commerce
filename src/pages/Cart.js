@@ -56,6 +56,8 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 1rem;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   border-radius: 4px;
   @media (max-width: 1050px) {
     grid-template-columns: 2fr 1fr;
@@ -68,7 +70,8 @@ export const Wrapper = styled.div`
 `;
 const Container = styled.div``;
 export const Container1 = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   width: 100%;
   border-radius: 4px;
   padding: 1rem;
@@ -119,7 +122,7 @@ const Img = styled.img`
     width: 240px;
   }
 `;
-const Cart = () => {
+const Cart = ({ theme }) => {
   const { cart } = useContext(CartCtx);
   return (
     <Container>
@@ -127,12 +130,13 @@ const Cart = () => {
       <Heading title={`My cart (${cart.length})`} />
 
       <Wrapper>
-        <Container1>
+        <Container1 theme={theme}>
           {cart?.map((product) => {
             const { image, title, price, body, id, img, quantity } = product;
 
             return (
               <CartItem
+                theme={theme}
                 key={id}
                 img={img || image}
                 title={title}
@@ -170,15 +174,17 @@ const Cart = () => {
             </div>
           )}
         </Container1>
-        <Container2>{cart.length !== 0 ? <CheckCoupon /> : ""}</Container2>
+        <Container2>
+          {cart.length !== 0 ? <CheckCoupon theme={theme} /> : ""}
+        </Container2>
       </Wrapper>
       <Heading title="Saved for later" />
       <CartCards>
         {cards.map((item, index) => {
-          return <CartCard item={item} key={index} />;
+          return <CartCard item={item} key={index} theme={theme} />;
         })}
       </CartCards>
-      <Discount />
+      <Discount theme={theme} />
       <Footer />
     </Container>
   );

@@ -10,12 +10,14 @@ import cartIcon from "../../assets/navicons/nav4.png";
 const Nav = styled.div`
   position: fixed;
   transition: all ease 0.3s;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+
   top: 60px;
   width: 100%;
   bottom: 0;
   right: ${(props) => (props.show ? "0" : "-110%")};
-  @media (min-width: 768px) {
+  @media (min-width: 910px) {
     display: none;
   }
 `;
@@ -66,11 +68,11 @@ const ITEM = styled.div`
     border-left: 5px solid #213;
   }
 `;
-const MobileNav = ({ show }) => {
+const MobileNav = ({ show, theme }) => {
   const name = localStorage.getItem("name");
   const { logout } = useContext(AuthCtx);
   return (
-    <Nav show={show}>
+    <Nav show={show} theme={theme}>
       <Container>
         <Flex1>
           <ITEM>
@@ -110,6 +112,7 @@ const MobileNav = ({ show }) => {
           <p>Privacy policy</p>
         </Flex2>
         <Line />
+
         <Flex2 onClick={() => logout()}>
           <LogOut
             style={{

@@ -18,8 +18,8 @@ const Cont = styled.div`
   background-color: #fff;
   padding: 0.5rem;
   border: 1px solid #e0e0e0;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   z-index: 1;
   &::after {
     content: "";

@@ -21,7 +21,8 @@ const Wrap2 = styled.form`
   background-color: #fff;
   padding: 2rem;
   border-radius: 5px;
-
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   @media (max-width: 768px) {
     display: none;
   }
@@ -37,9 +38,9 @@ const Btn = styled(SubscribeBtn)`
   padding: 1rem;
   width: 40%;
 `;
-const InquiryForm = () => {
+const InquiryForm = ({ theme }) => {
   return (
-    <Wrap2>
+    <Wrap2 theme={theme}>
       <h2>Send quote to suppliers</h2>
       <Input placeholder="What item you need?" />
       <Textarea placeholder="What item you need?" rows="4" cols="50"></Textarea>

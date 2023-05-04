@@ -12,10 +12,13 @@ const Img = styled.img`
 `;
 const CartCont = styled.div`
   border-bottom: 1px solid #e3e8ee;
-  padding: 1rem 0;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 1fr 7fr;
   gap: 1rem;
+  border-radius: 8px;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   @media (max-width: 1050px) {
     grid-template-columns: 1fr;
   }
@@ -44,11 +47,11 @@ const FlexBody = styled(Flex)`
   }
 `;
 const Price = styled.h4``;
-const CartItem = ({ img, title, price, body, id, quantity }) => {
+const CartItem = ({ img, title, price, body, id, quantity, theme }) => {
   quantity = quantity || 1;
   const [quant, setQuant] = useState(quantity || 1);
   return (
-    <CartCont>
+    <CartCont theme={theme}>
       <Img src={img} />
       <Body>
         <Flex>
