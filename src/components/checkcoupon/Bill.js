@@ -10,7 +10,8 @@ import paypal from "../../assets/form icons/paypal.png";
 import { CartCtx } from "../../Contexts/CartContext";
 
 const BillCont = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   border: 1px solid #e3e8ee;
   border-radius: 4px;
   padding: 1rem;
@@ -48,7 +49,7 @@ const IIconsWrapper = styled(IconsWrapper)`
   display: flex;
   justify-content: center;
 `;
-const Bill = () => {
+const Bill = ({ theme }) => {
   const { cart } = useContext(CartCtx);
   const Discount = 60.0;
   const Tax = 14.0;
@@ -61,7 +62,7 @@ const Bill = () => {
   };
   let finalPrice = getTotalPrice(cart) - Discount + Tax;
   return (
-    <BillCont>
+    <BillCont theme={theme}>
       <Prices>
         <Txt>
           <p>Subtotal:</p>

@@ -9,7 +9,8 @@ import { useState } from "react";
 const Wrap = styled.div`
   display: flex;
   margin: 1rem;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   padding: 1.2em 1em;
   border: 1px solid #e3e8ee;
   border-radius: 4px;
@@ -91,7 +92,7 @@ const Icon = styled.img`
   height: 80%;
 `;
 
-const TechCard = ({ theItem }) => {
+const TechCard = ({ theItem, theme }) => {
   const [isLiked, setisLiked] = useState(false);
   const { image, title, orders, price, rating, body, shipping } = theItem;
   return (

@@ -25,8 +25,8 @@ const Container = styled.div`
   left: 0;
   background-color: #fff;
   padding-top: 1.5rem;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
 const IIcon = styled(Icon)`
   width: 140px;
@@ -69,8 +69,8 @@ const Img = styled.img`
 `;
 const Wraper = styled.div`
   background-color: #eff2f4;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
 const Footer = ({ theme }) => {
   return (

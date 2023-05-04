@@ -19,8 +19,8 @@ const Container = styled.div`
   box-shadow: 0px 0px 1px 1px rgba(32, 32, 32, 0.1);
   overflow: hidden;
   background-color: #fff;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   position: fixed;
   top: 0;
   left: 0;
@@ -42,6 +42,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 80%;
   margin: auto;
   padding: 1rem 0;
@@ -92,7 +93,7 @@ const Controls = styled.div`
   @media (max-width: 950px) {
     margin-top: 0.5rem;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 910px) {
     display: none;
   }
 `;
@@ -103,7 +104,9 @@ const SearchWrap = styled.div`
   border-radius: 5px;
   border: 2px solid #0d6efd;
   width: fit-content;
-  @media (max-width: 900px) {
+  position: relative;
+
+  @media (max-width: 910px) {
     width: fit-content;
   }
   @media (max-width: 500px) {
@@ -221,29 +224,46 @@ export const Logout = styled.p`
 `;
 const Suggestions = styled.div`
   position: fixed;
-  top: 65px;
-  left: 34%;
+  top: 70px;
+  left: 52%;
   right: 0;
   border-radius: 5px;
   overflow-y: scroll;
   transition: all ease-in 0.1s;
   background-color: #fff;
-  width: 30%;
-  max-height: 30%;
+  max-height: 250px;
+  width: 35%;
+  transform: translateX(-50%);
+  height: fit-content;
+  z-index: 98989998989;
   border: 1px solid #2424243b;
-  @media (max-width: 1000px) {
-    display: none;
+
+  @media (min-width: 1590px) {
+    transform: translateX(-50%);
+    left: 53.5%;
+    width: 35%;
+  }
+
+  @media (max-width: 1020px) {
+    transform: translateX(-50%);
+    left: 50%;
+    width: 55%;
+  }
+  @media (max-width: 890px) {
+    transform: translateX(-50%);
+    top: 110px;
+    width: 85%;
   }
 `;
 const Menu = styled.i`
   cursor: pointer;
-  @media (min-width: 768px) {
+  @media (min-width: 910px) {
     display: none;
   }
 `;
 const CloseMenu = styled.i`
   cursor: pointer;
-  @media (min-width: 768px) {
+  @media (min-width: 910px) {
     display: none;
   }
 `;
@@ -342,18 +362,30 @@ const Navbar = ({ theme }) => {
           )}
           {query && !suggess && (
             <Suggestions className={query && "active"}>
-              {searchedData?.map((item) => {
-                return (
-                  <SearchItem search={query} key={item.id} item={item}>
-                    {item.title}
-                  </SearchItem>
-                );
-              })}
+              {searchedData.length !== 0 ? (
+                searchedData.map((item) => {
+                  return (
+                    <SearchItem search={query} key={item.id} item={item}>
+                      {item.title}
+                    </SearchItem>
+                  );
+                })
+              ) : (
+                <h3
+                  style={{
+                    textAlign: "center",
+                    padding: "1rem",
+                  }}
+                >
+                  Sorry no results were found on{" "}
+                  <span style={{ color: "#0D6EFD" }}>"{query}"</span>
+                </h3>
+              )}
             </Suggestions>
           )}
         </SearchWrap>
 
-        <MobileNav show={clicked ? true : false} />
+        <MobileNav show={clicked ? true : false} theme={theme} />
         <Controls>
           <NavItem>
             <Icon src={profile} />

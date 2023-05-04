@@ -45,7 +45,7 @@ const items = [
 const Tabss = styled.div`
   display: flex;
   gap: 1rem;
-  color: #8b96a5;
+  color: ${(props) => props.theme.text};
   border-bottom: 1px solid #e3e8ee;
 `;
 const P = styled.p`
@@ -63,7 +63,8 @@ const P = styled.p`
   }
 `;
 const SContainer2 = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   border-radius: 4px;
   padding: 1rem;
   border: 1px solid #e3e8ee;
@@ -93,12 +94,13 @@ const TableItem = styled.div`
   display: flex;
 `;
 const Colored = styled.p`
-  background-color: #eff2f4;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   border: 1px solid #e3e8ee;
   padding: 0.5rem 0;
   width: 40%;
 `;
-const Tabs = () => {
+const Tabs = ({ theme }) => {
   return (
     <Wrapper>
       <Container1>
@@ -125,7 +127,7 @@ const Tabs = () => {
           <div>
             <Table>
               <TableItem>
-                <Colored>Model</Colored>
+                <Colored theme={theme}>Model</Colored>
                 <p>#8786867</p>
               </TableItem>
               <TableItem>
@@ -166,7 +168,7 @@ const Tabs = () => {
           </div>
         </Body>
       </Container1>
-      <SContainer2>
+      <SContainer2 theme={theme}>
         <h4>You may like</h4>
         {items.map((item) => {
           return <LikeCard key={item.id} item={item} />;

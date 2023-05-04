@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { ProductImg } from "./Navbar";
 const Cont = styled.div`
   width: 100%;
-  border-bottom: 1px solid #8e9ab1d2;
+  border-bottom: 2px solid #8e9ab188;
   padding: 0.5rem;
   display: flex;
   align-items: center;

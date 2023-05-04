@@ -8,7 +8,8 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 1em;
-
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
   }

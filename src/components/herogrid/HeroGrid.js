@@ -7,6 +7,7 @@ export const Wrapper = styled.div`
   width: 80%;
   display: flex;
   margin: 2rem auto;
+
   border-radius: 5px;
   overflow: hidden;
   @media (max-width: 768px) {
@@ -20,6 +21,8 @@ const Container = styled.div`
   @media (max-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
   }
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
 export const HeroImg = styled.div`
   background: url(${({ himg }) => himg});
@@ -50,14 +53,14 @@ export const Button = styled.button`
 
 const HeroGrid = ({ himg, data, theme }) => {
   return (
-    <Wrapper>
+    <Wrapper theme={theme}>
       <HeroImg himg={himg} alt="main">
         <P>Home and outdoor</P>
         <Link to="/store/all">
           <Button>Source now</Button>
         </Link>
       </HeroImg>
-      <Container theme={theme}>
+      <Container>
         {data.map((item) => {
           const { image, title, price } = item;
           return (

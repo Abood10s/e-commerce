@@ -18,6 +18,10 @@ const Wrapper = styled.div`
 `;
 const Container = styled.div`
   display: flex;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+  padding: 0 0.5rem;
+  border-radius: 8px;
 `;
 
 const Text = styled.h2`
@@ -30,10 +34,10 @@ const Text2 = styled.p`
   width: 70%;
 `;
 
-const QuoteForm = () => {
+const QuoteForm = ({ theme }) => {
   return (
     <Wrapper>
-      <Container>
+      <Container theme={theme}>
         <Wrap>
           <Text>An easy way to send requests to all suppliers</Text>
           <Text2>
@@ -41,7 +45,7 @@ const QuoteForm = () => {
             eiusmod tempor incididunt.
           </Text2>
         </Wrap>
-        <InquiryForm />
+        <InquiryForm theme={theme} />
       </Container>
     </Wrapper>
   );

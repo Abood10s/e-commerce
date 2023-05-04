@@ -11,7 +11,8 @@ const Wrap = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 1rem;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   padding: 1.2em 1em;
   border: 1px solid #e3e8ee;
   border-radius: 4px;
@@ -85,11 +86,11 @@ const Icon = styled.img`
   height: 80%;
 `;
 
-const TechCardGrid = ({ theItem }) => {
+const TechCardGrid = ({ theItem, theme }) => {
   const [isLiked, setIsLiked] = useState(false);
   const { image, title, img, orders, price, rating, shipping } = theItem;
   return (
-    <Wrap>
+    <Wrap theme={theme}>
       <Image src={image || img} />
       <Body>
         <Flex1>

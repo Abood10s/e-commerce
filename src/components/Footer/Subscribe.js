@@ -11,8 +11,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
   gap: 1em;
 
   padding: 1.5em 0;

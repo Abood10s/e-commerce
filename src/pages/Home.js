@@ -27,86 +27,93 @@ const Heading = React.lazy(() => import("../components/heading/Heading"));
 const RecomGrid = React.lazy(() =>
   import("../components/recommendgrid/RecomGrid")
 );
-
+const skeletonStyle = {
+  width: "70%",
+  margin: "1rem auto",
+  height: "150px",
+  borderRadius: "15px",
+  marginLeft: "15%",
+  textAlign: "center",
+};
 const Container = styled.div`
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
 `;
 
 const Home = ({ theme, handleDarkMode }) => {
   return (
     <Container theme={theme}>
-      <Navbar theme={theme} handleDarkMode={handleDarkMode} />
+      <Navbar theme={theme} />
       <Fade>
-        <Suspense fallback={<Skeleton width="100%" count={1} height={100} />}>
+        <Suspense fallback={<Skeleton style={skeletonStyle} count={1} />}>
           <HomeBanner theme={theme} />
         </Suspense>
       </Fade>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade>
           <Offers theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="left">
           <HeroGrid himg={herog11} data={herog1data} theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="left">
           <HeroGrid himg={herog21} data={herog2data} theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="left">
-          <QuoteForm />
+          <QuoteForm theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="down">
           <Heading title="Recommended items" theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="left">
           <RecomGrid theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="down">
           <Heading title="Our extra services" theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="left">
           <CardServ theme={theme} />
         </Fade>
       </Suspense>
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Fade direction="left">
           <Subscribe theme={theme} />
         </Fade>
       </Suspense>{" "}
       <Suspense
-        fallback={<Skeleton width="100%" duration={1} count={1} height={100} />}
+        fallback={<Skeleton style={skeletonStyle} duration={1} count={1} />}
       >
         <Footer theme={theme} />
       </Suspense>

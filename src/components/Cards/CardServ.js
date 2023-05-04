@@ -22,8 +22,9 @@ const CardCont = styled.div`
   border-radius: 4px;
   overflow: hidden;
   padding-bottom: 0.5rem;
-  background-color: ${(props) => props.theme.primaryClr};
-  color: ${(props) => props.theme.secondaryClr};
+  background-color: ${(props) => props.theme.body};
+  color: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.toggleBorder};
 `;
 const Img = styled.img`
   width: 100%;
