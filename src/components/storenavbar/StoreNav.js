@@ -24,6 +24,9 @@ const Wrapper = styled.div`
   &.active {
     background-color: red;
   }
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 const Icons = styled.div`
   display: flex;
@@ -38,6 +41,11 @@ const Icon = styled.img`
   cursor: pointer;
   &:hover {
     background-color: #e3e8ee;
+  }
+  &:nth-child(2) {
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 `;
 
