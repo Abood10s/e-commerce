@@ -110,7 +110,7 @@ const SearchWrap = styled.div`
     width: fit-content;
   }
   @media (max-width: 550px) {
-    width: auto;
+    width: 100%;
   }
 `;
 export const Text = styled.p`
@@ -137,6 +137,9 @@ const Search = styled.input`
   outline: none;
   border: 1px solid #0d6efd;
   width: 350px;
+  @media (max-width: 550px) {
+    width: 90%;
+  }
 `;
 
 export const Categories = styled.select`
@@ -321,6 +324,7 @@ const Navbar = ({ theme }) => {
         </div>
         <SearchWrap>
           <Search
+            type="search"
             placeholder="Search"
             onChange={(e) => {
               setQuery(e.target.value);
