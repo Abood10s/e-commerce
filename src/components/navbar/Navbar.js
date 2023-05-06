@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 
   width: 80%;
   margin: auto;
-  padding: 1rem 0;
+  padding: 1rem;
   gap: 0.5rem;
   @media (max-width: 908px) {
     width: 100%;
@@ -109,8 +109,8 @@ const SearchWrap = styled.div`
   @media (max-width: 910px) {
     width: fit-content;
   }
-  @media (max-width: 500px) {
-    width: 100%;
+  @media (max-width: 550px) {
+    width: auto;
   }
 `;
 export const Text = styled.p`

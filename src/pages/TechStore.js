@@ -37,6 +37,7 @@ export const StoreWrapper = styled.div`
 export const Accordions = styled.div`
   @media (max-width: 768px) {
     width: 90%;
+    order: 2;
   }
 `;
 export const ProductsWrapper = styled.div`

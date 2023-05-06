@@ -43,6 +43,9 @@ export const CheckBox = styled.div`
   align-items: center;
   gap: 0.3rem;
   text-align: center;
+  @media (max-width: 760px) {
+    display: none;
+  }
 `;
 export const Title = styled.h2`
   margin-bottom: 1rem;
