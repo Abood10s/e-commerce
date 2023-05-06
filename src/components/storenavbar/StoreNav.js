@@ -21,9 +21,7 @@ const Wrapper = styled.div`
   gap: 1rem;
   padding: 0 1em;
   width: 97%;
-  &.active {
-    background-color: red;
-  }
+
   @media (max-width: 768px) {
     padding: 0;
   }
@@ -39,16 +37,24 @@ const Icon = styled.img`
   border-left: 1px solid #e3e8ee;
   transition: all 0.2s ease;
   cursor: pointer;
+  background-color: ${(props) => props.active === false && "#e3e8ee"};
   &:hover {
     background-color: #e3e8ee;
   }
-  &:nth-child(2) {
-    @media (max-width: 768px) {
-      display: none;
-    }
+`;
+const IconS = styled.img`
+  padding: 0.4rem;
+  border-left: 1px solid #e3e8ee;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  background-color: ${(props) => props.active && "#e3e8ee"};
+  &:hover {
+    background-color: #e3e8ee;
+  }
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
-
 const CCategories = styled(Categories)`
   border: 1px solid #e3e8ee;
   border-radius: 5px;
@@ -85,16 +91,8 @@ const StoreNav = ({ setIsList, itemsCount, isList, theme }) => {
           </CCategories>
         </div>
         <Icons>
-          <Icon
-            src={grid}
-            onClick={() => setIsList(false)}
-            className={isList ? "" : "active"}
-          />
-          <Icon
-            src={list}
-            onClick={() => setIsList(true)}
-            className={isList ? "active" : ""}
-          />
+          <Icon src={grid} onClick={() => setIsList(false)} active={isList} />
+          <IconS src={list} onClick={() => setIsList(true)} active={isList} />
         </Icons>
       </Flex>
     </Wrapper>
