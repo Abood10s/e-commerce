@@ -12,7 +12,7 @@ const Wrap = styled.div`
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
   padding: 1.2em 1em;
-  border: 1px solid #e3e8ee;
+  border: 1px solid ${(props) => props.theme.toggleBorder};
   border-radius: 4px;
   gap: 1em;
   @media (max-width: 1050px) {

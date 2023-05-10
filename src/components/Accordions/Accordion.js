@@ -6,7 +6,7 @@ const Wrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid ${(props) => props.theme.toggleBorder};
   margin: 1rem 0;
   padding: 0.5em 0;
   @media (max-width: 768px) {
@@ -52,6 +52,7 @@ const Accordion = ({ title, data, type }) => {
             return (
               <InputWrap key={item}>
                 <input
+                  style={{ accentColor: "green" }}
                   type={type}
                   id={item}
                   onClick={() => {

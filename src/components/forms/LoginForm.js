@@ -135,8 +135,15 @@ const Schema = Yup.object().shape({
 });
 
 export const Error = styled.p`
-  color: red;
+  background-color: #dc3545;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  font-size: 15px;
 `;
 
 const LoginForm = () => {

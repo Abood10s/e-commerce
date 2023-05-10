@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 const Card = styled.div`
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${(props) => props.theme.toggleBorder};
   background-color: #fff;
   display: flex;
   flex-direction: column;

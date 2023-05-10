@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   color: ${(props) => props.theme.text};
   width: 80%;
   margin: 2rem auto;
-  border: 1px solid #e3e8ee;
+  border: 1px solid ${(props) => props.theme.toggleBorder};
   border-radius: 4px;
   @media (max-width: 1290px) {
     grid-template-columns: 3fr;
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 
 const Offer = styled.div`
   padding: 1em;
-  border: 1px solid #e3e8ee;
+  border: 1px solid ${(props) => props.theme.toggleBorder};
 `;
 const Container = styled.div`
   display: flex;

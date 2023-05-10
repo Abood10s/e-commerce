@@ -34,6 +34,7 @@ const SContainer = styled.div`
   overflow-x: auto;
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
+  border-bottom: 1px solid ${(props) => props.theme.toggleBorder};
   @media (max-width: 968px) {
     display: none;
   }
