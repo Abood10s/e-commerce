@@ -234,13 +234,14 @@ const Suggestions = styled.div`
   border-radius: 5px;
   overflow-y: scroll;
   transition: all ease-in 0.1s;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
   max-height: 250px;
   width: 35%;
   transform: translateX(-50%);
   height: fit-content;
   z-index: 98989998989;
   border: 1px solid #2424243b;
+  text-decoration: none;
 
   @media (min-width: 1590px) {
     transform: translateX(-50%);
