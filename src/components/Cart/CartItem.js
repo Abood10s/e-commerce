@@ -11,7 +11,7 @@ const Img = styled.img`
   object-fit: contain;
 `;
 const CartCont = styled.div`
-  border-bottom: 1px solid #e3e8ee;
+  border-bottom: 1px solid ${(props) => props.theme.toggleBorder};
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr 7fr;

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   width: 80%;
   margin: 2rem auto;
   margin-top: 10rem;
-  border: 1px solid #e3e8ee;
+  border: 1px solid ${(props) => props.theme.toggleBorder};
   border-radius: 4px;
   padding: 0.9rem 1em;
   display: grid;
@@ -63,9 +63,9 @@ const Active = styled.li`
   font-weight: bold;
   padding: 1px;
   &:first-child {
-    border-left: 5px solid #0000007e;
-    border-top: 1px solid #0000007e;
-    border-bottom: 1px solid #0000007e;
+    border-left: 5px solid ${(props) => props.theme.toggleBorder};
+    border-top: 1px solid ${(props) => props.theme.toggleBorder};
+    border-bottom: 1px solid ${(props) => props.theme.toggleBorder};
 
     color: ${(props) => props.theme.text};
     padding: 4px;
@@ -84,17 +84,15 @@ const cats = [
   "Machinery tools",
   "More category",
 ];
-const HomeBanner = ({ theme }) => {
+const HomeBanner = () => {
   const name = localStorage.getItem("name");
 
   return (
-    <Wrapper theme={theme}>
-      <List theme={theme}>
+    <Wrapper>
+      <List>
         <Active>Automobiles</Active>
         {cats.map((item) => (
-          <Active key={item} theme={theme}>
-            {item}
-          </Active>
+          <Active key={item}>{item}</Active>
         ))}
       </List>
       <Banner>
@@ -106,7 +104,7 @@ const HomeBanner = ({ theme }) => {
           </Link>
         </HHeroImg>
       </Banner>
-      <Flex theme={theme}>
+      <Flex>
         <Cont>
           <User>
             <IIcon src={Avatar} />

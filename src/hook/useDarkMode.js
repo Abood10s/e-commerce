@@ -9,10 +9,13 @@ export const useDarkMode = () => {
   const themeToggler = () => {
     theme === "light" ? setMode("dark") : setMode("light");
   };
+  const setLightModeOnLogout = () => {
+    theme === "light" && setMode("light");
+  };
   useEffect(() => {
     const localTheme = window.localStorage.getItem("theme");
     localTheme ? setTheme(localTheme) : setMode("light");
     setMountedComponent(true);
   }, []);
-  return [theme, themeToggler, mountedComponent];
+  return [theme, themeToggler, mountedComponent, setLightModeOnLogout];
 };

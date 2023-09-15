@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { SearchData } from "../../MockData/SearchData";
 import SearchItem from "./SearchItem";
 import MobileNav from "./MobileNav";
+import { useDarkMode } from "../../hook/useDarkMode";
 
 const Container = styled.div`
   position: relative;
@@ -34,6 +35,7 @@ const SContainer = styled.div`
   overflow-x: auto;
   background-color: ${(props) => props.theme.primaryClr};
   color: ${(props) => props.theme.secondaryClr};
+  border-bottom: 1px solid ${(props) => props.theme.toggleBorder};
   @media (max-width: 968px) {
     display: none;
   }
@@ -233,13 +235,14 @@ const Suggestions = styled.div`
   border-radius: 5px;
   overflow-y: scroll;
   transition: all ease-in 0.1s;
-  background-color: #fff;
+  background-color: ${(props) => props.theme.body};
   max-height: 250px;
   width: 35%;
   transform: translateX(-50%);
   height: fit-content;
   z-index: 98989998989;
   border: 1px solid #2424243b;
+  text-decoration: none;
 
   @media (min-width: 1590px) {
     transform: translateX(-50%);
@@ -286,6 +289,7 @@ const Navbar = ({ theme }) => {
   const [suggess, setSuggess] = useState(false);
 
   const [searchedData, setSearchedData] = useState(null);
+  const [setLightModeOnLogout] = useDarkMode();
 
   const findSuggestions = (query) => {
     let suggestedData = SearchData.filter((item) =>
@@ -416,7 +420,13 @@ const Navbar = ({ theme }) => {
         </Controls>
         <div style={{ margin: "0 1.5rem" }}>
           {isAuth && (
-            <LogOutBtn type="button" onClick={logout}>
+            <LogOutBtn
+              type="button"
+              onClick={() => {
+                logout();
+                setLightModeOnLogout();
+              }}
+            >
               <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
             </LogOutBtn>
           )}

@@ -17,7 +17,7 @@ const Cont = styled.div`
   position: relative;
   background-color: #fff;
   padding: 0.5rem;
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${(props) => props.theme.toggleBorder};
   background-color: ${(props) => props.theme.body};
   color: ${(props) => props.theme.text};
   z-index: 1;

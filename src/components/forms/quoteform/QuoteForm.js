@@ -25,19 +25,19 @@ const Container = styled.div`
 `;
 
 const Text = styled.h2`
-  color: #fff;
+  color: ${(props) => props.theme.text};
   width: 70%;
   margin: 1em 0;
 `;
 const Text2 = styled.p`
-  color: #fff;
+  color: ${(props) => props.theme.text};
   width: 70%;
 `;
 
-const QuoteForm = ({ theme }) => {
+const QuoteForm = () => {
   return (
     <Wrapper>
-      <Container theme={theme}>
+      <Container>
         <Wrap>
           <Text>An easy way to send requests to all suppliers</Text>
           <Text2>
@@ -45,7 +45,7 @@ const QuoteForm = ({ theme }) => {
             eiusmod tempor incididunt.
           </Text2>
         </Wrap>
-        <InquiryForm theme={theme} />
+        <InquiryForm />
       </Container>
     </Wrapper>
   );

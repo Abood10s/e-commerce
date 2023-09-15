@@ -135,16 +135,23 @@ const Schema = Yup.object().shape({
 });
 
 export const Error = styled.p`
-  color: red;
+  background-color: #dc3545;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
   margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 1em;
+  font-size: 15px;
 `;
 
 const LoginForm = () => {
   const { login } = useContext(AuthCtx);
 
   const [values, setValues] = useState({
-    email: "",
-    password: "",
+    email: "user@user.com",
+    password: "user123",
   });
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -201,7 +208,7 @@ const LoginForm = () => {
         <Wrapper>
           <Title>Sign in</Title>
           <Inputsec>
-            <InputLabel htmlFor="email">email</InputLabel>
+            <InputLabel htmlFor="email">Email</InputLabel>
             <Input
               type="email"
               id="email"
@@ -224,7 +231,7 @@ const LoginForm = () => {
             />
           </Inputsec>
           <CheckBox>
-            <Input type="checkbox" name="check" id="check" required />
+            <Input type="checkbox" name="check" checked id="check" required />
             <InputLabel htmlFor="check">Remember me</InputLabel>
           </CheckBox>
           {isLoading ? <Spinner /> : <FormBtn title="Log In" />}
