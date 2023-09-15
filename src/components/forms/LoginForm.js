@@ -208,7 +208,7 @@ const LoginForm = () => {
         <Wrapper>
           <Title>Sign in</Title>
           <Inputsec>
-            <InputLabel htmlFor="email">email</InputLabel>
+            <InputLabel htmlFor="email">Email</InputLabel>
             <Input
               type="email"
               id="email"
