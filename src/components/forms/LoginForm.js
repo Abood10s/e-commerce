@@ -150,8 +150,8 @@ const LoginForm = () => {
   const { login } = useContext(AuthCtx);
 
   const [values, setValues] = useState({
-    email: "",
-    password: "",
+    email: "user@user.com",
+    password: "user123",
   });
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -231,7 +231,7 @@ const LoginForm = () => {
             />
           </Inputsec>
           <CheckBox>
-            <Input type="checkbox" name="check" id="check" required />
+            <Input type="checkbox" name="check" checked id="check" required />
             <InputLabel htmlFor="check">Remember me</InputLabel>
           </CheckBox>
           {isLoading ? <Spinner /> : <FormBtn title="Log In" />}

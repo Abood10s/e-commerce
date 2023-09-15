@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { SearchData } from "../../MockData/SearchData";
 import SearchItem from "./SearchItem";
 import MobileNav from "./MobileNav";
+import { useDarkMode } from "../../hook/useDarkMode";
 
 const Container = styled.div`
   position: relative;
@@ -288,6 +289,7 @@ const Navbar = ({ theme }) => {
   const [suggess, setSuggess] = useState(false);
 
   const [searchedData, setSearchedData] = useState(null);
+  const [setLightModeOnLogout] = useDarkMode();
 
   const findSuggestions = (query) => {
     let suggestedData = SearchData.filter((item) =>
@@ -418,7 +420,13 @@ const Navbar = ({ theme }) => {
         </Controls>
         <div style={{ margin: "0 1.5rem" }}>
           {isAuth && (
-            <LogOutBtn type="button" onClick={logout}>
+            <LogOutBtn
+              type="button"
+              onClick={() => {
+                logout();
+                setLightModeOnLogout();
+              }}
+            >
               <i className="fa-solid fa-arrow-right-from-bracket"></i>{" "}
             </LogOutBtn>
           )}
